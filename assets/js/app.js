@@ -17,11 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Sample Data for Charts (2018-2025)
-const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
-const carbonSequestration = [12.5, 12.8, 12.4, 13.1, 12.9, 13.5, 13.2, 13.8]; // MtCO2e
-const forestLoss = [4500, 4200, 4800, 4100, 3900, 3700, 3500, 3200]; // Hectares
-const biomassDensity = [310, 312, 311, 314, 315, 318, 319, 322]; // Mg/ha
+// Sample Data for Charts (2001-2026)
+const years = Array.from({length: 26}, (_, i) => 2001 + i);
+const carbonSequestration = [
+    11.2, 11.4, 11.3, 11.5, 11.6, 11.8, 11.7, 11.9, 12.0, 12.1, 
+    12.2, 12.0, 12.1, 12.3, 12.4, 12.2, 12.5, 12.5, 12.8, 12.4, 
+    13.1, 12.9, 13.5, 13.2, 13.8, 14.0
+]; 
+const forestLoss = [
+    5200, 5100, 5300, 5000, 4900, 4800, 4850, 4700, 4600, 4500,
+    4450, 4900, 4800, 4600, 4550, 4800, 4500, 4500, 4200, 4800,
+    4100, 3900, 3700, 3500, 3205, 3000
+];
+const biomassDensity = [
+    302, 303, 302, 304, 305, 306, 307, 308, 309, 310,
+    311, 309, 310, 311, 312, 311, 312, 310, 312, 311,
+    314, 315, 318, 319, 322, 324
+];
 
 // Chart Functions
 function initCarbonChart(elementId) {
@@ -36,7 +48,7 @@ function initCarbonChart(elementId) {
     };
 
     const layout = {
-        title: 'Annual Carbon Sequestration (2018-2025)',
+        title: 'Annual Carbon Sequestration (2001-2026)',
         xaxis: { title: 'Year' },
         yaxis: { title: 'MtCO2e' },
         paper_bgcolor: 'rgba(0,0,0,0)',

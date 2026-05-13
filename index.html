@@ -85,7 +85,7 @@
     <section class="hero-section fade-in">
         <div class="container">
             <h1 class="display-3 fw-bold mb-4">Protecting the Heart of the Congo Basin</h1>
-            <p class="lead mb-5">Advanced Carbon Sequestration & Forest Monitoring Intelligence (2018–2025).</p>
+            <p class="lead mb-5">Advanced Carbon Sequestration & Forest Monitoring Intelligence (2001–2026).</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="dashboard/" class="btn btn-primary btn-lg">Explore Dashboard</a>
                 <a href="maps/" class="btn btn-outline-light btn-lg">View Live Map</a>
@@ -97,8 +97,8 @@
         <div class="container">
             <div class="row g-4 text-center">
                 <div class="col-md-3"><div class="glass-card"><i class="fas fa-tree fa-3x mb-3 text-success"></i><h3>13.7M</h3><p class="text-muted">Total Hectares</p></div></div>
-                <div class="col-md-3"><div class="glass-card"><i class="fas fa-cloud-download-alt fa-3x mb-3 text-primary"></i><h3>13.8 Mt</h3><p class="text-muted">Annual Sequestration</p></div></div>
-                <div class="col-md-3"><div class="glass-card"><i class="fas fa-chart-line fa-3x mb-3 text-warning"></i><h3>-12%</h3><p class="text-muted">Loss Rate Change</p></div></div>
+                <div class="col-md-3"><div class="glass-card"><i class="fas fa-cloud-download-alt fa-3x mb-3 text-primary"></i><h3>14.0 Mt</h3><p class="text-muted">Annual Sequestration</p></div></div>
+                <div class="col-md-3"><div class="glass-card"><i class="fas fa-chart-line fa-3x mb-3 text-warning"></i><h3>-6%</h3><p class="text-muted">Loss Rate Change</p></div></div>
                 <div class="col-md-3"><div class="glass-card"><i class="fas fa-shield-alt fa-3x mb-3 text-info"></i><h3>REDD+</h3><p class="text-muted">Reporting Ready</p></div></div>
             </div>
         </div>
@@ -150,8 +150,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const trace = {
-                x: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
-                y: [12.5, 12.8, 12.4, 13.1, 12.9, 13.5, 13.2, 13.8],
+                x: Array.from({length: 26}, (_, i) => 2001 + i),
+                y: [11.2, 11.4, 11.3, 11.5, 11.6, 11.8, 11.7, 11.9, 12.0, 12.1, 12.2, 12.0, 12.1, 12.3, 12.4, 12.2, 12.5, 12.5, 12.8, 12.4, 13.1, 12.9, 13.5, 13.2, 13.8, 14.0],
                 type: 'scatter', mode: 'lines+markers',
                 line: { color: '#2d5a27', width: 3 }
             };
