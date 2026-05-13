@@ -1,4 +1,4 @@
-# Okapi Wildlife Reserve Carbon Sequestration & Storage Analysis (2018–2025)
+# Okapi Wildlife Reserve Carbon Sequestration and Storage
 
 A professional environmental intelligence platform for monitoring forest carbon dynamics in the Democratic Republic of Congo.
 
@@ -41,7 +41,7 @@ To view the platform locally:
    ```bash
    git init
    git add .
-   git commit -m "Initial commit: Okapi Carbon Platform"
+   git commit -m "Initial commit: Okapi Wildlife Reserve Carbon Sequestration and Storage"
    git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
    git push -u origin main
    ```
