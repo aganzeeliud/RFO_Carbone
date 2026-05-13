@@ -115,6 +115,32 @@
             </div>
         </div>
 
+        <!-- Evolution Trend Section -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold mb-0">Regional Comparison: Okapi vs. Congo Basin</h4>
+                        <div class="badge bg-warning text-dark p-2">Scientific Benchmarking</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div id="comparisonChart" class="chart-container" style="height: 400px;"></div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="p-3 bg-light rounded h-100">
+                                <h6 class="fw-bold text-success"><i class="fas fa-chart-pie me-2"></i>Relative Impact</h6>
+                                <p class="small text-muted">The Okapi Wildlife Reserve accounts for approximately **2.5% to 3.0%** of the Congo Basin's total net sequestration, despite representing only ~0.7% of its total land area. This highlights the reserve's high carbon density and superior conservation status compared to regional averages.</p>
+                                <hr>
+                                <h6 class="fw-bold text-warning"><i class="fas fa-exclamation-triangle me-2"></i>Regional Trend</h6>
+                                <p class="small text-muted">While the Congo Basin overall shows a slight decline in sequestration due to rising regional deforestation, the Okapi Reserve maintains a stable to increasing trend due to strict protection protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row g-4 mt-2">
             <div class="col-lg-12">
                 <div class="glass-card">
@@ -163,6 +189,9 @@
             // New Evolution Trend Chart
             initCarbonChart('evolutionChart');
             initEvolutionTrend('evolutionChart', 'yearlyResume', 'evolutionSlider', 'evolutionYear');
+
+            // Regional Comparison Chart
+            initComparisonChart('comparisonChart');
         });
     </script>
 </body>

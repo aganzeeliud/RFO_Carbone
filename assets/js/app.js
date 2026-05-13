@@ -27,7 +27,58 @@ const forestLoss = [
 ];
 const biomassDensity = [312, 313, 312, 314, 315, 316, 317, 318, 319, 320, 321, 319, 320, 321, 322, 321, 322, 323, 324, 323, 325, 326, 328, 329, 331, 332]; 
 
+// Congo Basin Regional Comparison Data (Net MtCO2e/yr)
+const congoBasinSequestration = [
+    1100, 1080, 1050, 1020, 1000, 980, 950, 920, 890, 850,
+    820, 790, 760, 740, 710, 680, 650, 630, 610, 600,
+    595, 590, 585, 580, 575, 570
+];
+
 // Chart Functions
+function initComparisonChart(elementId) {
+    const traceOkapi = {
+        x: years,
+        y: carbonSequestration,
+        name: 'Okapi Reserve (MtCO2e)',
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: '#2d5a27', width: 3 },
+        marker: { size: 6 }
+    };
+
+    const traceBasin = {
+        x: years,
+        y: congoBasinSequestration,
+        name: 'Congo Basin Total (MtCO2e)',
+        type: 'scatter',
+        mode: 'lines',
+        line: { color: '#c5a059', width: 2, dash: 'dot' },
+        yaxis: 'y2'
+    };
+
+    const layout = {
+        title: 'Okapi vs Congo Basin Sequestration Trends',
+        xaxis: { title: 'Year' },
+        yaxis: { 
+            title: 'Okapi Reserve (MtCO2e)',
+            titlefont: {color: '#2d5a27'},
+            tickfont: {color: '#2d5a27'}
+        },
+        yaxis2: {
+            title: 'Congo Basin Total (MtCO2e)',
+            titlefont: {color: '#c5a059'},
+            tickfont: {color: '#c5a059'},
+            overlaying: 'y',
+            side: 'right'
+        },
+        legend: { orientation: 'h', y: -0.2 },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        margin: { r: 50, l: 50, b: 100, t: 50 }
+    };
+
+    Plotly.newPlot(elementId, [traceOkapi, traceBasin], layout, {responsive: true});
+}
 function initCarbonChart(elementId) {
     const trace = {
         x: years,
