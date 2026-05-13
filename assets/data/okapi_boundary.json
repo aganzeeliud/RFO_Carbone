@@ -6,17 +6,19 @@
       "properties": {
         "name": "Okapi Wildlife Reserve",
         "type": "UNESCO World Heritage Site",
-        "wdpa_id": 124389
+        "wdpa_id": 124389,
+        "area_ha": 1372625,
+        "status": "World Heritage in Danger"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [27.5, 1.0],
-            [29.5, 1.0],
-            [29.5, 2.5],
-            [27.5, 2.5],
-            [27.5, 1.0]
+            [28.03, 1.0],
+            [29.13, 1.0],
+            [29.13, 2.7],
+            [28.03, 2.7],
+            [28.03, 1.0]
           ]
         ]
       }

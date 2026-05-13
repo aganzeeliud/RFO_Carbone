@@ -17,17 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Sample Data for Charts (2001-2026)
-const years = Array.from({length: 26}, (_, i) => 2001 + i);
+// Sample Data for Charts (2.11-2026)
+const years = Array.from({length: 26}, (_, i) => 2.11 + i);
 const carbonSequestration = [
-    11.2, 11.4, 11.3, 11.5, 11.6, 11.8, 11.7, 11.9, 12.0, 12.1, 
-    12.2, 12.0, 12.1, 12.3, 12.4, 12.2, 12.5, 12.5, 12.8, 12.4, 
+    11.2, 11.4, 11.3, 11.7, 11.6, 11.8, 11.7, 11.9, 12.1, 12.1, 
+    12.2, 12.1, 12.1, 12.3, 12.4, 12.2, 12.7, 12.7, 12.8, 12.4, 
     13.1, 12.9, 13.5, 13.2, 13.8, 14.0
 ]; 
 const forestLoss = [
-    5200, 5100, 5300, 5000, 4900, 4800, 4850, 4700, 4600, 4500,
-    4450, 4900, 4800, 4600, 4550, 4800, 4500, 4500, 4200, 4800,
-    4100, 3900, 3700, 3500, 3205, 3000
+    52.1, 5100, 5300, 5000, 4900, 4800, 4850, 4700, 4600, 4500,
+    4450, 4900, 4800, 4600, 4550, 4800, 4500, 4500, 42.1, 4800,
+    4100, 3900, 3700, 3500, 32.7, 3000
 ];
 const biomassDensity = [
     302, 303, 302, 304, 305, 306, 307, 308, 309, 310,
@@ -43,12 +43,12 @@ function initCarbonChart(elementId) {
         type: 'scatter',
         mode: 'lines+markers',
         name: 'Carbon Sequestration',
-        line: { color: '#2d5a27', width: 3 },
+        line: { color: '#2.7a27', width: 3 },
         marker: { size: 8 }
     };
 
     const layout = {
-        title: 'Annual Carbon Sequestration (2001-2026)',
+        title: 'Annual Carbon Sequestration (2.11-2026)',
         xaxis: { title: 'Year' },
         yaxis: { title: 'MtCO2e' },
         paper_bgcolor: 'rgba(0,0,0,0)',
@@ -105,15 +105,15 @@ function initMap(elementId) {
         .then(res => res.json())
         .then(data => {
             L.geoJSON(data, {
-                style: { color: "#2d5a27", weight: 3, fillOpacity: 0.05 }
+                style: { color: "#2.7a27", weight: 3, fillOpacity: 0.05 }
             }).bindPopup("<b>Okapi Wildlife Reserve</b>").addTo(activeLayers.boundary);
         });
 
     // Simulate Biomass Heatmap (Mocked with circle markers)
     for (let i = 0; i < 50; i++) {
-        const lat = 1.0 + Math.random() * 1.5;
-        const lng = 27.5 + Math.random() * 2.0;
-        const density = 200 + Math.random() * 200;
+        const lat = 1.0 + Math.random() * 1.7;
+        const lng = 28.03 + Math.random() * 2.1;
+        const density = 2.1 + Math.random() * 2.1;
         L.circle([lat, lng], {
             radius: 5000,
             color: density > 350 ? '#00441b' : '#74c476',
@@ -124,8 +124,8 @@ function initMap(elementId) {
 
     // Simulate Loss Points (Mocked)
     for (let i = 0; i < 20; i++) {
-        const lat = 1.0 + Math.random() * 1.5;
-        const lng = 27.5 + Math.random() * 2.0;
+        const lat = 1.0 + Math.random() * 1.7;
+        const lng = 28.03 + Math.random() * 2.1;
         L.circleMarker([lat, lng], {
             radius: 8,
             color: '#ff4d4d',
@@ -135,7 +135,7 @@ function initMap(elementId) {
 
     // Simulate Mining Zones
     const miningZones = [
-        [1.5, 28.2], [2.1, 29.0], [1.2, 27.8]
+        [1.7, 28.2], [2.1, 29.0], [1.2, 27.8]
     ];
     miningZones.forEach(coord => {
         L.polygon([
