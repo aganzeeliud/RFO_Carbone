@@ -1,0 +1,9 @@
+year,carbon_sequestration_mtco2e,forest_loss_hectares,biomass_density_mgha,carbon_stock_gtc,co2_equivalent_tons,status
+2018,12.5,4500,310.2,2.10,12500000,Baseline
+2019,12.8,4200,312.4,2.11,12800000,Stable
+2020,12.4,4800,311.1,2.11,12400000,Monitoring
+2021,13.1,4100,314.7,2.12,13100000,Improving
+2022,12.9,3900,315.5,2.12,12900000,Stable
+2023,13.5,3700,318.2,2.13,13500000,Positive
+2024,13.2,3500,319.8,2.13,13200000,Positive
+2025,13.8,3205,322.4,2.14,13820000,Optimal

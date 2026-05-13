@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets | Okapi Carbon Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="methodology.html">Methodology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="maps.html">Interactive Map</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="datasets.html">Datasets</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h1 class="mb-4 fw-bold text-success">Dataset Catalog</h1>
+        <p class="lead mb-5">Primary data sources used for the Okapi Wildlife Reserve Carbon Analysis (2018-2025).</p>
+
+        <div class="row g-4">
+            <!-- NASA GEDI -->
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-primary">Lidar</span>
+                        <i class="fas fa-satellite text-muted"></i>
+                    </div>
+                    <h4>NASA GEDI L4B</h4>
+                    <p class="small">Gridded Aboveground Biomass Density (1km resolution) derived from the Global Ecosystem Dynamics Investigation.</p>
+                    <ul class="small text-muted ps-3">
+                        <li><strong>Years:</strong> 2019-2023</li>
+                        <li><strong>Format:</strong> GeoTIFF / Raster</li>
+                    </ul>
+                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Metadata</button>
+                </div>
+            </div>
+
+            <!-- Global Forest Watch -->
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-success">Optical</span>
+                        <i class="fas fa-tree text-muted"></i>
+                    </div>
+                    <h4>Global Forest Watch</h4>
+                    <p class="small">Hansen Global Forest Change dataset providing annual tree cover loss and gain at 30m resolution.</p>
+                    <ul class="small text-muted ps-3">
+                        <li><strong>Years:</strong> 2000-2024</li>
+                        <li><strong>Format:</strong> Web / API / GEE</li>
+                    </ul>
+                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Source</button>
+                </div>
+            </div>
+
+            <!-- ESA Biomass -->
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-warning text-dark">Radar</span>
+                        <i class="fas fa-broadcast-tower text-muted"></i>
+                    </div>
+                    <h4>ESA Biomass CCI</h4>
+                    <p class="small">European Space Agency Climate Change Initiative providing global maps of above-ground biomass.</p>
+                    <ul class="small text-muted ps-3">
+                        <li><strong>Years:</strong> 2010, 2017-2022</li>
+                        <li><strong>Format:</strong> NetCDF / Raster</li>
+                    </ul>
+                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Explore</button>
+                </div>
+            </div>
+            
+            <!-- WDPA -->
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-secondary">Vector</span>
+                        <i class="fas fa-map-marked-alt text-muted"></i>
+                    </div>
+                    <h4>WDPA / Protected Planet</h4>
+                    <p class="small">World Database on Protected Areas providing the official boundaries for the Okapi Wildlife Reserve.</p>
+                    <ul class="small text-muted ps-3">
+                        <li><strong>ID:</strong> 124389</li>
+                        <li><strong>Format:</strong> Shapefile / GeoJSON</li>
+                    </ul>
+                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
