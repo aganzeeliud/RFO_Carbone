@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Okapi Wildlife Reserve",
+        "type": "UNESCO World Heritage Site",
+        "wdpa_id": 124389
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [27.5, 1.0],
+            [29.5, 1.0],
+            [29.5, 2.5],
+            [27.5, 2.5],
+            [27.5, 1.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

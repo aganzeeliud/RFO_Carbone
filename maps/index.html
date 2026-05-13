@@ -90,6 +90,15 @@
             const yearVal = document.getElementById('yearValue');
             slider.addEventListener('input', (e) => {
                 yearVal.innerText = e.target.value;
+                // In a real app, this would filter data by year
+            });
+
+            // Radio Button interactivity
+            document.querySelectorAll('input[name="layerSelect"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const layerId = e.target.id.replace('layer', '').toLowerCase();
+                    updateMapLayer(layerId);
+                });
             });
         });
     </script>

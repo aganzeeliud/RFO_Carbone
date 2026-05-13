@@ -68,21 +68,85 @@ function initLossChart(elementId) {
 }
 
 // Map Functions
+let activeLayers = {};
+let currentMap = null;
+
 function initMap(elementId) {
-    const map = L.map(elementId).setView([1.9, 28.5], 9); // Centered on Okapi Reserve
+    currentMap = L.map(elementId).setView([1.9, 28.5], 8);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    }).addTo(currentMap);
 
-    // Placeholder for Okapi Boundary (Simplified Rectangle for now)
-    const okapiBoundary = L.rectangle([[1.0, 27.5], [2.5, 29.5]], {
-        color: "#2d5a27",
-        weight: 2,
-        fillOpacity: 0.1
-    }).addTo(map);
+    const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
+
+    // Layer groups
+    activeLayers.boundary = L.layerGroup().addTo(currentMap);
+    activeLayers.biomass = L.layerGroup().addTo(currentMap);
+    activeLayers.loss = L.layerGroup();
+    activeLayers.mining = L.layerGroup();
+
+    // Fetch and add Okapi Boundary
+    fetch('../assets/data/okapi_boundary.json')
+        .then(res => res.json())
+        .then(data => {
+            L.geoJSON(data, {
+                style: { color: "#2d5a27", weight: 3, fillOpacity: 0.05 }
+            }).bindPopup("<b>Okapi Wildlife Reserve</b>").addTo(activeLayers.boundary);
+        });
+
+    // Simulate Biomass Heatmap (Mocked with circle markers)
+    for (let i = 0; i < 50; i++) {
+        const lat = 1.0 + Math.random() * 1.5;
+        const lng = 27.5 + Math.random() * 2.0;
+        const density = 200 + Math.random() * 200;
+        L.circle([lat, lng], {
+            radius: 5000,
+            color: density > 350 ? '#00441b' : '#74c476',
+            fillOpacity: 0.6,
+            stroke: false
+        }).addTo(activeLayers.biomass);
+    }
+
+    // Simulate Loss Points (Mocked)
+    for (let i = 0; i < 20; i++) {
+        const lat = 1.0 + Math.random() * 1.5;
+        const lng = 27.5 + Math.random() * 2.0;
+        L.circleMarker([lat, lng], {
+            radius: 8,
+            color: '#ff4d4d',
+            fillOpacity: 0.8
+        }).bindPopup("Forest Loss Detected").addTo(activeLayers.loss);
+    }
+
+    // Simulate Mining Zones
+    const miningZones = [
+        [1.5, 28.2], [2.1, 29.0], [1.2, 27.8]
+    ];
+    miningZones.forEach(coord => {
+        L.polygon([
+            [coord[0], coord[1]],
+            [coord[0] + 0.1, coord[1]],
+            [coord[0] + 0.1, coord[1] + 0.1],
+            [coord[0], coord[1] + 0.1]
+        ], { color: '#c5a059', fillOpacity: 0.5 }).bindPopup("Artisanal Mining Impact Zone").addTo(activeLayers.mining);
+    });
+
+    return currentMap;
+}
+
+function updateMapLayer(layerId) {
+    if (!currentMap) return;
     
-    okapiBoundary.bindPopup("<b>Okapi Wildlife Reserve</b><br>UNESCO World Heritage Site");
-    
-    return map;
+    // Remove all data layers first (keep boundary)
+    currentMap.removeLayer(activeLayers.biomass);
+    currentMap.removeLayer(activeLayers.loss);
+    currentMap.removeLayer(activeLayers.mining);
+
+    // Add selected layer
+    if (layerId === 'biomass') activeLayers.biomass.addTo(currentMap);
+    if (layerId === 'loss') activeLayers.loss.addTo(currentMap);
+    if (layerId === 'mining') activeLayers.mining.addTo(currentMap);
 }
