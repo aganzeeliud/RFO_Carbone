@@ -72,6 +72,12 @@ function initComparisonChart(elementId) {
             side: 'right'
         },
         legend: { orientation: 'h', y: -0.2 },
+        annotations: [{
+            text: 'Source: UNESCO WHC / World Bank Forest Carbon Data',
+            showarrow: false, xref: 'paper', yref: 'paper',
+            x: 0, y: -0.25, xanchor: 'left', yanchor: 'top',
+            font: { size: 10, color: 'gray' }
+        }],
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
         margin: { r: 50, l: 50, b: 100, t: 50 }
@@ -94,6 +100,12 @@ function initCarbonChart(elementId) {
         title: 'Annual Carbon Sequestration (2001-2026)',
         xaxis: { title: 'Year' },
         yaxis: { title: 'MtCO2e' },
+        annotations: [{
+            text: 'Source: NASA GEDI L4B / ESA Biomass CCI',
+            showarrow: false, xref: 'paper', yref: 'paper',
+            x: 0, y: -0.15, xanchor: 'left', yanchor: 'top',
+            font: { size: 10, color: 'gray' }
+        }],
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
         font: { family: 'Inter', color: '#333' }
@@ -115,6 +127,12 @@ function initLossChart(elementId) {
         title: 'Annual Forest Loss Trends',
         xaxis: { title: 'Year' },
         yaxis: { title: 'Hectares' },
+        annotations: [{
+            text: 'Source: Hansen Global Forest Change (v1.12)',
+            showarrow: false, xref: 'paper', yref: 'paper',
+            x: 0, y: -0.15, xanchor: 'left', yanchor: 'top',
+            font: { size: 10, color: 'gray' }
+        }],
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)'
     };
