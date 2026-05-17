@@ -1,6 +1,13 @@
-# Okapi Wildlife Reserve Carbon Sequestration and Storage
+# Okapi Environmental Intelligence Platform
 
-A professional environmental intelligence platform for monitoring forest carbon dynamics in the Democratic Republic of Congo.
+A high-performance climate analytics and environmental monitoring platform for the Okapi Wildlife Reserve, Democratic Republic of Congo.
+
+## 🚀 Key Features
+- **REDD+ Analytics:** Automated calculation of avoided GHG emissions (2001-2026).
+- **Carbon Intelligence:** Real-time monitoring of carbon sequestration and forest stability.
+- **Professional Dashboard:** Glassmorphism UI with interactive Plotly.js analytics.
+- **Scientific GIS:** Multi-sensor satellite data fusion (NASA GEDI, ESA, GFW).
+- **Unified Dataset:** Consolidated annual metrics for climate mitigation reporting.
 
 ## 🚀 Live Demo
 This platform is designed to be hosted on **GitHub Pages**.
