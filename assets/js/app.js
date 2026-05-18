@@ -123,7 +123,7 @@ function initEvolutionTrend(chartId, resumeId, sliderId, yearId) {
 
 // GHG Intelligence Module
 async function initGHGModule() {
-    const dataPath = window.location.pathname.includes('dashboard') || window.location.pathname.includes('avoided-emissions') ? '../assets/data/Carbone_db.csv' : 'assets/data/Carbone_db.csv';
+    const dataPath = window.location.pathname.includes('dashboard') || window.location.pathname.includes('pages') || window.location.pathname.includes('maps') ? '../assets/data/Carbone_db.csv' : 'assets/data/Carbone_db.csv';
     const data = await fetchCSV(dataPath);
     if (!data.length) return;
 
@@ -147,7 +147,7 @@ async function initGHGModule() {
 
 // Standalone GHG Module
 async function initGHGStandalone() {
-    const dataPath = '../assets/data/Carbone_db.csv';
+    const dataPath = 'assets/data/Carbone_db.csv';
     const data = await fetchCSV(dataPath);
     if (!data.length) return;
 
