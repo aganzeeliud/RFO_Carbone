@@ -51,11 +51,14 @@ async function fetchCSV(url) {
             const cols = row.split(',');
             return {
                 year: parseInt(cols[0]),
-                forest_loss_ha: parseFloat(cols[2] || 0),
-                carbon_density_tCha: parseFloat(cols[3] || 0),
-                avoided_emissions_tCO2e: parseFloat(cols[cols.length-2] || 0),
-                cumulative_tCO2e: parseFloat(cols[cols.length-1] || 0),
-                sequestration: parseFloat(cols[1] || 0)
+                carbon_sequestration_mtco2e: parseFloat(cols[1] || 0),
+                forest_loss_hectares: parseFloat(cols[2] || 0),
+                biomass_density_mgha: parseFloat(cols[3] || 0),
+                carbon_stock_gtc: parseFloat(cols[4] || 0),
+                co2_equivalent_tons: parseFloat(cols[5] || 0),
+                status: cols[6],
+                avoided_emissions_tCO2e: parseFloat(cols[7] || 0),
+                cumulative_avoided_tCO2e: parseFloat(cols[8] || 0)
             };
         });
     } catch (e) {
@@ -64,27 +67,104 @@ async function fetchCSV(url) {
     }
 }
 
+// Chart Initializers for Dashboard
+async function initCarbonChart(id) {
+    const dataPath = window.location.pathname.includes('dashboard') ? '../assets/data/Carbone_db.csv' : 'assets/data/Carbone_db.csv';
+    const data = await fetchCSV(dataPath);
+    if (!data.length) return;
+
+    const trace = {
+        x: data.map(d => d.year),
+        y: data.map(d => d.carbon_sequestration_mtco2e),
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: { color: '#2ecc71', width: 3 },
+        name: 'Sequestration'
+    };
+    Plotly.newPlot(id, [trace], getPlotlyLayout('Carbon Sequestration Trend', 'MtCO2e'), PLOTLY_CONFIG);
+}
+
+async function initLossChart(id) {
+    const dataPath = window.location.pathname.includes('dashboard') ? '../assets/data/Carbone_db.csv' : 'assets/data/Carbone_db.csv';
+    const data = await fetchCSV(dataPath);
+    if (!data.length) return;
+
+    const trace = {
+        x: data.map(d => d.year),
+        y: data.map(d => d.forest_loss_hectares),
+        type: 'bar',
+        marker: { color: '#e74c3c' },
+        name: 'Forest Loss'
+    };
+    Plotly.newPlot(id, [trace], getPlotlyLayout('Annual Forest Loss', 'Hectares'), PLOTLY_CONFIG);
+}
+
+function initEvolutionTrend(chartId, resumeId, sliderId, yearId) {
+    const slider = document.getElementById(sliderId);
+    if (!slider) return;
+    
+    slider.addEventListener('input', async (e) => {
+        const year = e.target.value;
+        document.getElementById(yearId).innerText = year;
+        
+        const dataPath = '../assets/data/Carbone_db.csv';
+        const data = await fetchCSV(dataPath);
+        const yearData = data.find(d => d.year == year);
+        
+        if (yearData) {
+            document.getElementById(resumeId).innerHTML = `
+                <strong>Sequestration:</strong> ${yearData.carbon_sequestration_mtco2e} MtCO2e<br>
+                <strong>Forest Loss:</strong> ${yearData.forest_loss_hectares} ha<br>
+                <strong>Status:</strong> ${yearData.status}
+            `;
+        }
+    });
+}
+
 // GHG Intelligence Module
 async function initGHGModule() {
-    const data = await fetchCSV('assets/data/Carbone_db.csv');
+    const dataPath = window.location.pathname.includes('dashboard') || window.location.pathname.includes('avoided-emissions') ? '../assets/data/Carbone_db.csv' : 'assets/data/Carbone_db.csv';
+    const data = await fetchCSV(dataPath);
     if (!data.length) return;
 
     // Update Global KPIs
     const latest = data[data.length - 1];
-    const totalAvoided = latest.cumulative_tCO2e;
+    const totalAvoided = latest.cumulative_avoided_tCO2e;
     
     const updateEl = (id, val) => { if(document.getElementById(id)) document.getElementById(id).innerText = val; };
 
-    updateEl('mainSequestration', latest.sequestration.toFixed(1) + 'M');
+    updateEl('mainSequestration', latest.carbon_sequestration_mtco2e.toFixed(1) + 'M');
     updateEl('mainAvoided', (latest.avoided_emissions_tCO2e / 1000000).toFixed(1) + 'M');
     updateEl('totalAvoidedCounter', (totalAvoided / 1000000).toFixed(2) + 'M');
     updateEl('carsRemovedCounter', (totalAvoided / 4.6 / 1000000).toFixed(1) + 'M');
     updateEl('householdsCounter', (totalAvoided / 5.4 / 1000).toFixed(0) + 'K');
-    updateEl('forestConservedCounter', (data.reduce((sum, r) => sum + (6000 - r.forest_loss_ha), 0) / 1000).toFixed(1) + 'K');
+    updateEl('forestConservedCounter', (data.reduce((sum, r) => sum + (6000 - r.forest_loss_hectares), 0) / 1000).toFixed(1) + 'K');
 
     // Initialize Charts
-    renderAvoidedChart('avoidedEmissionsChart', data);
-    renderCumulativeChart('cumulativeEmissionsChart', data);
+    if(document.getElementById('avoidedEmissionsChart')) renderAvoidedChart('avoidedEmissionsChart', data);
+    if(document.getElementById('cumulativeEmissionsChart')) renderCumulativeChart('cumulativeEmissionsChart', data);
+}
+
+// Standalone GHG Module
+async function initGHGStandalone() {
+    const dataPath = '../assets/data/Carbone_db.csv';
+    const data = await fetchCSV(dataPath);
+    if (!data.length) return;
+
+    const latest = data[data.length - 1];
+    const totalAvoided = latest.cumulative_avoided_tCO2e;
+    const avgAvoided = data.reduce((sum, r) => sum + r.avoided_emissions_tCO2e, 0) / data.length;
+
+    const updateEl = (id, val) => { if(document.getElementById(id)) document.getElementById(id).innerText = val; };
+
+    updateEl('mainAvoidedLarge', (totalAvoided / 1000000).toFixed(2) + 'M');
+    updateEl('annualAverageAvoided', (avgAvoided / 1000000).toFixed(2) + 'M');
+    updateEl('carsLarge', (totalAvoided / 4.6 / 1000000).toFixed(1) + 'M');
+    updateEl('homesLarge', (totalAvoided / 5.4 / 1000).toFixed(0) + 'K');
+    updateEl('forestLarge', (data.reduce((sum, r) => sum + (6000 - r.forest_loss_hectares), 0) / 1000).toFixed(1) + 'K');
+
+    renderAvoidedChart('detailedAvoidedChart', data);
+    renderCumulativeChart('detailedCumulativeChart', data);
 }
 
 function renderAvoidedChart(id, data) {
@@ -101,7 +181,7 @@ function renderAvoidedChart(id, data) {
 function renderCumulativeChart(id, data) {
     const trace = {
         x: data.map(d => d.year),
-        y: data.map(d => d.cumulative_tCO2e),
+        y: data.map(d => d.cumulative_avoided_tCO2e),
         type: 'scatter',
         mode: 'lines+markers',
         fill: 'tozeroy',
