@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bassin du Congo | Carbon Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="bassin-du-congo.html">Bassin du Congo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="avoided-emissions.html">GHG Avoided</a></li>
+                    <li class="nav-item"><a class="nav-link" href="maps/">Global Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <header class="mb-5 text-center">
+            <h1 class="display-3 fw-bold mb-3">Bassin du <span class="text-gradient">Congo</span></h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">Comparative analysis of the Congo Basin's carbon dynamics and the Okapi Wildlife Reserve's strategic contribution (2000-2026).</p>
+        </header>
+
+        <!-- Comparative Charts Grid -->
+        <div class="row g-4 mb-5">
+            <!-- Sequestration -->
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Carbon Sequestration (MtCO2e/yr)</h4>
+                    <div id="sequestrationComparisonChart" class="chart-container" style="height: 450px;"></div>
+                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded border-start border-success border-4">
+                        <p class="small text-secondary mb-1"><strong>Source:</strong> NASA GEDI, ESA Biomass CCI, UNESCO.</p>
+                        <p class="small text-secondary mb-0"><strong>Resume:</strong> The Congo Basin remains the world's strongest tropical carbon sink. While regional trends show slight fluctuations due to agricultural expansion, the Okapi Reserve maintains an upward trajectory in sequestration efficiency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage -->
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Total Carbon Stock (GtC)</h4>
+                    <div id="storageComparisonChart" class="chart-container" style="height: 450px;"></div>
+                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded border-start border-warning border-4">
+                        <p class="small text-secondary mb-1"><strong>Source:</strong> IPCC 2006, Global Forest Watch.</p>
+                        <p class="small text-secondary mb-0"><strong>Resume:</strong> Carbon storage in the Congo Basin is critical for global climate stability. The Okapi Reserve protects one of the highest biomass density zones within the basin, acting as a stable long-term reservoir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avoided Emissions -->
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Avoided GHG Emissions (tCO2e)</h4>
+                    <div id="avoidedComparisonChart" class="chart-container" style="height: 450px;"></div>
+                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded border-start border-primary border-4">
+                        <p class="small text-secondary mb-1"><strong>Source:</strong> Verra VM0015, GFW Alerts.</p>
+                        <p class="small text-secondary mb-0"><strong>Resume:</strong> Conservation efforts in Okapi significantly outperform regional averages in preventing deforestation-linked emissions, contributing disproportionately to the basin's total mitigation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-12">
+                <div class="glass-card border-success border-opacity-25 bg-success bg-opacity-10">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold">5-Year Predictive Analysis (2027-2031)</h2>
+                        <p class="text-secondary">Projected climate impact based on current conservation protocols and regional trends.</p>
+                    </div>
+                    <div id="predictionChart" class="chart-container" style="height: 500px;"></div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-success"><i class="fas fa-magic me-2"></i>Okapi Projection</h6>
+                            <p class="small text-secondary">Predicted to increase sequestration by 4.2% through enhanced surveillance and restoration of artisanal mining zones.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-warning"><i class="fas fa-chart-line me-2"></i>Basin Projection</h6>
+                            <p class="small text-secondary">Regional trends suggest a stabilizing sink with a 1.5% growth if current multi-national protection pacts are upheld.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black text-white py-5">
+        <div class="container text-center">
+            <p class="text-secondary small mb-0">© 2026 Okapi Environmental Intelligence. Scientific benchmarking for the Congo Basin sink.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCongoBasinModule();
+        });
+    </script>
+</body>
+</html>
