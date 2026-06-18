@@ -1,154 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okapi Wildlife Reserve Carbon Sequestration and Storage</title>
+    <title>Environmental Intelligence Dashboard | OEI</title>
+    <!-- Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dashboard-header {
+            padding-top: 100px;
+            margin-bottom: 3rem;
+        }
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+        }
+        .chart-wrapper {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid var(--glass-border);
+        }
+        [data-theme="light"] .chart-wrapper {
+            background: rgba(255,255,255,0.5);
+        }
+        .custom-range::-webkit-slider-thumb {
+            background: var(--accent-gold);
+        }
+        .custom-range::-moz-range-thumb {
+            background: var(--accent-gold);
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON SEQUESTRATION</a>
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Intelligence</a></li>
                     <li class="nav-item"><a class="nav-link" href="../bassin-du-congo.html">Bassin du Congo</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/methodology.html">Methodology</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../dashboard/">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../avoided-emissions.html">GHG Avoided</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../maps/">Interactive Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/datasets.html">Datasets</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../maps/">Global Map</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid py-4">
-        <div class="row mb-4">
-            <div class="col">
-                <h1 class="fw-bold">Environmental Intelligence Dashboard</h1>
-                <p class="text-muted">Temporal analysis of carbon storage and forest dynamics (2001-2026).</p>
-            </div>
-        </div>
-
-        <!-- KPI Cards -->
-        <div class="row g-3 mb-4">
-            <div class="col-md-3">
-                <div class="glass-card text-center p-3">
-                    <small class="text-uppercase text-muted fw-bold">Current Sequestration</small>
-                    <h2 class="text-success mb-0">16.2 <small class="h6">MtCO2e/yr</small></h2>
-                    <span class="small text-success"><i class="fas fa-caret-up"></i> +1.4% from 2025</span>
+    <main class="container py-5 dashboard-header">
+        <div class="row align-items-end mb-5">
+            <div class="col-lg-8">
+                <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-3 px-3">
+                    <i class="fas fa-chart-line text-success me-2"></i>
+                    <span class="small fw-bold text-success text-uppercase tracking-wider">Real-time Analytics Engine</span>
                 </div>
+                <h1 class="display-4 fw-800 mb-2">Environmental <span class="text-gradient">Intelligence</span></h1>
+                <p class="text-secondary fs-5 mb-0">High-fidelity monitoring of carbon storage and forest dynamics within the Okapi Wildlife Reserve.</p>
             </div>
-            <div class="col-md-3">
-                <div class="glass-card text-center p-3">
-                    <small class="text-uppercase text-muted fw-bold">Forest Loss (2026)</small>
-                    <h2 class="text-danger mb-0">3,000 <small class="h6">Hectares</small></h2>
-                    <span class="small text-success"><i class="fas fa-caret-down"></i> -6% from 2025</span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="glass-card text-center p-3">
-                    <small class="text-uppercase text-muted fw-bold">Mean Biomass Density</small>
-                    <h2 class="text-primary mb-0">332.1 <small class="h6">Mg/ha</small></h2>
-                    <span class="small text-primary">Stable Trend</span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="glass-card text-center p-3">
-                    <small class="text-uppercase text-muted fw-bold">Carbon Stock</small>
-                    <h2 class="text-info mb-0">2.10 <small class="h6">GtC</small></h2>
-                    <span class="small">Total Reserve Capacity</span>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <div class="btn-group rounded-pill overflow-hidden border border-secondary border-opacity-25">
+                    <button class="btn btn-dark btn-sm px-3 active">2001 - 2026</button>
+                    <button class="btn btn-outline-secondary btn-sm px-3">Live Feed</button>
                 </div>
             </div>
         </div>
 
-        <!-- Charts Row -->
-        <div class="row g-4 mb-4">
-            <div class="col-lg-6">
+        <!-- KPI Grid -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100 p-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="feature-icon mb-0" style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fas fa-cloud-download-alt"></i></div>
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 h-100">+1.4%</span>
+                    </div>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Annual Sequestration</p>
+                    <h2 class="stat-value mb-0" id="mainSequestration">16.2 <span class="fs-6 fw-normal text-muted">MtCO2e</span></h2>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100 p-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="feature-icon mb-0 text-danger" style="width: 45px; height: 45px; font-size: 1.2rem; background: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.2);"><i class="fas fa-tree-slash"></i></div>
+                        <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 h-100">-6%</span>
+                    </div>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Annual Forest Loss</p>
+                    <h2 class="stat-value mb-0">3,000 <span class="fs-6 fw-normal text-muted">ha</span></h2>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100 p-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="feature-icon mb-0 text-primary" style="width: 45px; height: 45px; font-size: 1.2rem; background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fas fa-microscope"></i></div>
+                        <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 h-100">Stable</span>
+                    </div>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Mean Biomass Density</p>
+                    <h2 class="stat-value mb-0">332.1 <span class="fs-6 fw-normal text-muted">Mg/ha</span></h2>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="glass-card h-100 p-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="feature-icon mb-0 text-warning" style="width: 45px; height: 45px; font-size: 1.2rem; background: rgba(255, 193, 7, 0.1); border-color: rgba(255, 193, 7, 0.2);"><i class="fas fa-shield-alt"></i></div>
+                        <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 h-100">Reserve</span>
+                    </div>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Total Carbon Stock</p>
+                    <h2 class="stat-value mb-0">2.10 <span class="fs-6 fw-normal text-muted">GtC</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Charts Row -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-7">
                 <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold mb-0">Carbon Sequestration Trend</h4>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary rounded-pill" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-download me-1"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">CSV</a></li>
+                                <li><a class="dropdown-item" href="#">JSON</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div id="carbonTrendChart" class="chart-container"></div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="glass-card h-100">
+                    <h4 class="fw-bold mb-4">Forest Loss Analysis</h4>
                     <div id="lossTrendChart" class="chart-container"></div>
                 </div>
             </div>
         </div>
 
-        <!-- GHG Avoided Row -->
-        <div class="row g-4 mb-4">
-            <div class="col-lg-12">
-                <div class="glass-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold mb-0">Greenhouse Gas Emissions Avoided (tCO2e)</h4>
-                        <a href="../avoided-emissions.html" class="btn btn-sm btn-outline-success">View Detailed Report</a>
+        <!-- GHG Contribution Section -->
+        <div class="glass-card mb-5 border-success border-opacity-20">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="fw-800 mb-3">Climate Mitigation Performance</h3>
+                    <p class="text-secondary small mb-4">Total greenhouse gas emissions avoided through successful conservation protocols and REDD+ verified actions.</p>
+                    <div class="p-4 bg-success bg-opacity-10 rounded-4 border border-success border-opacity-25">
+                        <h6 class="text-success fw-bold text-uppercase x-small mb-2">Total Avoided (Cumulative)</h6>
+                        <h1 class="stat-value text-success mb-0" id="totalAvoidedCounter">0.0M</h1>
+                        <p class="x-small text-muted mt-2 mb-0">Metric Tons of CO2e since 2001</p>
                     </div>
-                    <div id="avoidedEmissionsChart" class="chart-container" style="height: 350px;"></div>
+                    <a href="../avoided-emissions.html" class="btn btn-success w-100 rounded-pill mt-4">Full GHG Report</a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="chart-wrapper">
+                        <div id="avoidedEmissionsChart" class="chart-container" style="height: 380px;"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Evolution Trend Section -->
-        <div class="row g-4 mb-4">
-            <div class="col-lg-12">
-                <div class="glass-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold mb-0">Evolution Trend: Sequestration Analysis</h4>
-                        <div class="badge bg-success p-2">Year: <span id="evolutionYear">2026</span></div>
+        <!-- Interactive Evolution Explorer -->
+        <div class="section-title text-center mt-5">
+            <span class="text-success fw-bold text-uppercase">Temporal Intelligence</span>
+            <h2 class="fw-800 mt-2">Interactive Evolution Explorer</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="glass-card mb-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-8">
+                    <div id="evolutionChart" class="chart-container" style="height: 350px;"></div>
+                    <div class="px-5 mt-4">
+                        <input type="range" class="form-range custom-range" min="2001" max="2026" step="1" id="evolutionSlider" value="2026">
+                        <div class="d-flex justify-content-between x-small text-muted mt-2 fw-bold">
+                            <span>2001</span>
+                            <span>2013</span>
+                            <span>2026</span>
+                        </div>
                     </div>
-                    
-                    <div class="row align-items-center">
-                        <div class="col-lg-8">
-                            <div id="evolutionChart" class="chart-container" style="height: 300px;"></div>
-                            <div class="px-4 mt-3">
-                                <input type="range" class="form-range" min="2001" max="2026" step="1" id="evolutionSlider" value="2026">
-                                <div class="d-flex justify-content-between small text-muted">
-                                    <span>2001</span>
-                                    <span>2013</span>
-                                    <span>2026</span>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-4 border-start border-success border-4 bg-white bg-opacity-5 rounded-end h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="badge bg-success rounded-pill me-3" id="evolutionYear">2026</div>
+                            <h5 class="fw-bold mb-0">Yearly Resume</h5>
+                        </div>
+                        <div id="yearlyResume" class="small text-secondary mb-4">
+                            Select a year on the timeline to analyze specific conservation impacts and carbon metrics.
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="p-3 bg-dark bg-opacity-50 rounded-3 border border-secondary border-opacity-10">
+                                    <p class="x-small text-muted mb-1">Efficiency</p>
+                                    <h6 class="fw-bold mb-0 text-success">High</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-dark bg-opacity-50 rounded-3 border border-secondary border-opacity-10">
+                                    <p class="x-small text-muted mb-1">Validation</p>
+                                    <h6 class="fw-bold mb-0 text-primary">TIER 3</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="p-4 bg-light rounded border-start border-success border-4">
-                                <h5 class="text-success mb-3"><i class="fas fa-info-circle me-2"></i>Yearly Resume</h5>
-                                <p id="yearlyResume" class="mb-0">Select a year on the slider to see the specific conservation impact and carbon summary.</p>
-                            </div>
-                            <div class="mt-4">
-                                <button class="btn btn-outline-success btn-sm w-100">Download Year Data</button>
-                            </div>
-                        </div>
+                        <button class="btn btn-outline-light btn-sm w-100 rounded-pill mt-4">Download Archive</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Evolution Trend Section -->
-        <div class="row g-4 mb-4">
+        <!-- Regional Comparison -->
+        <div class="row g-4 mb-5">
             <div class="col-lg-12">
                 <div class="glass-card">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold mb-0">Regional Comparison: Okapi vs. Congo Basin</h4>
-                        <div class="badge bg-warning text-dark p-2">Scientific Benchmarking</div>
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                        <div>
+                            <h4 class="fw-bold mb-1">Regional Efficiency Benchmark</h4>
+                            <p class="small text-secondary mb-0">Okapi Wildlife Reserve vs. Greater Congo Basin Average</p>
+                        </div>
+                        <span class="badge bg-warning text-dark">Scientific Benchmarking</span>
                     </div>
-                    <div class="row">
+                    <div class="row g-5">
                         <div class="col-lg-9">
                             <div id="comparisonChart" class="chart-container" style="height: 400px;"></div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="p-3 bg-light rounded h-100">
-                                <h6 class="fw-bold text-success"><i class="fas fa-chart-pie me-2"></i>Relative Impact</h6>
-                                <p class="small text-muted">The Okapi Wildlife Reserve accounts for approximately **2.5% to 3.0%** of the Congo Basin's total net sequestration, despite representing only ~0.7% of its total land area. This highlights the reserve's high carbon density and superior conservation status compared to regional averages.</p>
-                                <hr>
-                                <h6 class="fw-bold text-warning"><i class="fas fa-exclamation-triangle me-2"></i>Regional Trend</h6>
-                                <p class="small text-muted">While the Congo Basin overall shows a slight decline in sequestration due to rising regional deforestation, the Okapi Reserve maintains a stable to increasing trend due to strict protection protocols.</p>
+                            <div class="h-100 d-flex flex-column">
+                                <div class="mb-4">
+                                    <h6 class="fw-bold text-success"><i class="fas fa-chart-pie me-2"></i>Relative Impact</h6>
+                                    <p class="x-small text-secondary">The OWR accounts for approximately **3.0%** of the Congo Basin's total net sequestration, while representing only ~0.7% of its total land area.</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h6 class="fw-bold text-warning"><i class="fas fa-exclamation-triangle me-2"></i>Regional Trend</h6>
+                                    <p class="x-small text-secondary">While regional averages show decline, the OWR maintains a stable trend due to strict protection protocols.</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="../bassin-du-congo.html" class="btn btn-outline-success btn-sm w-100 rounded-pill">Detailed Comparison</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -156,59 +259,95 @@
             </div>
         </div>
 
-        <div class="row g-4 mt-2">
-            <div class="col-lg-12">
-                <div class="glass-card">
-                    <h5 class="mb-4">Degradation Hotspot Analysis (Simulated)</h5>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Zone ID</th>
-                                    <th>Primary Driver</th>
-                                    <th>Carbon Loss (t)</th>
-                                    <th>Risk Level</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>RFO-N-01</td>
-                                    <td>Artisanal Mining</td>
-                                    <td>125,400</td>
-                                    <td><span class="badge bg-danger">Critical</span></td>
-                                    <td>Active Monitoring</td>
-                                </tr>
-                                <tr>
-                                    <td>RFO-E-04</td>
-                                    <td>Agriculture</td>
-                                    <td>45,200</td>
-                                    <td><span class="badge bg-warning text-dark">Moderate</span></td>
-                                    <td>Restoration Candidate</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <!-- Hotspot Table -->
+        <div class="glass-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold mb-0">Degradation Hotspot Analysis (Simulated)</h5>
+                <span class="x-small text-muted">Update: June 2026</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover bg-transparent border-secondary border-opacity-10">
+                    <thead class="text-success small">
+                        <tr>
+                            <th>Zone ID</th>
+                            <th>Primary Driver</th>
+                            <th>Carbon Loss (t)</th>
+                            <th>Risk Level</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="small text-secondary">
+                        <tr>
+                            <td><strong>RFO-N-01</strong></td>
+                            <td>Artisanal Mining</td>
+                            <td>125,400</td>
+                            <td><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">Critical</span></td>
+                            <td>Active Monitoring</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RFO-E-04</strong></td>
+                            <td>Agriculture Extension</td>
+                            <td>45,200</td>
+                            <td><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25">Moderate</span></td>
+                            <td>Restoration Candidate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RFO-S-09</strong></td>
+                            <td>Infrastructure</td>
+                            <td>12,100</td>
+                            <td><span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25">Low</span></td>
+                            <td>Stable</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
 
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-5 mt-5">
+        <div class="container text-center">
+            <h4 class="fw-bold mb-4">OKAPI<span class="text-success">CARBON</span></h4>
+            <p class="text-secondary small">© 2026 Okapi Environmental Intelligence. Dedicated to high-integrity conservation science.</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="../index.html" class="text-decoration-none text-secondary small">Home</a>
+                <a href="../dashboard/" class="text-decoration-none text-secondary small">Analytics</a>
+                <a href="../pages/datasets.html" class="text-decoration-none text-secondary small">Datasets</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const icon = themeToggle.querySelector('i');
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                icon.className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                
+                // Re-initialize charts to match theme
+                initCarbonChart('carbonTrendChart');
+                initLossChart('lossTrendChart');
+                initCarbonChart('evolutionChart');
+                initComparisonChart('comparisonChart');
+                initGHGModule();
+            });
+
+            // Initial chart load
             initCarbonChart('carbonTrendChart');
             initLossChart('lossTrendChart');
-            
-            // New Evolution Trend Chart
             initCarbonChart('evolutionChart');
             initEvolutionTrend('evolutionChart', 'yearlyResume', 'evolutionSlider', 'evolutionYear');
-
-            // Regional Comparison Chart
             initComparisonChart('comparisonChart');
-
-            // GHG Module
             initGHGModule();
         });
     </script>

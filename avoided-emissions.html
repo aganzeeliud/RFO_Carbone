@@ -3,58 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenhouse Gas Emissions Avoided | Okapi Environmental Intelligence</title>
+    <title>Greenhouse Gas Emissions Avoided | OEI</title>
+    <!-- Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .ghg-header {
+            padding-top: 100px;
+            margin-bottom: 3rem;
+        }
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON</a>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Intelligence</a></li>
                     <li class="nav-item"><a class="nav-link" href="bassin-du-congo.html">Bassin du Congo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/soil.html">Soil & Forest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/methodology.html">Methodology</a></li>
                     <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">GHG Avoided</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="avoided-emissions.html">GHG Avoided</a></li>
                     <li class="nav-item"><a class="nav-link" href="maps/">Global Map</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container py-5">
+    <main class="container py-5 ghg-header">
         <div class="row mb-5">
             <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-3">Greenhouse Gas <span class="text-success">Emissions Avoided</span></h1>
-                <p class="lead text-secondary">A detailed analysis of CO2 emissions prevented through the protection of the Okapi Wildlife Reserve (2001-2026).</p>
+                <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-3 px-3">
+                    <i class="fas fa-shield-alt text-success me-2"></i>
+                    <span class="small fw-bold text-success text-uppercase tracking-wider">Climate Mitigation Analysis</span>
+                </div>
+                <h1 class="display-4 fw-800 mb-3">Greenhouse Gas <span class="text-gradient">Avoided</span></h1>
+                <p class="text-secondary fs-5">A detailed high-integrity analysis of CO2 emissions prevented through the protection of the Okapi Wildlife Reserve (2001-2026).</p>
             </div>
         </div>
 
         <!-- GHG KPI Cards -->
         <div class="row g-4 mb-5">
             <div class="col-md-4">
-                <div class="glass-card text-center p-4">
-                    <i class="fas fa-cloud-sun fa-3x text-success mb-3"></i>
-                    <h2 class="fw-bold mb-1" id="mainAvoidedLarge">0.0M</h2>
-                    <p class="text-secondary text-uppercase mb-0">Total tCO2e Avoided</p>
+                <div class="glass-card text-center h-100 p-4">
+                    <div class="feature-icon mx-auto text-success"><i class="fas fa-cloud-sun"></i></div>
+                    <h2 class="stat-value mb-1 text-success" id="mainAvoidedLarge">0.0M</h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-0">Total tCO2e Avoided</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="glass-card text-center p-4">
-                    <i class="fas fa-chart-line fa-3x text-warning mb-3"></i>
-                    <h2 class="fw-bold mb-1" id="annualAverageAvoided">0.0M</h2>
-                    <p class="text-secondary text-uppercase mb-0">Avg. Annual Mitigation</p>
+                <div class="glass-card text-center h-100 p-4">
+                    <div class="feature-icon mx-auto text-warning"><i class="fas fa-chart-line"></i></div>
+                    <h2 class="stat-value mb-1 text-warning" id="annualAverageAvoided">0.0M</h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-0">Avg. Annual Mitigation</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="glass-card text-center p-4">
-                    <i class="fas fa-check-circle fa-3x text-info mb-3"></i>
-                    <h2 class="fw-bold mb-1">VERRA</h2>
-                    <p class="text-secondary text-uppercase mb-0">Methodology Alignment</p>
+                <div class="glass-card text-center h-100 p-4">
+                    <div class="feature-icon mx-auto text-info"><i class="fas fa-check-circle"></i></div>
+                    <h2 class="stat-value mb-1 text-info">VERRA</h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-0">Standard Alignment</p>
                 </div>
             </div>
         </div>
@@ -63,21 +92,22 @@
         <div class="row g-4 mb-5">
             <div class="col-lg-12">
                 <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Annual Emissions Prevention</h4>
                     <div id="detailedAvoidedChart" class="chart-container" style="height: 450px;"></div>
-                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded">
-                        <p class="small text-secondary mb-0">
-                            <strong>Source:</strong> NASA GEDI, Global Forest Watch, and ESA Biomass CCI.<br>
-                            <strong>Methodology:</strong> Calculated using REDD+ (VM0015) and IPCC 2006 guidelines, comparing actual forest loss against a regional baseline.
+                    <div class="mt-4 p-3 border-start border-success border-2 bg-white bg-opacity-5 rounded-end">
+                        <p class="x-small text-secondary mb-0">
+                            <strong>Scientific Context:</strong> Calculated using REDD+ (VM0015) and IPCC 2006 guidelines, benchmarking actual reserve forest stability against regional "Business-As-Usual" deforestation rates.
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-12">
                 <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Cumulative Climate Contribution</h4>
                     <div id="detailedCumulativeChart" class="chart-container" style="height: 450px;"></div>
-                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded">
-                        <p class="small text-secondary mb-0">
-                            <strong>Impact Summary:</strong> The cumulative emissions avoided represent the total climate benefit of the reserve's conservation efforts over the past 25 years.
+                    <div class="mt-4 p-3 border-start border-primary border-2 bg-white bg-opacity-5 rounded-end">
+                        <p class="x-small text-secondary mb-0">
+                            <strong>Impact Summary:</strong> The cumulative trend reflects the long-term effectiveness of the Okapi Reserve as a persistent global carbon sink, sequestering carbon that would otherwise have entered the atmosphere.
                         </p>
                     </div>
                 </div>
@@ -85,44 +115,66 @@
         </div>
 
         <!-- Equivalences -->
+        <div class="section-title text-center mt-5">
+            <span class="text-success fw-bold text-uppercase">Impact Tangibility</span>
+            <h2 class="fw-800 mt-2">Climate Equivalency Impact</h2>
+            <div class="divider"></div>
+        </div>
+
         <div class="row g-4 mb-5">
-            <div class="col-lg-12 text-center">
-                <h3 class="fw-bold mb-4">Climate Equivalency Impact</h3>
-            </div>
             <div class="col-md-4">
-                <div class="glass-card text-center py-5">
-                    <i class="fas fa-car fa-4x mb-4 text-primary"></i>
-                    <h2 class="display-5 fw-bold mb-2" id="carsLarge">0M</h2>
-                    <p class="text-secondary fs-5">Passenger vehicles off the road for one year</p>
+                <div class="glass-card text-center h-100 py-5">
+                    <div class="feature-icon mx-auto text-primary" style="width: 80px; height: 80px; font-size: 2rem;"><i class="fas fa-car"></i></div>
+                    <h2 class="stat-value display-5 text-primary mb-2" id="carsLarge">0M</h2>
+                    <p class="text-secondary small fw-bold text-uppercase mb-0">Passenger vehicles off the road</p>
+                    <p class="x-small text-muted mt-2">(Annual equivalent)</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="glass-card text-center py-5">
-                    <i class="fas fa-home fa-4x mb-4 text-warning"></i>
-                    <h2 class="display-5 fw-bold mb-2" id="homesLarge">0K</h2>
-                    <p class="text-secondary fs-5">Homes' energy use for one year</p>
+                <div class="glass-card text-center h-100 py-5">
+                    <div class="feature-icon mx-auto text-warning" style="width: 80px; height: 80px; font-size: 2rem;"><i class="fas fa-bolt"></i></div>
+                    <h2 class="stat-value display-5 text-warning mb-2" id="homesLarge">0K</h2>
+                    <p class="text-secondary small fw-bold text-uppercase mb-0">Homes' annual energy use</p>
+                    <p class="x-small text-muted mt-2">(Clean energy offset)</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="glass-card text-center py-5">
-                    <i class="fas fa-tree fa-4x mb-4 text-success"></i>
-                    <h2 class="display-5 fw-bold mb-2" id="forestLarge">0K</h2>
-                    <p class="text-secondary fs-5">Hectares of forest protected from conversion</p>
+                <div class="glass-card text-center h-100 py-5">
+                    <div class="feature-icon mx-auto text-success" style="width: 80px; height: 80px; font-size: 2rem;"><i class="fas fa-tree"></i></div>
+                    <h2 class="stat-value display-5 text-success mb-2" id="forestLarge">0K</h2>
+                    <p class="text-secondary small fw-bold text-uppercase mb-0">Hectares of forest protected</p>
+                    <p class="x-small text-muted mt-2">(Total conversion prevented)</p>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="bg-black text-white py-5">
+    <!-- Footer -->
+    <footer class="bg-black text-white py-5 mt-5">
         <div class="container text-center">
-            <p class="text-secondary small mb-0">© 2026 Okapi Environmental Intelligence. Scientific data provided by GFW and NASA.</p>
+            <h4 class="fw-bold mb-4">OKAPI<span class="text-success">CARBON</span></h4>
+            <p class="text-secondary small">© 2026 Okapi Environmental Intelligence. Scientific data provided by NASA GEDI and Global Forest Watch.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const icon = themeToggle.querySelector('i');
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                icon.className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                initGHGStandalone();
+            });
+
             initGHGStandalone();
         });
     </script>
