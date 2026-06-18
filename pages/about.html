@@ -1,95 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okapi Wildlife Reserve Carbon Sequestration and Storage</title>
+    <title>About the Reserve | Okapi Carbon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON SEQUESTRATION</a>
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../pages/about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/methodology.html">Methodology</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../maps/">Interactive Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/datasets.html">Datasets</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../bassin-du-congo.html"><i class="fas fa-globe-africa me-2 text-success"></i>Bassin du Congo</a></li>
+                            <li><a class="dropdown-item" href="../avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>GHG Avoided</a></li>
+                            <li><a class="dropdown-item" href="../maps/"><i class="fas fa-map-marked-alt me-2 text-success"></i>Global Map</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientific</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
+                            <li><a class="dropdown-item" href="../pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest</a></li>
+                            <li><a class="dropdown-item" href="../pages/references.html"><i class="fas fa-book me-2 text-success"></i>References</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Project</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
+                            <li><a class="dropdown-item" href="../pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets</a></li>
+                            <li><a class="dropdown-item" href="../pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Analytics</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="py-5 bg-dark text-white text-center">
+    <header class="page-header text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold">About the Project</h1>
-            <p class="lead">Understanding the role of the Okapi Wildlife Reserve in global climate mitigation.</p>
+            <span class="section-tag">Conservation Spotlight</span>
+            <h1 class="display-4 fw-800">Okapi Wildlife Reserve</h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">A UNESCO World Heritage site and the "Green Heart" of the Congo Basin's climate mitigation strategy.</p>
         </div>
     </header>
 
     <section class="py-5">
         <div class="container">
-            <div class="row">
+            <div class="row g-5">
                 <div class="col-lg-8">
-                    <h2 class="mb-4">The Okapi Wildlife Reserve (RFO)</h2>
-                    <p>Occupying about one-fifth of the Ituri Forest in the north-east of the Democratic Republic of the Congo, the Okapi Wildlife Reserve is a UNESCO World Heritage site of immense biological and carbon value. It contains the largest population of Okapis in the wild and provides a critical carbon sink for the planet.</p>
-                    
-                    <h3 class="mt-5">Significance of the Congo Basin</h3>
-                    <p>The Congo Basin is the "second lung" of the world. Unlike the Amazon, which has become a net carbon emitter in some areas, the Congo Basin remains a robust carbon sink. Protecting the Okapi Reserve is not just about biodiversity—it is a global climate necessity.</p>
-                    
-                    <div class="row mt-5">
-                        <div class="col-md-6">
-                            <div class="glass-card mb-4">
-                                <h4>Conservation Goals</h4>
-                                <ul class="small">
-                                    <li>Monitor illegal mining activity</li>
-                                    <li>Quantify carbon sequestration annualy</li>
-                                    <li>Support REDD+ reporting frameworks</li>
-                                    <li>Protect endemic species habitats</li>
-                                </ul>
+                    <div class="glass-card mb-5">
+                        <h2 class="mb-4">The Reserve (RFO)</h2>
+                        <p>Occupying about one-fifth of the Ituri Forest in the north-east of the Democratic Republic of the Congo, the Okapi Wildlife Reserve (Réserve de Faune à Okapis) is a sanctuary of immense biological and carbon value. Established in 1992 and covering 13,726 km², it contains the largest population of Okapis in the wild.</p>
+                        
+                        <h3 class="mt-5">Global Climate Significance</h3>
+                        <p>The Congo Basin is the "second lung" of the world. Unlike the Amazon, which has become a net carbon emitter in some areas, the Congo Basin remains a robust carbon sink. Within this basin, the Okapi Reserve protects some of the most carbon-dense primary forests remaining on Earth.</p>
+                        
+                        <div class="row mt-5 g-4">
+                            <div class="col-md-6">
+                                <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10 h-100">
+                                    <h5 class="fw-bold text-success">Conservation Goals</h5>
+                                    <ul class="small text-secondary list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Monitor illegal mining activity</li>
+                                        <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Quantify carbon annualy</li>
+                                        <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Support REDD+ frameworks</li>
+                                        <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Protect endemic species</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="glass-card">
-                                <h4>Key Partners</h4>
-                                <ul class="small">
-                                    <li>ICCN (Institut Congolais pour la Conservation de la Nature)</li>
-                                    <li>UNESCO World Heritage Centre</li>
-                                    <li>Global Forest Watch / WRI</li>
-                                    <li>Wildlife Conservation Society (WCS)</li>
-                                </ul>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10 h-100">
+                                    <h5 class="fw-bold text-primary">Strategic Partners</h5>
+                                    <ul class="small text-secondary list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-handshake me-2 text-primary"></i>ICCN (Congo)</li>
+                                        <li class="mb-2"><i class="fas fa-handshake me-2 text-primary"></i>UNESCO Heritage</li>
+                                        <li class="mb-2"><i class="fas fa-handshake me-2 text-primary"></i>Global Forest Watch</li>
+                                        <li class="mb-2"><i class="fas fa-handshake me-2 text-primary"></i>WCS (Wildlife Conservation)</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="glass-card">
-                        <img src="https://via.placeholder.com/400x300?text=Okapi+Reserve+Map" class="img-fluid rounded mb-3" alt="Okapi Map">
-                        <h5>Fast Facts</h5>
-                        <hr>
-                        <p><strong>Established:</strong> 1992</p>
-                        <p><strong>Area:</strong> 13,726 km²</p>
-                        <p><strong>Status:</strong> World Heritage in Danger</p>
-                        <p><strong>Primary Threat:</strong> Illegal mining & poaching</p>
+                    <div class="glass-card mb-4">
+                        <img src="../gfw.png" class="img-fluid rounded-4 mb-4 border border-white border-opacity-10" alt="Okapi Reserve Monitoring">
+                        <h4 class="fw-bold mb-3">Reserve Metrics</h4>
+                        <div class="mb-3">
+                            <span class="x-small text-muted text-uppercase fw-bold">Established</span>
+                            <p class="mb-0 fw-bold">1992</p>
+                        </div>
+                        <div class="mb-3">
+                            <span class="x-small text-muted text-uppercase fw-bold">Total Area</span>
+                            <p class="mb-0 fw-bold">1,372,625 Hectares</p>
+                        </div>
+                        <div class="mb-3">
+                            <span class="x-small text-muted text-uppercase fw-bold">UNESCO Status</span>
+                            <p class="mb-0 fw-bold text-warning">World Heritage in Danger</p>
+                        </div>
+                        <div class="mb-3">
+                            <span class="x-small text-muted text-uppercase fw-bold">Primary Threat</span>
+                            <p class="mb-0 fw-bold text-danger">Illegal mining & deforestation</p>
+                        </div>
+                        <hr class="border-white opacity-10 my-4">
+                        <a href="../maps/" class="btn btn-primary w-100 rounded-pill">View Interactive Map</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="mt-5">
-        <div class="container text-center">
-            <p>&copy; 2026 Okapi Carbon Analysis. All Rights Reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-5">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="../index.html">
+                        <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                        <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+                    </a>
+                    <p class="text-secondary small pe-lg-5">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Platform</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="../dashboard/" class="footer-link">Analytics Dashboard</a></li>
+                        <li class="mb-2"><a href="../maps/" class="footer-link">Interactive GIS</a></li>
+                        <li class="mb-2"><a href="../pages/datasets.html" class="footer-link">Dataset Catalog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="../pages/methodology.html" class="footer-link">Methodology</a></li>
+                        <li class="mb-2"><a href="../pages/soil.html" class="footer-link">Soil & Forest</a></li>
+                        <li class="mb-2"><a href="../pages/references.html" class="footer-link">References</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific Integrity</h6>
+                    <p class="x-small text-secondary">Data derived from NASA GEDI Lidar, ESA Climate Change Initiative, and Global Forest Watch. All analytics follow IPCC 2006/2019 guidelines.</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. All rights reserved.</div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                themeToggle.querySelector('i').className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            });
+        });
+    </script>
 </body>
 </html>

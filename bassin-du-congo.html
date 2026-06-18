@@ -10,17 +10,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON</a>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="bassin-du-congo.html">Bassin du Congo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/soil.html">Soil & Forest</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="bassin-du-congo.html"><i class="fas fa-globe-africa me-2 text-success"></i>Bassin du Congo</a></li>
+                            <li><a class="dropdown-item" href="avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>GHG Avoided</a></li>
+                            <li><a class="dropdown-item" href="maps/"><i class="fas fa-map-marked-alt me-2 text-success"></i>Global Map</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientific</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
+                            <li><a class="dropdown-item" href="pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest</a></li>
+                            <li><a class="dropdown-item" href="pages/references.html"><i class="fas fa-book me-2 text-success"></i>References</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Project</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
+                            <li><a class="dropdown-item" href="pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets</a></li>
+                            <li><a class="dropdown-item" href="pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="avoided-emissions.html">GHG Avoided</a></li>
-                    <li class="nav-item"><a class="nav-link" href="maps/">Global Map</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -95,9 +129,40 @@
         </div>
     </div>
 
-    <footer class="bg-black text-white py-5">
-        <div class="container text-center">
-            <p class="text-secondary small mb-0">© 2026 Okapi Environmental Intelligence. Scientific benchmarking for the Congo Basin sink.</p>
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-5 mt-5">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html">
+                        <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                        <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+                    </a>
+                    <p class="text-secondary small pe-lg-5">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting within the UNESCO World Heritage site.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Platform</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="dashboard/" class="footer-link">Analytics Dashboard</a></li>
+                        <li class="mb-2"><a href="maps/" class="footer-link">Interactive GIS</a></li>
+                        <li class="mb-2"><a href="pages/datasets.html" class="footer-link">Dataset Catalog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="pages/methodology.html" class="footer-link">Methodology</a></li>
+                        <li class="mb-2"><a href="pages/soil.html" class="footer-link">Soil & Forest</a></li>
+                        <li class="mb-2"><a href="pages/references.html" class="footer-link">References</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Data Attribution</h6>
+                    <p class="x-small text-secondary">This platform utilizes data from NASA GEDI, Global Forest Watch (GFW), ESA Climate Change Initiative, and UNESCO. Methodology adheres to the 2019 Refinement to the 2006 IPCC Guidelines.</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. Scientific benchmarking for the Congo Basin sink.</div>
         </div>
     </footer>
 

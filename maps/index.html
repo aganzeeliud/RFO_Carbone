@@ -1,94 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okapi Wildlife Reserve Carbon Sequestration and Storage</title>
+    <title>Interactive GIS | Okapi Environmental Intelligence</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        #mainMap {
+            height: calc(100vh - 72px);
+            width: 100%;
+            z-index: 1;
+        }
+        .map-sidebar {
+            height: calc(100vh - 72px);
+            overflow-y: auto;
+            background: var(--dark-bg);
+            border-right: 1px solid var(--glass-border);
+            z-index: 10;
+        }
+        .leaflet-container {
+            background: #0b1121;
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON SEQUESTRATION</a>
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../bassin-du-congo.html">Bassin du Congo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../avoided-emissions.html">GHG Avoided</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../maps/">Interactive Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/datasets.html">Datasets</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../bassin-du-congo.html"><i class="fas fa-globe-africa me-2 text-success"></i>Bassin du Congo</a></li>
+                            <li><a class="dropdown-item" href="../avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>GHG Avoided</a></li>
+                            <li><a class="dropdown-item" href="../maps/"><i class="fas fa-map-marked-alt me-2 text-success"></i>Global Map</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientific</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
+                            <li><a class="dropdown-item" href="../pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest</a></li>
+                            <li><a class="dropdown-item" href="../pages/references.html"><i class="fas fa-book me-2 text-success"></i>References</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Project</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
+                            <li><a class="dropdown-item" href="../pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets</a></li>
+                            <li><a class="dropdown-item" href="../pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Analytics</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0" style="margin-top: 72px;">
         <div class="row g-0">
             <!-- Sidebar Controls -->
-            <div class="col-lg-3 p-4 bg-white shadow-sm" style="height: calc(100vh - 72px); overflow-y: auto;">
+            <div class="col-lg-3 map-sidebar p-4">
                 <h4 class="fw-bold mb-4">Map Controls</h4>
                 
                 <div class="mb-4">
-                    <label class="form-label fw-bold">Select Layer</label>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="layerSelect" id="layerBiomass" checked>
-                        <label class="form-check-label" for="layerBiomass">Carbon Density (GEDI)</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="layerSelect" id="layerLoss">
-                        <label class="form-check-label" for="layerLoss">Forest Loss (GFW)</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="layerSelect" id="layerMining">
-                        <label class="form-check-label" for="layerMining">Mining Concessions</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="layerSelect" id="layerAvoided">
-                        <label class="form-check-label" for="layerAvoided">Avoided Emissions Intensity</label>
-                    </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="layerSelect" id="layerHotspots">
-                        <label class="form-check-label" for="layerHotspots">Climate Mitigation Hotspots</label>
+                    <label class="form-label small fw-bold text-uppercase text-muted">Select Intelligence Layer</label>
+                    <div class="glass-card p-3 bg-opacity-10 border-opacity-10">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="layerSelect" id="layerBiomass" checked>
+                            <label class="form-check-label small" for="layerBiomass">Carbon Density (GEDI)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="layerSelect" id="layerLoss">
+                            <label class="form-check-label small" for="layerLoss">Forest Loss (GFW)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="layerSelect" id="layerMining">
+                            <label class="form-check-label small" for="layerMining">Mining Concessions</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="layerSelect" id="layerAvoided">
+                            <label class="form-check-label small" for="layerAvoided">Avoided Emissions</label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label fw-bold">Analysis Year: <span id="yearValue">2026</span></label>
-                    <input type="range" class="form-range" min="2001" max="2026" step="1" id="yearSlider" value="2026">
+                    <label class="form-label small fw-bold text-uppercase text-muted">Analysis Year: <span id="yearValue" class="text-success">2026</span></label>
+                    <input type="range" class="form-range custom-range" min="2001" max="2026" step="1" id="yearSlider" value="2026">
                 </div>
 
-                <div class="glass-card mb-4 bg-light">
-                    <h6>Legend</h6>
+                <div class="glass-card mb-4 p-3 bg-opacity-10 border-opacity-10">
+                    <h6 class="fw-bold small text-uppercase mb-3">Legend</h6>
                     <div class="d-flex align-items-center mb-2">
-                        <div style="width: 20px; height: 20px; background: #2d5a27; margin-right: 10px;"></div>
-                        <span class="small">High Density Forest</span>
+                        <div style="width: 15px; height: 15px; background: #1a4314; border-radius: 3px; margin-right: 10px;"></div>
+                        <span class="x-small text-secondary">High Density Forest</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
-                        <div style="width: 20px; height: 20px; background: #c5a059; margin-right: 10px;"></div>
-                        <span class="small">Degraded / Secondary</span>
+                        <div style="width: 15px; height: 15px; background: #d4af37; border-radius: 3px; margin-right: 10px;"></div>
+                        <span class="x-small text-secondary">Degraded / Secondary</span>
                     </div>
                     <div class="d-flex align-items-center">
-                        <div style="width: 20px; height: 20px; background: #ff4d4d; margin-right: 10px;"></div>
-                        <span class="small">Recent Loss Alert</span>
+                        <div style="width: 15px; height: 15px; background: #dc3545; border-radius: 3px; margin-right: 10px;"></div>
+                        <span class="x-small text-secondary">Recent Loss Alert</span>
                     </div>
                 </div>
 
-                <button class="btn btn-primary w-100 mb-2">Export Current View</button>
-                <button class="btn btn-outline-secondary w-100">Reset Map</button>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary rounded-pill btn-sm py-2 fw-bold">Export View</button>
+                    <button class="btn btn-outline-secondary rounded-pill btn-sm py-2">Reset Map</button>
+                </div>
+
+                <div class="mt-5 p-3 rounded-4 bg-success bg-opacity-5 border border-success border-opacity-10">
+                    <p class="x-small text-secondary mb-0"><i class="fas fa-info-circle me-2"></i>Map data is updated daily via Global Forest Watch and Sentinel-2 archives.</p>
+                </div>
             </div>
 
             <!-- Map Display -->
             <div class="col-lg-9 position-relative">
-                <div id="mainMap" style="height: calc(100vh - 72px); width: 100%;"></div>
+                <div id="mainMap"></div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
@@ -100,15 +155,16 @@
             const yearVal = document.getElementById('yearValue');
             slider.addEventListener('input', (e) => {
                 yearVal.innerText = e.target.value;
-                // In a real app, this would filter data by year
             });
 
-            // Radio Button interactivity
-            document.querySelectorAll('input[name="layerSelect"]').forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    const layerId = e.target.id.replace('layer', '').toLowerCase();
-                    updateMapLayer(layerId);
-                });
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                themeToggle.querySelector('i').className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             });
         });
     </script>

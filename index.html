@@ -83,18 +83,35 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Intelligence</a></li>
-                    <li class="nav-item"><a class="nav-link" href="bassin-du-congo.html">Bassin du Congo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/methodology.html">Methodology</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/soil.html">Soil & Forest</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="maps/">Global Map</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="https://github.com/aganzeeliud/RFO_Carbone" class="btn btn-outline-light btn-sm rounded-pill px-3">
-                            <i class="fab fa-github me-1"></i> Source
-                        </a>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="bassin-du-congo.html"><i class="fas fa-globe-africa me-2 text-success"></i>Bassin du Congo</a></li>
+                            <li><a class="dropdown-item" href="avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>GHG Avoided</a></li>
+                            <li><a class="dropdown-item" href="maps/"><i class="fas fa-map-marked-alt me-2 text-success"></i>Global Map</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item ms-lg-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientific</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
+                            <li><a class="dropdown-item" href="pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest</a></li>
+                            <li><a class="dropdown-item" href="pages/references.html"><i class="fas fa-book me-2 text-success"></i>References</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Project</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
+                            <li><a class="dropdown-item" href="pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets</a></li>
+                            <li><a class="dropdown-item" href="pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
+                    <li class="nav-item ms-lg-3">
                         <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
                             <i class="fas fa-sun"></i>
                         </button>
@@ -373,25 +390,37 @@
                         <a href="mailto:contact@okapicarbon.org" class="text-white opacity-50"><i class="fas fa-envelope fa-lg"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-4">
                     <h6 class="text-white fw-bold mb-4 text-uppercase">Platform</h6>
                     <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="dashboard/" class="text-decoration-none text-reset">Analytics Dashboard</a></li>
-                        <li class="mb-2"><a href="maps/" class="text-decoration-none text-reset">Interactive GIS</a></li>
-                        <li class="mb-2"><a href="pages/datasets.html" class="text-decoration-none text-reset">Dataset Catalog</a></li>
+                        <li class="mb-2"><a href="dashboard/" class="footer-link">Analytics Dashboard</a></li>
+                        <li class="mb-2"><a href="maps/" class="footer-link">Interactive GIS</a></li>
+                        <li class="mb-2"><a href="pages/datasets.html" class="footer-link">Dataset Catalog</a></li>
+                        <li class="mb-2"><a href="avoided-emissions.html" class="footer-link">GHG Mitigation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="pages/methodology.html" class="footer-link">Methodology</a></li>
+                        <li class="mb-2"><a href="pages/soil.html" class="footer-link">Soil & Forest</a></li>
+                        <li class="mb-2"><a href="pages/references.html" class="footer-link">Scientific References</a></li>
+                        <li class="mb-2"><a href="bassin-du-congo.html" class="footer-link">Basin Analysis</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Project</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="pages/about.html" class="footer-link">About Reserve</a></li>
+                        <li class="mb-2"><a href="pages/contact.html" class="footer-link">Contact Us</a></li>
+                        <li class="mb-2"><a href="pages/downloads.html" class="footer-link">Downloads</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="pages/methodology.html" class="text-decoration-none text-reset">Methodology</a></li>
-                        <li class="mb-2"><a href="pages/about.html" class="text-decoration-none text-reset">About Reserve</a></li>
-                        <li class="mb-2"><a href="pages/references.html" class="text-decoration-none text-reset">Scientific References</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Data Attribution</h6>
-                    <p class="x-small text-secondary">This platform utilizes data from NASA GEDI, Global Forest Watch (GFW), ESA Climate Change Initiative, and UNESCO. Methodology adheres to the 2019 Refinement to the 2006 IPCC Guidelines.</p>
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Standards</h6>
+                    <p class="x-small text-secondary mb-2">NASA GEDI Lidar</p>
+                    <p class="x-small text-secondary mb-2">Verra VM0015</p>
+                    <p class="x-small text-secondary mb-0">IPCC 2006 GL</p>
                 </div>
             </div>
             <hr class="my-5 border-secondary border-opacity-25">

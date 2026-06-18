@@ -1,44 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okapi Wildlife Reserve Carbon Sequestration and Storage</title>
+    <title>Contact Us | Okapi Environmental Intelligence</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">OKAPI CARBON SEQUESTRATION</a>
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../bassin-du-congo.html"><i class="fas fa-globe-africa me-2 text-success"></i>Bassin du Congo</a></li>
+                            <li><a class="dropdown-item" href="../avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>GHG Avoided</a></li>
+                            <li><a class="dropdown-item" href="../maps/"><i class="fas fa-map-marked-alt me-2 text-success"></i>Global Map</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientific</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
+                            <li><a class="dropdown-item" href="../pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest</a></li>
+                            <li><a class="dropdown-item" href="../pages/references.html"><i class="fas fa-book me-2 text-success"></i>References</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Project</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
+                            <li><a class="dropdown-item" href="../pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets</a></li>
+                            <li><a class="dropdown-item" href="../pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Analytics</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <span class="section-tag">Get in Touch</span>
+            <h1 class="display-4 fw-800">Inquiry <span class="text-gradient">Portal</span></h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">Connect with our technical team for data access, scientific collaboration, or reporting inquiries.</p>
+        </div>
+    </header>
 
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="glass-card">
-                    <h2 class="text-center mb-4">Contact Us</h2>
-                    <p class="text-center text-muted mb-4">Inquiries regarding data methodology or collaboration opportunities.</p>
                     <form>
-                        <div class="mb-3">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" placeholder="John Doe">
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Full Name</label>
+                            <input type="text" class="form-control bg-dark bg-opacity-25 border-secondary border-opacity-25 text-white p-3" placeholder="Dr. Jane Smith">
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" placeholder="john@example.com">
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Organization</label>
+                            <input type="text" class="form-control bg-dark bg-opacity-25 border-secondary border-opacity-25 text-white p-3" placeholder="University / Institute">
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-control" rows="5"></textarea>
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Email Address</label>
+                            <input type="email" class="form-control bg-dark bg-opacity-25 border-secondary border-opacity-25 text-white p-3" placeholder="jane@institute.org">
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Inquiry</button>
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Nature of Inquiry</label>
+                            <select class="form-select bg-dark bg-opacity-25 border-secondary border-opacity-25 text-white p-3">
+                                <option selected>Scientific Collaboration</option>
+                                <option>Data Access Request</option>
+                                <option>Methodology Question</option>
+                                <option>Press & Media</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-uppercase text-muted">Message</label>
+                            <textarea class="form-control bg-dark bg-opacity-25 border-secondary border-opacity-25 text-white p-3" rows="5" placeholder="How can we assist your research?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">Submit Inquiry</button>
                     </form>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-5 mt-lg-0">
+                <div class="glass-card mb-4">
+                    <h5 class="fw-bold mb-4">Direct Channels</h5>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="feature-icon mb-0 me-3" style="width: 40px; height: 40px; font-size: 1rem;"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <p class="x-small text-muted mb-0 fw-bold text-uppercase">Email</p>
+                            <p class="mb-0 small">contact@okapicarbon.org</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="feature-icon mb-0 me-3 text-primary" style="width: 40px; height: 40px; font-size: 1rem; background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fab fa-github"></i></div>
+                        <div>
+                            <p class="x-small text-muted mb-0 fw-bold text-uppercase">Source Code</p>
+                            <p class="mb-0 small">github.com/aganzeeliud</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card bg-success bg-opacity-5 border-success border-opacity-20">
+                    <h5 class="fw-bold text-success mb-3">Office of Information</h5>
+                    <p class="small text-secondary mb-0">Our scientific team typically responds to data requests within 48-72 business hours after initial vetting.</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-5 mt-5">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="../index.html">
+                        <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                        <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+                    </a>
+                    <p class="text-secondary small pe-lg-5">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Platform</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="../dashboard/" class="footer-link">Analytics Dashboard</a></li>
+                        <li class="mb-2"><a href="../maps/" class="footer-link">Interactive GIS</a></li>
+                        <li class="mb-2"><a href="../pages/datasets.html" class="footer-link">Dataset Catalog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="../pages/methodology.html" class="footer-link">Methodology</a></li>
+                        <li class="mb-2"><a href="../pages/soil.html" class="footer-link">Soil & Forest</a></li>
+                        <li class="mb-2"><a href="../pages/references.html" class="footer-link">References</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific Integrity</h6>
+                    <p class="x-small text-secondary">Data derived from NASA GEDI Lidar, ESA Climate Change Initiative, and Global Forest Watch. All analytics follow IPCC 2006/2019 guidelines.</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                themeToggle.querySelector('i').className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            });
+        });
+    </script>
 </body>
 </html>
