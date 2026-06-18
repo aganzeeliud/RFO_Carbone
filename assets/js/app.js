@@ -213,6 +213,79 @@ function initComparisonChart(id) {
     Plotly.newPlot(id, [trace1, trace2], getPlotlyLayout('Regional Efficiency Benchmark', 'MtCO2e', true), PLOTLY_CONFIG);
 }
 
+// Soil & Forest Type Analytics
+async function fetchSoilData(url) {
+    try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const rows = text.split('\n').slice(1);
+        return rows.filter(row => row.trim() !== '').map(row => {
+            const cols = row.split(',');
+            return {
+                category: cols[0],
+                area: parseFloat(cols[1]),
+                carbon: parseFloat(cols[2])
+            };
+        });
+    } catch (e) { return []; }
+}
+
+async function fetchForestTypeData(url) {
+    try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const rows = text.split('\n').slice(1);
+        return rows.filter(row => row.trim() !== '').map(row => {
+            const cols = row.split(',');
+            return {
+                type: cols[0],
+                density: parseFloat(cols[1]),
+                percentage: parseFloat(cols[2])
+            };
+        });
+    } catch (e) { return []; }
+}
+
+async function initSoilCharts() {
+    const isLocal = window.location.pathname.includes('pages');
+    const soilPath = isLocal ? '../assets/data/soil_occupation.csv' : 'assets/data/soil_occupation.csv';
+    const forestPath = isLocal ? '../assets/data/forest_types.csv' : 'assets/data/forest_types.csv';
+    
+    const soilData = await fetchSoilData(soilPath);
+    const forestData = await fetchForestTypeData(forestPath);
+
+    if (document.getElementById('soilOccupationChart')) {
+        const trace = {
+            labels: soilData.map(d => d.category),
+            values: soilData.map(d => d.area),
+            type: 'pie',
+            hole: 0.4,
+            marker: { colors: ['#1a4314', '#2d5a27', '#d4af37', '#94a3b8', '#3498db'] }
+        };
+        Plotly.newPlot('soilOccupationChart', [trace], getPlotlyLayout('Soil Occupation (Area)', ''), PLOTLY_CONFIG);
+    }
+
+    if (document.getElementById('soilCarbonChart')) {
+        const trace = {
+            x: soilData.map(d => d.category),
+            y: soilData.map(d => d.carbon),
+            type: 'bar',
+            marker: { color: '#2d5a27' }
+        };
+        Plotly.newPlot('soilCarbonChart', [trace], getPlotlyLayout('Carbon Stored by Category (tC)', 'tC'), PLOTLY_CONFIG);
+    }
+
+    if (document.getElementById('forestTypeChart')) {
+        const trace = {
+            labels: forestData.map(d => d.type),
+            values: forestData.map(d => d.percentage),
+            type: 'pie',
+            marker: { colors: ['#1a4314', '#2ecc71', '#27ae60'] }
+        };
+        Plotly.newPlot('forestTypeChart', [trace], getPlotlyLayout('Forest Types Distribution (%)', ''), PLOTLY_CONFIG);
+    }
+}
+
 // Congo Basin Comparison Module
 async function initCongoBasinModule() {
     const data = await fetchCSV('assets/data/Carbone_db.csv');

@@ -21,6 +21,7 @@ The Okapi Wildlife Reserve is a UNESCO World Heritage site sequestering millions
 
 -   **REDD+ Analytics Engine:** Automated calculation of avoided GHG emissions from 2001 to 2026.
 -   **Carbon Intelligence Dashboard:** High-fidelity visualizations of sequestration trends and forest loss.
+-   **Soil & Forest Analytics:** Detailed mapping of land cover (Soil Occupation) and forest type carbon density.
 -   **Multi-Sensor Fusion:** Integration of NASA GEDI (Biomass), ESA CCI, and Global Forest Watch data.
 -   **Regional Benchmarking:** Comparative analytics vs. the broader Congo Basin sequestration efficiency.
 -   **Interactive GIS Viewer:** Layered mapping of biomass density, protected boundaries, and conservation hotspots.

@@ -27,6 +27,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Intelligence</a></li>
                     <li class="nav-item"><a class="nav-link" href="bassin-du-congo.html">Bassin du Congo</a></li>
                     <li class="nav-item"><a class="nav-link" href="pages/methodology.html">Methodology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/soil.html">Soil & Forest</a></li>
                     <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="maps/">Global Map</a></li>
                     <li class="nav-item ms-lg-3">
@@ -242,6 +243,44 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Soil & Forest Intelligence -->
+            <div class="section-title text-center mt-5">
+                <span class="text-success fw-bold text-uppercase">Land Analytics</span>
+                <h2 class="fw-800 mt-2">Soil Occupation & Forest Composition</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="glass-card text-center h-100">
+                        <div class="feature-icon mx-auto"><i class="fas fa-map-marked-alt"></i></div>
+                        <h4 class="fw-bold">Soil Occupation</h4>
+                        <p class="text-secondary small">84% of the reserve is classified as primary tropical forest, maintaining high-density carbon reservoirs.</p>
+                        <div id="soilOccupationChart" class="chart-container" style="height: 250px;"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="glass-card text-center h-100">
+                        <div class="feature-icon mx-auto"><i class="fas fa-tree"></i></div>
+                        <h4 class="fw-bold">Forest Types</h4>
+                        <p class="text-secondary small">Diverse stratification including dense humid, swamp, and regenerating secondary forests.</p>
+                        <div id="forestTypeChart" class="chart-container" style="height: 250px;"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="glass-card text-center h-100">
+                        <div class="feature-icon mx-auto"><i class="fas fa-microscope"></i></div>
+                        <h4 class="fw-bold">Carbon Association</h4>
+                        <p class="text-secondary small">Direct correlation between forest maturity and aboveground carbon storage capacity.</p>
+                        <div id="soilCarbonChart" class="chart-container" style="height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mb-5">
+                <a href="pages/soil.html" class="btn btn-outline-success rounded-pill px-5">Deep Dive into Soil Data</a>
+            </div>
+
         </div>
     </section>
 
@@ -326,6 +365,7 @@
             // Initialize Intelligence Modules
             initComparisonChart('comparisonChart');
             initGHGModule();
+            initSoilCharts();
         });
     </script>
 </body>
