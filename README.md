@@ -26,23 +26,26 @@ The Okapi Wildlife Reserve is a UNESCO World Heritage site sequestering millions
 -   **Regional Benchmarking:** Comparative analytics vs. the broader Congo Basin sequestration efficiency.
 -   **Interactive GIS Viewer:** Layered mapping of biomass density, protected boundaries, and conservation hotspots.
 -   **Professional UI:** Modern glassmorphism design with full Dark/Light mode support.
+-   **Non-Technical Documentation:** Comprehensive guides explaining LiDAR analysis, satellite technology, and carbon calculations in simple terms.
 
 ## 📂 Project Architecture
 
 ```text
 RFO_Carbone/
-├── index.html              # Landing Page & Executive Summary
-├── dashboard/              # In-depth Analytics Dashboard
-├── maps/                   # Interactive GIS Spatial Viewer
+├── index.html                    # Landing Page & Executive Summary
+├── README.md                     # Project Overview
+├── LIDAR_ANALYSIS_GUIDE.md       # Non-Technical Guide to Satellite Analysis
+├── dashboard/                    # In-depth Analytics Dashboard
+├── maps/                         # Interactive GIS Spatial Viewer
 ├── pages/
-│   ├── methodology.html    # Scientific Workflow & IPCC Alignment
-│   ├── datasets.html       # Data Catalog & Attribution
-│   └── about.html          # History of the Okapi Wildlife Reserve
+│   ├── methodology.html          # Scientific Workflow & IPCC Alignment
+│   ├── datasets.html             # Data Catalog & Attribution
+│   └── about.html                # History of the Okapi Wildlife Reserve
 ├── assets/
-│   ├── css/style.css       # Custom Scientific Theme
-│   ├── js/app.js           # Core Analytics & Data Processing Logic
-│   └── data/               # CSV/GeoJSON Datasets (GEDI, GFW, ESA)
-└── scripts/                # Data Pipeline (Python/Earth Engine)
+│   ├── css/style.css             # Custom Scientific Theme
+│   ├── js/app.js                 # Core Analytics & Data Processing Logic
+│   └── data/                     # CSV/GeoJSON Datasets (GEDI, GFW, ESA)
+└── scripts/                      # Data Pipeline (Python/Earth Engine)
 ```
 
 ## 🛠 Tech Stack
@@ -83,6 +86,19 @@ The platform's GHG estimates are derived from:
 -   **Net Sequestration:** Calculated using NASA GEDI Lidar-derived biomass density.
 -   **Avoided Emissions:** Based on the difference between the reserve's deforestation rate and the regional "business-as-usual" baseline (REDD+ VM0015).
 -   **Carbon Fraction:** Adheres to the IPCC 2006 standard of 0.47.
+
+### 🛰️ Satellite Data Sources
+
+Our multi-sensor fusion approach combines:
+
+| Satellite | Agency | Measurement | Purpose |
+|-----------|--------|-------------|---------|
+| **GEDI** | NASA | Tree Height & 3D Structure | Biomass density mapping |
+| **Sentinel-2** | ESA | Optical/Infrared | Forest health & change detection |
+| **BIOMASS** | ESA | Radar (SAR) | Canopy penetration & total biomass |
+| **Global Forest Watch** | WRI | Historical Loss Data | Deforestation baseline |
+
+For a comprehensive non-technical explanation of these technologies, see **[LIDAR_ANALYSIS_GUIDE.md](LIDAR_ANALYSIS_GUIDE.md)** — perfect for stakeholders, policy makers, and anyone new to satellite monitoring.
 
 ---
 Developed with ❤️ for the protection of the Congo Basin.
