@@ -10,62 +10,421 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        /* ===== HERO SECTION ===== */
         .hero-section {
-            background: radial-gradient(circle at 20% 30%, rgba(45, 90, 39, 0.15), transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1), transparent 40%),
-                        linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)),
-                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f4c3a 100%);
+            position: relative;
             min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
-        .floating-stat {
-            animation: float 6s ease-in-out infinite;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(45, 150, 90, 0.1), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05), transparent 50%);
+            pointer-events: none;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .stat-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #d4af37;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-lg {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary-lg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+            color: white;
+        }
+
+        .btn-secondary-lg {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary-lg:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        /* ===== FEATURE CARDS ===== */
+        .feature-cards {
+            margin-top: -100px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
             padding: 2rem;
             transition: all 0.3s ease;
+            height: 100%;
         }
 
-        .stat-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-gold);
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #d4af37;
             transform: translateY(-5px);
         }
 
-        .metric-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 800;
-            color: var(--accent-gold);
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .pillar-card {
-            border-bottom: 4px solid transparent;
+        .feature-card h5 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== KPI SECTION ===== */
+        .kpi-section {
+            background: #0f172a;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .kpi-item {
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .kpi-divider {
+            width: 2px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: auto;
+        }
+
+        /* ===== PILLARS SECTION ===== */
+        .pillars-section {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            padding: 5rem 0;
+        }
+
+        .pillar-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .pillar-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .pillar-box:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .pillar-box:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #22c55e;
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
         }
 
-        .pillar-card:hover {
-            border-bottom-color: var(--accent-gold);
-            background: rgba(212, 175, 55, 0.05);
+        .pillar-box:hover .pillar-icon {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(240, 230, 140, 0.1));
+            border-color: #d4af37;
+            color: #d4af37;
         }
 
-        .section-tag {
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: 2px;
+        .pillar-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .pillar-text {
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TECH STACK SECTION ===== */
+        .tech-section {
+            background: #0f172a;
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            cursor: pointer;
+        }
+
+        .tech-badge:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            transform: translateY(-5px);
+        }
+
+        .tech-badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-badge-name {
+            font-weight: 600;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 2rem;
+            }
+
+            .kpi-divider {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -124,116 +483,221 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center">
+    <section class="hero-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7 text-start">
-                    <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-4 px-3">
-                        <span class="section-tag fw-bold text-success text-uppercase">Operational Protocol v3.0</span>
-                    </div>
-                    <h1 class="display-1 fw-800 mb-4 lh-1">Protecting the <br><span class="text-gradient">Congo Basin's</span> <br>Green Heart</h1>
-                    <p class="lead text-secondary mb-5 fs-4 pe-lg-5">Advanced environmental intelligence monitoring the Okapi Wildlife Reserve’s contribution to global climate stability through high-integrity REDD+ validated analytics.</p>
-                    <div class="d-flex gap-3">
-                        <a href="dashboard/" class="btn btn-primary btn-lg px-5">Explore Analytics</a>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-5 mt-5 mt-lg-0">
-                    <div class="glass-card text-center p-5 floating-stat">
-                        <div class="mb-4">
-                            <div class="feature-icon mx-auto" style="width: 100px; height: 100px; font-size: 3rem;">
-                                <i class="fas fa-satellite-dish"></i>
-                            </div>
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="hero-title">Protecting the Congo Basin's Green Heart</h1>
+                    <p class="hero-subtitle">Advanced environmental intelligence monitoring the Okapi Wildlife Reserve's contribution to global climate stability through high-integrity REDD+ validated analytics.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="mainSequestration">0.0M</div>
+                            <div class="stat-label">Annual Sequestration (MtCO2e)</div>
                         </div>
-                        <h3 class="fw-bold mb-3">Multi-Sensor Fusion</h3>
-                        <p class="text-secondary mb-4">Real-time monitoring using NASA GEDI Lidar, ESA Biomass CCI, and Sentinel-2 optical archives.</p>
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <div class="p-3 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10">
-                                    <h4 class="metric-value mb-0">1.37M</h4>
-                                    <p class="x-small text-muted mb-0 text-uppercase">Hectares</p>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-3 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10">
-                                    <h4 class="metric-value mb-0">TIER 3</h4>
-                                    <p class="x-small text-muted mb-0 text-uppercase">Methodology</p>
-                                </div>
-                            </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="mainAvoided">0.0M</div>
+                            <div class="stat-label">Avoided Emissions (tCO2e)</div>
                         </div>
+                        <div class="stat-item">
+                            <div class="stat-number" style="color: #ef4444;">-12%</div>
+                            <div class="stat-label">Deforestation Trend</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2.1 Gt</div>
+                            <div class="stat-label">Total Carbon Stock</div>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="dashboard/" class="btn-primary-lg">
+                            <i class="fas fa-chart-line me-2"></i>Explore Analytics
+                        </a>
+                        <a href="LIDAR_ANALYSIS_GUIDE.md" target="_blank" class="btn-secondary-lg">
+                            <i class="fas fa-book me-2"></i>Learn About LiDAR
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Global KPIs -->
-    <section class="py-5 mt-n5 position-relative z-2">
+    <!-- Feature Cards Section -->
+    <section class="py-5 bg-dark feature-cards">
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="fas fa-leaf text-success mb-3 fs-3"></i>
-                        <h2 class="metric-value" id="mainSequestration">0.0M</h2>
-                        <p class="text-secondary small text-uppercase fw-bold mb-0">Annual Sequestration (MtCO2e)</p>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h5>Multi-Sensor Fusion</h5>
+                        <p>Real-time monitoring using NASA GEDI Lidar, ESA Biomass radar, and Sentinel-2 optical imagery for comprehensive canopy analysis.</p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="fas fa-shield-alt text-primary mb-3 fs-3"></i>
-                        <h2 class="metric-value" id="mainAvoided">0.0M</h2>
-                        <p class="text-secondary small text-uppercase fw-bold mb-0">Avoided Emissions (tCO2e)</p>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h5>Scientific Analytics</h5>
+                        <p>REDD+ validated algorithms process gigabytes of LiDAR data to estimate biomass density with unprecedented precision and accuracy.</p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="fas fa-chart-line text-danger mb-3 fs-3"></i>
-                        <h2 class="metric-value text-danger">-12%</h2>
-                        <p class="text-secondary small text-uppercase fw-bold mb-0">Deforestation Trend</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card">
-                        <i class="fas fa-database text-warning mb-3 fs-3"></i>
-                        <h2 class="metric-value text-warning">2.1 Gt</h2>
-                        <p class="text-secondary small text-uppercase fw-bold mb-0">Total Carbon Stock (GtC)</p>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h5>Transparent Reporting</h5>
+                        <p>Open-access data aligned with IPCC and Verra standards ensure every ton of carbon is accounted for and verifiable.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Operational Pillars -->
-    <section class="py-5 mb-5">
+    <!-- KPI Section -->
+    <section class="kpi-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <div class="kpi-item">
+                        <div class="kpi-value">1.37M</div>
+                        <div class="kpi-label">Reserve Area (hectares)</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <div class="kpi-item">
+                        <div class="kpi-value">TIER 3</div>
+                        <div class="kpi-label">REDD+ Methodology</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <div class="kpi-item">
+                        <div class="kpi-value">2026</div>
+                        <div class="kpi-label">Data Through Year</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="kpi-item">
+                        <div class="kpi-value">100%</div>
+                        <div class="kpi-label">Open Access Data</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars-section">
         <div class="container py-5">
-            <div class="section-title text-center mb-5">
-                <span class="section-tag text-success fw-bold text-uppercase">Platform Architecture</span>
-                <h2 class="display-4 fw-800 mt-2">The Three Pillars of OEI</h2>
-                <div class="divider"></div>
+            <div class="section-title mb-5">
+                <div class="section-label">Platform Architecture</div>
+                <h2 class="section-heading">The Three Pillars of OEI</h2>
             </div>
-            <div class="row g-5">
+            
+            <div class="row g-4">
                 <div class="col-lg-4">
-                    <div class="glass-card pillar-card h-100">
-                        <div class="feature-icon"><i class="fas fa-satellite"></i></div>
-                        <h4 class="fw-bold mb-3">Continuous Monitoring</h4>
-                        <p class="text-secondary">Leveraging daily satellite feeds from Global Forest Watch and ESA to detect disturbances in the reserve's canopy before they escalate.</p>
+                    <div class="pillar-box">
+                        <div class="pillar-icon">
+                            <i class="fas fa-circle-notch"></i>
+                        </div>
+                        <h3 class="pillar-title">Continuous Monitoring</h3>
+                        <p class="pillar-text">Daily satellite feeds from Global Forest Watch and ESA detect disturbances in the reserve's canopy before they escalate, enabling rapid response.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="glass-card pillar-card h-100">
-                        <div class="feature-icon"><i class="fas fa-microscope"></i></div>
-                        <h4 class="fw-bold mb-3">Scientific Analytics</h4>
-                        <p class="text-secondary">Our REDD+ validated algorithms process gigabytes of LiDAR data from NASA GEDI to estimate biomass density with unprecedented precision.</p>
+                    <div class="pillar-box">
+                        <div class="pillar-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="pillar-title">Scientific Analytics</h3>
+                        <p class="pillar-text">Our REDD+ validated algorithms process gigabytes of LiDAR data from NASA GEDI to estimate biomass density with unprecedented precision.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="glass-card pillar-card h-100">
-                        <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
-                        <h4 class="fw-bold mb-3">Transparent Reporting</h4>
-                        <p class="text-secondary">Open-access data and methodology aligned with IPCC and Verra standards ensure that every ton of carbon is accounted for and verifiable.</p>
+                    <div class="pillar-box">
+                        <div class="pillar-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="pillar-title">Transparent Reporting</h3>
+                        <p class="pillar-text">Open-access data and methodology aligned with IPCC and Verra standards ensure that every ton of carbon is accounted for and verifiable.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-section py-5">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-label">Technology Stack</div>
+                <h2 class="section-heading">Powered By Industry Leaders</h2>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <div class="tech-badge">
+                        <div class="text-center">
+                            <div class="tech-badge-icon">🛰️</div>
+                            <div class="tech-badge-name">NASA GEDI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="tech-badge">
+                        <div class="text-center">
+                            <div class="tech-badge-icon">📡</div>
+                            <div class="tech-badge-name">ESA Sentinel-2</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="tech-badge">
+                        <div class="text-center">
+                            <div class="tech-badge-icon">🌐</div>
+                            <div class="tech-badge-name">ESA BIOMASS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="tech-badge">
+                        <div class="text-center">
+                            <div class="tech-badge-icon">🌍</div>
+                            <div class="tech-badge-name">Global Forest Watch</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="tech-badge">
+                        <div class="text-center">
+                            <div class="tech-badge-icon">⚙️</div>
+                            <div class="tech-badge-name">Google Earth Engine</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="tech-badge">
+                        <div class="text-center">
+                            <div class="tech-badge-icon">📊</div>
+                            <div class="tech-badge-name">Advanced Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container py-5">
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Explore the Data?</h2>
+            <p class="cta-subtitle">Access comprehensive analytics, interactive maps, and detailed reports about the Okapi Wildlife Reserve.</p>
+            <a href="dashboard/" class="btn-primary-lg">
+                <i class="fas fa-arrow-right me-2"></i>Launch Dashboard
+            </a>
         </div>
     </section>
 
