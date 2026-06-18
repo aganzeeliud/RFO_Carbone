@@ -36,7 +36,9 @@ function getPlotlyLayout(title, yaxisTitle, isDual = false, source = "") {
             gridcolor: gridColor, 
             linecolor: gridColor,
             tickfont: { color: textColor, size: 10 },
-            showgrid: false
+            showgrid: false,
+            tickmode: 'linear',
+            dtick: 5
         },
         yaxis: { 
             title: { text: yaxisTitle, font: { size: 12, color: textColor } },
