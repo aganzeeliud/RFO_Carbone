@@ -82,6 +82,70 @@ h1, h2, h3, h4, h5 {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
+/* Redesign Components */
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: rgba(45, 90, 39, 0.1);
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-icon:hover {
+    background: var(--accent-gold);
+    color: var(--primary-green);
+    transform: rotate(10deg);
+}
+
+.stat-card {
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.stat-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--accent-gold), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .stat-icon {
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-section {
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                url('https://images.unsplash.com/photo-1511497584788-97679f11444b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    padding: 6rem 3rem;
+    margin: 6rem 0;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
 /* Navbar */
 .navbar {
     background: var(--nav-bg) !important;

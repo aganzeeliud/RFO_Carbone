@@ -1,66 +1,87 @@
-# Okapi Environmental Intelligence Platform
+# Okapi Environmental Intelligence (OEI) Platform
 
-A high-performance climate analytics and environmental monitoring platform for the Okapi Wildlife Reserve, Democratic Republic of Congo.
+[![Status](https://img.shields.io/badge/Status-Live-success.svg)](https://yourusername.github.io/RFO_Carbone/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Framework](https://img.shields.io/badge/Framework-Bootstrap%205-7952b3.svg)](https://getbootstrap.com/)
+
+> **Securing the Congo Basin's Carbon Future through Advanced Intelligence.**
+
+The **Okapi Environmental Intelligence Platform** is a cutting-edge scientific monitoring system dedicated to the Okapi Wildlife Reserve (RFO) in the Democratic Republic of Congo. By fusing multi-sensor satellite data with REDD+ validated analytics, the platform provides real-time transparency into the climate mitigation performance of one of Africa's most critical carbon sinks.
+
+---
+
+## 🌟 Project Vision
+
+The Okapi Wildlife Reserve is a UNESCO World Heritage site sequestering millions of tons of CO2 annually. Our mission is to provide researchers, policy makers, and conservationists with a **high-integrity data layer** to:
+1.  **Monitor** forest health and carbon stock stability.
+2.  **Quantify** avoided GHG emissions using IPCC-aligned methodologies.
+3.  **Benchmark** reserve performance against regional Congo Basin trends.
 
 ## 🚀 Key Features
-- **REDD+ Analytics:** Automated calculation of avoided GHG emissions (2001-2026).
-- **Carbon Intelligence:** Real-time monitoring of carbon sequestration and forest stability.
-- **Professional Dashboard:** Glassmorphism UI with interactive Plotly.js analytics.
-- **Scientific GIS:** Multi-sensor satellite data fusion (NASA GEDI, ESA, GFW).
-- **Unified Dataset:** Consolidated annual metrics for climate mitigation reporting.
 
-## 🚀 Live Demo
-This platform is designed to be hosted on **GitHub Pages**.
+-   **REDD+ Analytics Engine:** Automated calculation of avoided GHG emissions from 2001 to 2026.
+-   **Carbon Intelligence Dashboard:** High-fidelity visualizations of sequestration trends and forest loss.
+-   **Multi-Sensor Fusion:** Integration of NASA GEDI (Biomass), ESA CCI, and Global Forest Watch data.
+-   **Regional Benchmarking:** Comparative analytics vs. the broader Congo Basin sequestration efficiency.
+-   **Interactive GIS Viewer:** Layered mapping of biomass density, protected boundaries, and conservation hotspots.
+-   **Professional UI:** Modern glassmorphism design with full Dark/Light mode support.
 
-## 📂 Project Structure
+## 📂 Project Architecture
+
 ```text
-/
-├── index.html          # Landing Page
-├── about.html          # Project Background
-├── methodology.html    # Scientific Workflow
-├── datasets.html       # Data Catalog
-├── dashboard.html      # Analytics Dashboard (Plotly.js)
-├── maps.html           # Interactive GIS Viewer (Leaflet.js)
-├── downloads.html      # Data Center
-├── references.html     # Bibliography
-├── contact.html        # Collaboration Form
+RFO_Carbone/
+├── index.html              # Landing Page & Executive Summary
+├── dashboard/              # In-depth Analytics Dashboard
+├── maps/                   # Interactive GIS Spatial Viewer
+├── pages/
+│   ├── methodology.html    # Scientific Workflow & IPCC Alignment
+│   ├── datasets.html       # Data Catalog & Attribution
+│   └── about.html          # History of the Okapi Wildlife Reserve
 ├── assets/
-│   ├── css/style.css   # Scientific Theme (Dark/Light mode)
-│   ├── js/app.js       # Interactive Logic
-│   └── data/           # Sample GeoJSON & Statistics
-└── scripts/            # Python Data Pipeline (Extraction & Analysis)
+│   ├── css/style.css       # Custom Scientific Theme
+│   ├── js/app.js           # Core Analytics & Data Processing Logic
+│   └── data/               # CSV/GeoJSON Datasets (GEDI, GFW, ESA)
+└── scripts/                # Data Pipeline (Python/Earth Engine)
 ```
 
 ## 🛠 Tech Stack
-- **Frontend:** Bootstrap 5, Leaflet.js, Plotly.js, Font Awesome.
-- **Backend (Scripts):** Python, Google Earth Engine API, GeoPandas, Rasterio.
-- **Data Sources:** NASA GEDI, ESA Biomass CCI, Global Forest Watch (Hansen).
 
-## 💻 Local Execution
-To view the platform locally:
-1. Clone the repository.
-2. Open `index.html` in any modern web browser.
-3. No local server is required as the architecture is purely static.
+| Component | Technology |
+| :--- | :--- |
+| **Frontend** | Bootstrap 5, Font Awesome 6 |
+| **Analytics** | Plotly.js |
+| **Mapping** | Leaflet.js, CartoDB |
+| **Data Processing** | Python (GeoPandas, Rasterio, GEE) |
+| **Data Sources** | NASA GEDI, ESA, GFW, UNESCO |
 
-## 🌍 GitHub Pages Deployment
-1. Create a new repository on GitHub.
-2. Initialize git and push the files:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Okapi Wildlife Reserve Carbon Sequestration and Storage"
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   git push -u origin main
-   ```
-3. Go to **Settings > Pages** in your GitHub repository.
-4. Select the `main` branch and `/ (root)` folder.
-5. Click **Save**. Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`.
+## 💻 Local Development
+
+The platform is built as a **Static Web Application**, making it highly portable and resilient.
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/RFO_Carbone.git
+    ```
+2.  **Open locally:**
+    Simply open `index.html` in your browser. For full GIS functionality, a local server is recommended:
+    ```bash
+    # If you have Python installed
+    python3 -m http.server 8000
+    ```
+3.  **Navigate to:** `http://localhost:8000`
+
+## 🌍 Deployment
+
+Optimized for **GitHub Pages**. To deploy your own instance:
+1.  Push your changes to the `main` branch.
+2.  In GitHub Settings > Pages, set the source to `main` branch / root.
 
 ## 🔬 Scientific Methodology
-The platform calculates carbon sequestration using a multi-sensor fusion approach:
-- **Biomass:** NASA GEDI Lidar + ESA Radar.
-- **Forest Loss:** Hansen Global Forest Change (30m).
-- **Carbon Fraction:** 0.47 (IPCC Standard).
+
+The platform's GHG estimates are derived from:
+-   **Net Sequestration:** Calculated using NASA GEDI Lidar-derived biomass density.
+-   **Avoided Emissions:** Based on the difference between the reserve's deforestation rate and the regional "business-as-usual" baseline (REDD+ VM0015).
+-   **Carbon Fraction:** Adheres to the IPCC 2006 standard of 0.47.
 
 ---
-*Developed for conservation researchers and policy makers monitoring the Congo Basin.*
+Developed with ❤️ for the protection of the Congo Basin.

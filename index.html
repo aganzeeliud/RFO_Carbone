@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <!-- Professional Navbar -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -28,9 +28,13 @@
                     <li class="nav-item"><a class="nav-link" href="bassin-du-congo.html">Bassin du Congo</a></li>
                     <li class="nav-item"><a class="nav-link" href="pages/methodology.html">Methodology</a></li>
                     <li class="nav-item"><a class="nav-link" href="dashboard/">Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="avoided-emissions.html">GHG Avoided</a></li>
                     <li class="nav-item"><a class="nav-link" href="maps/">Global Map</a></li>
                     <li class="nav-item ms-lg-3">
+                        <a href="https://github.com/yourusername/RFO_Carbone" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                            <i class="fab fa-github me-1"></i> Source
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
                         <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
                             <i class="fas fa-sun"></i>
                         </button>
@@ -40,31 +44,42 @@
         </div>
     </nav>
 
-    <!-- Professional Hero -->
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 text-start">
-                    <div class="d-inline-block p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-4 px-3">
+                    <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-4 px-3">
+                        <span class="badge bg-success rounded-pill me-2">New</span>
                         <span class="small fw-bold text-success text-uppercase tracking-wider">Scientific Monitoring 2001 - 2026</span>
                     </div>
-                    <h1 class="display-2 fw-800 mb-4">Protecting the <span class="text-gradient">Congo Basin's</span> Carbon Sink</h1>
-                    <p class="lead text-secondary mb-5 fs-4">Advanced environmental intelligence monitoring the Okapi Wildlife Reserve’s contribution to global climate stability through REDD+ validated analytics.</p>
+                    <h1 class="display-2 fw-800 mb-4">Protecting the <span class="text-gradient">Congo Basin's</span> Green Heart</h1>
+                    <p class="lead text-secondary mb-5 fs-4">Advanced environmental intelligence monitoring the Okapi Wildlife Reserve’s contribution to global climate stability through high-integrity REDD+ validated analytics.</p>
                     <div class="d-flex gap-3">
-                        <a href="dashboard/" class="btn btn-primary btn-lg">Launch Analytics</a>
-                        <a href="maps/" class="btn btn-outline-light btn-lg rounded-pill px-4">Interactive Viewer</a>
+                        <a href="dashboard/" class="btn btn-primary btn-lg">Explore Analytics</a>
+                        <a href="maps/" class="btn btn-outline-light btn-lg rounded-pill px-4">Interactive Maps</a>
                     </div>
                 </div>
                 <div class="col-lg-5 mt-5 mt-lg-0">
                     <div class="glass-card text-center">
                         <div class="mb-4">
-                            <i class="fas fa-shield-virus fa-4x text-gradient"></i>
+                            <i class="fas fa-satellite-dish fa-4x text-gradient"></i>
                         </div>
-                        <h4 class="fw-bold mb-2">Validated Mitigation</h4>
+                        <h4 class="fw-bold mb-2">Remote Sensing Data</h4>
                         <p class="small text-secondary mb-4">Real-time monitoring using multi-sensor satellite fusion (NASA GEDI, ESA Biomass CCI).</p>
-                        <div class="d-flex justify-content-around">
-                            <div><h5 class="fw-bold mb-0">1.37M</h5><p class="small text-muted">Hectares</p></div>
-                            <div><h5 class="fw-bold mb-0">99.8%</h5><p class="small text-muted">Accuracy</p></div>
+                        <div class="row g-2 mt-4">
+                            <div class="col-6">
+                                <div class="p-3 bg-white bg-opacity-5 rounded-4">
+                                    <h5 class="fw-bold mb-0 text-success">1.37M</h5>
+                                    <p class="x-small text-muted mb-0">Hectares Monitored</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-white bg-opacity-5 rounded-4">
+                                    <h5 class="fw-bold mb-0 text-success">99.8%</h5>
+                                    <p class="x-small text-muted mb-0">Data Accuracy</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,30 +87,34 @@
         </div>
     </section>
 
-    <!-- Global KPI Section -->
-    <section class="py-5 bg-dark">
+    <!-- Key Metrics -->
+    <section class="py-5">
         <div class="container">
-            <div class="row g-4 text-center">
+            <div class="row g-4">
                 <div class="col-md-3">
-                    <div class="glass-card">
-                        <div class="kpi-value" id="mainSequestration">16.2M</div>
-                        <p class="text-secondary small mb-0 text-uppercase fw-bold">Annual Sequestration (tCO2e)</p>
+                    <div class="stat-card">
+                        <i class="fas fa-cloud-download-alt stat-icon"></i>
+                        <div class="kpi-value" id="mainSequestration">0.0M</div>
+                        <p class="text-secondary small mb-0 text-uppercase fw-bold">Annual Sequestration</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="glass-card">
-                        <div class="kpi-value" id="mainAvoided">8.4M</div>
-                        <p class="text-secondary small mb-0 text-uppercase fw-bold">Avoided Emissions (tCO2e)</p>
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt stat-icon"></i>
+                        <div class="kpi-value" id="mainAvoided">0.0M</div>
+                        <p class="text-secondary small mb-0 text-uppercase fw-bold">Avoided Emissions</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="glass-card">
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line stat-icon"></i>
                         <div class="kpi-value">-12%</div>
                         <p class="text-secondary small mb-0 text-uppercase fw-bold">Deforestation Trend</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="glass-card">
+                    <div class="stat-card">
+                        <i class="fas fa-database stat-icon"></i>
                         <div class="kpi-value">2.1 Gt</div>
                         <p class="text-secondary small mb-0 text-uppercase fw-bold">Total Carbon Stock</p>
                     </div>
@@ -104,125 +123,147 @@
         </div>
     </section>
 
-    <!-- GHG Section (Professional Redesign) -->
-    <section id="ghg-emissions" class="py-5">
+    <!-- The Three Pillars Section -->
+    <section class="py-5 bg-dark bg-opacity-50">
         <div class="container">
             <div class="section-title text-center">
-                <span class="text-success fw-bold text-uppercase">Climate Impact Analysis</span>
+                <span class="text-success fw-bold text-uppercase">Operational Excellence</span>
+                <h2 class="fw-800 mt-2">The Three Pillars of OEI</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="feature-icon"><i class="fas fa-satellite"></i></div>
+                    <h4>Continuous Monitoring</h4>
+                    <p class="text-secondary">Leveraging daily satellite feeds from Global Forest Watch and ESA to detect disturbances in the reserve's canopy before they escalate.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                    <h4>Scientific Analytics</h4>
+                    <p class="text-secondary">Our REDD+ validated algorithms process gigabytes of LiDAR data from NASA GEDI to estimate biomass density with unprecedented precision.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+                    <h4>Transparent Reporting</h4>
+                    <p class="text-secondary">Open-access data and methodology aligned with IPCC and Verra standards ensure that every ton of carbon is accounted for and verifiable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GHG Impact Dashboard -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="text-success fw-bold text-uppercase">Climate Contribution</span>
                 <h2 class="fw-800 mt-2">Greenhouse Gas Emissions Avoided</h2>
                 <div class="divider"></div>
             </div>
 
             <div class="row g-4 mb-5">
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="glass-card h-100">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h4 class="mb-0">Annual Mitigation Performance</h4>
-                            <i class="fas fa-chart-bar text-success"></i>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary rounded-pill" type="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Download CSV</a></li>
+                                    <li><a class="dropdown-item" href="#">Download PNG</a></li>
+                                </ul>
+                            </div>
                         </div>
                         <div id="avoidedEmissionsChart" class="chart-container"></div>
-                        <p class="x-small text-muted mt-2 mb-0">Source: NASA GEDI / GFW. Method: REDD+ IPCC VM0015.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="glass-card h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="mb-0">Cumulative Climate Contribution</h4>
-                            <i class="fas fa-chart-line text-warning"></i>
+                <div class="col-lg-4">
+                    <div class="glass-card h-100 bg-success bg-opacity-10 border-success border-opacity-20">
+                        <h4 class="mb-4">Climate Equivalences</h4>
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-car-side text-success me-3 fs-3"></i>
+                                <div>
+                                    <h3 class="fw-bold mb-0" id="carsRemovedCounter">0M</h3>
+                                    <p class="small text-muted mb-0">Cars off the road annually</p>
+                                </div>
+                            </div>
                         </div>
-                        <div id="cumulativeEmissionsChart" class="chart-container"></div>
-                        <p class="x-small text-muted mt-2 mb-0">Source: NASA GEDI / ESA. Method: Cumulative Carbon Balance.</p>
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-bolt text-warning me-3 fs-3"></i>
+                                <div>
+                                    <h3 class="fw-bold mb-0" id="householdsCounter">0K</h3>
+                                    <p class="small text-muted mb-0">Homes powered by clean energy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-tree text-primary me-3 fs-3"></i>
+                                <div>
+                                    <h3 class="fw-bold mb-0" id="forestConservedCounter">0K</h3>
+                                    <p class="small text-muted mb-0">Hectares of forest protected</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-success opacity-25">
+                        <p class="x-small text-secondary">Equivalences calculated based on EPA Greenhouse Gas Equivalencies Calculator standards.</p>
+                        <a href="avoided-emissions.html" class="btn btn-success btn-sm w-100 rounded-pill mt-3">Full GHG Analysis</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Equivalence Dashboard -->
-            <div class="row g-4 mb-5">
-                <div class="col-md-3">
-                    <div class="glass-card text-center py-4">
-                        <i class="fas fa-car-side fa-2x mb-3 text-primary"></i>
-                        <h2 class="fw-bold mb-1" id="carsRemovedCounter">0M</h2>
-                        <p class="small text-secondary text-uppercase mb-0">Cars Off Road</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="glass-card text-center py-4">
-                        <i class="fas fa-bolt fa-2x mb-3 text-warning"></i>
-                        <h2 class="fw-bold mb-1" id="householdsCounter">0K</h2>
-                        <p class="small text-secondary text-uppercase mb-0">Homes Powered</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="glass-card text-center py-4">
-                        <i class="fas fa-tree fa-2x mb-3 text-success"></i>
-                        <h2 class="fw-bold mb-1" id="forestConservedCounter">0K</h2>
-                        <p class="small text-secondary text-uppercase mb-0">Hectares Protected</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="glass-card bg-success bg-opacity-10 border-success border-opacity-25 text-center py-4">
-                        <i class="fas fa-external-link-alt fa-2x mb-3 text-success"></i>
-                        <h5 class="fw-bold mb-1">Deep Dive</h5>
-                        <a href="avoided-emissions.html" class="stretched-link small text-success text-uppercase fw-bold text-decoration-none">Explore GHG Analysis</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Methodology Summary -->
-            <div class="glass-card border-success border-opacity-25">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <h4 class="fw-bold"><i class="fas fa-microscope me-2 text-success"></i>Scientific Integrity</h4>
-                        <p class="text-secondary mb-0">Estimates are derived from high-resolution biomass datasets (NASA GEDI) and forest change alerts (GFW). Our calculations align with Verra VM0015 and IPCC 2006 guidelines.</p>
-                    </div>
-                    <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                        <a href="pages/methodology.html" class="btn btn-outline-success btn-sm rounded-pill px-4">Technical Paper</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Benchmarking Section -->
-    <section class="py-5 bg-dark border-top border-bottom border-secondary border-opacity-10">
-        <div class="container">
-            <div class="row align-items-center">
+            <!-- Regional Benchmarking -->
+            <div class="row align-items-center py-5 mt-4">
                 <div class="col-lg-6">
                     <h2 class="fw-800 mb-4">Regional Benchmarking</h2>
-                    <p class="text-secondary fs-5 mb-5">Comparative analysis of Okapi’s performance against the broader Congo Basin regional trends.</p>
-                    <div class="glass-card">
-                        <div id="comparisonChart" class="chart-container"></div>
-                        <p class="x-small text-muted mt-2 mb-0">Source: UNESCO / FAO / Global Forest Watch. Method: Regional Sequestration Efficiency Index.</p>
-                    </div>
+                    <p class="text-secondary fs-5 mb-4">How the Okapi Wildlife Reserve compares to broader trends across the Congo Basin.</p>
+                    <ul class="list-unstyled mb-5">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                            <span><strong>3.1%</strong> of net Congo Basin sequestration.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                            <span>Superior stability vs. regional deforestation rates.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                            <span>Verified "Carbon Star" status for 15 consecutive years.</span>
+                        </li>
+                    </ul>
+                    <a href="bassin-du-congo.html" class="btn btn-outline-success rounded-pill px-4">Compare Basin Data</a>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <div class="glass-card mb-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-success rounded-circle p-2 me-3"><i class="fas fa-percentage text-white"></i></div>
-                            <h5 class="mb-0 fw-bold">Regional Leader</h5>
-                        </div>
-                        <p class="small text-secondary">The Okapi Wildlife Reserve contributes nearly 3.1% of the net carbon sequestration of the entire Congo Basin.</p>
-                    </div>
+                <div class="col-lg-6">
                     <div class="glass-card">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-info rounded-circle p-2 me-3"><i class="fas fa-satellite-dish text-white"></i></div>
-                            <h5 class="mb-0 fw-bold">Live Monitoring</h5>
-                        </div>
-                        <p class="small text-secondary">Daily satellite feeds ensure that any forest disturbance is captured and integrated into the annual balance.</p>
-                        <a href="maps/" class="btn btn-primary btn-sm w-100">Explore Live GIS</a>
+                        <div id="comparisonChart" class="chart-container" style="height: 350px;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Professional -->
+    <!-- CTA Section -->
+    <div class="container">
+        <section class="cta-section text-center text-white">
+            <h2 class="display-4 fw-800 mb-4">Empowering Conservation through Data</h2>
+            <p class="lead mb-5 opacity-75">Join our network of researchers and policy makers working to preserve the Congo Basin.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="pages/contact.html" class="btn btn-primary btn-lg px-5">Get Involved</a>
+                <a href="pages/methodology.html" class="btn btn-outline-light btn-lg px-5 rounded-pill">Read Whitepaper</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
     <footer class="bg-black text-white">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4">
                     <h4 class="fw-bold mb-4">OKAPI<span class="text-success">CARBON</span></h4>
-                    <p class="text-secondary small">Advancing forest conservation through scientific rigor and transparent environmental reporting.</p>
+                    <p class="text-secondary small">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting.</p>
                     <div class="d-flex gap-3 mt-4">
                         <a href="#" class="text-white opacity-50"><i class="fab fa-github fa-lg"></i></a>
                         <a href="#" class="text-white opacity-50"><i class="fab fa-linkedin fa-lg"></i></a>
@@ -246,7 +287,7 @@
                 </div>
                 <div class="col-lg-4">
                     <h6 class="text-white fw-bold mb-4">Data Source Attribution</h6>
-                    <p class="x-small text-secondary">This platform utilizes data from NASA GEDI, Global Forest Watch, European Space Agency CCI, and UNESCO World Heritage Center.</p>
+                    <p class="x-small text-secondary">This platform utilizes data from NASA GEDI, Global Forest Watch, European Space Agency CCI, and UNESCO World Heritage Center. Methodology aligns with IPCC 2006 guidelines.</p>
                 </div>
             </div>
             <hr class="my-5 border-secondary border-opacity-25">
