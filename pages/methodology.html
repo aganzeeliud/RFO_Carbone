@@ -264,40 +264,73 @@
                     <div class="step-node">03</div>
                 </div>
                 <div class="col-lg-11 col-md-10">
-                    <h2 class="fw-800 mb-0">Phase 3: The Intelligence Pipeline</h2>
+                    <h2 class="fw-800 mb-0">Phase 3: The End-to-End Pipeline</h2>
                 </div>
             </div>
 
-            <div class="glass-card mb-5 px-5">
-                <div class="pipeline-flow">
+            <div class="glass-card mb-5 p-5">
+                <div class="pipeline-flow mb-5">
                     <div class="flow-item">
-                        <div class="flow-icon-wrap"><i class="fas fa-cloud-download-alt"></i></div>
-                        <h6 class="fw-bold mb-1">Ingestion</h6>
-                        <p class="x-small text-muted">Google Earth Engine API</p>
+                        <div class="flow-icon-wrap"><i class="fas fa-satellite-dish"></i></div>
+                        <h6 class="fw-bold mb-1">Acquisition</h6>
+                        <p class="x-small text-muted">Multi-Sensor Ingestion</p>
                     </div>
                     <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
                     <div class="flow-item">
-                        <div class="flow-icon-wrap"><i class="fas fa-filter"></i></div>
-                        <h6 class="fw-bold mb-1">Normalizing</h6>
-                        <p class="x-small text-muted">Cloud Masking & Resampling</p>
+                        <div class="flow-icon-wrap"><i class="fas fa-microchip"></i></div>
+                        <h6 class="fw-bold mb-1">Synthesis</h6>
+                        <p class="x-small text-muted">Machine Learning Fusion</p>
                     </div>
                     <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
                     <div class="flow-item">
-                        <div class="flow-icon-wrap"><i class="fas fa-brain"></i></div>
-                        <h6 class="fw-bold mb-1">Processing</h6>
-                        <p class="x-small text-muted">Python GeoPandas Stack</p>
+                        <div class="flow-icon-wrap"><i class="fas fa-calculator"></i></div>
+                        <h6 class="fw-bold mb-1">Validation</h6>
+                        <p class="x-small text-muted">REDD+ Audit Engine</p>
                     </div>
                     <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
                     <div class="flow-item">
-                        <div class="flow-icon-wrap"><i class="fas fa-chart-line"></i></div>
-                        <h6 class="fw-bold mb-1">Analytics</h6>
-                        <p class="x-small text-muted">REDD+ Validation Engine</p>
+                        <div class="flow-icon-wrap"><i class="fas fa-file-export"></i></div>
+                        <h6 class="fw-bold mb-1">Certification</h6>
+                        <p class="x-small text-muted">Verified Result Docs</p>
                     </div>
-                    <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
-                    <div class="flow-item">
-                        <div class="flow-icon-wrap"><i class="fas fa-desktop"></i></div>
-                        <h6 class="fw-bold mb-1">Reporting</h6>
-                        <p class="x-small text-muted">Live Dashboard Delivery</p>
+                </div>
+
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5 h-100">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-arrow-circle-right me-2"></i>Stage 1: Multi-Sensor Data Collection</h6>
+                            <p class="small text-secondary mb-0">The pipeline triggers an automated pull from **Google Earth Engine (GEE)**, aggregating NASA GEDI L4A Lidar waveforms, ESA Sentinel-2 MSI optical bands, and ALOS-2 PALSAR-2 radar. This raw ingestion accounts for diurnal and seasonal variations across the Congo Basin.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5 h-100">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-arrow-circle-right me-2"></i>Stage 2: Pre-processing & Cloud Masking</h6>
+                            <p class="small text-secondary mb-0">Raw imagery undergoes **QA/QC filtering**. Sentinel-2 data is processed using the *S2Cloudless* algorithm to remove atmospheric interference. GEDI footprints are filtered for sensitivity and beam strength, ensuring only high-confidence biomass measurements enter the synthetic model.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5 h-100">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-arrow-circle-right me-2"></i>Stage 3: Spatial Fusion & Modeling</h6>
+                            <p class="small text-secondary mb-0">Using a **Random Forest Regression** model, we project GEDI's 25m LiDAR samples onto a continuous 10m grid provided by Sentinel-2. This creates a wall-to-wall Aboveground Biomass Density (AGBD) map of the reserve, filling the gaps between LiDAR tracks with high-fidelity spectral proxies.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5 h-100">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-arrow-circle-right me-2"></i>Stage 4: Carbon Flux Calculation</h6>
+                            <p class="small text-secondary mb-0">The OEI Stock Algorithm calculates total carbon mass by multiplying pixel area by AGBD and applying the **IPCC carbon fraction (0.47)**. Annual forest loss (GFW) is then intersected with this biomass map to determine exact carbon emissions caused by deforestation.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5 h-100">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-arrow-circle-right me-2"></i>Stage 5: REDD+ Baseline Benchmarking</h6>
+                            <p class="small text-secondary mb-0">Actual emissions are benchmarked against a **Verified "Business-As-Usual" (BAU)** baseline. This regional baseline is derived from historical deforestation rates (2000-2020) in non-protected areas of the Ituri landscape, establishing the "additionality" of the reserve's protection.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5 h-100">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-arrow-circle-right me-2"></i>Stage 6: Final Result Documentation</h6>
+                            <p class="small text-secondary mb-0">Final analytics are exported into **Open-Access CSVs** and **Scientific Executive Summaries**. These documents provide a transparent, pixel-to-report audit trail, allowing external auditors to verify every metric shown on the OEI Intelligence Dashboard.</p>
+                        </div>
                     </div>
                 </div>
             </div>
