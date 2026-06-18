@@ -7,8 +7,106 @@
     <!-- Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Methodology Page Specific Narratives */
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-node {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .equation-lab {
+            background: #070b14;
+            border-left: 4px solid var(--accent-gold);
+            padding: 2.5rem;
+            border-radius: 0 24px 24px 0;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            border-left-width: 4px;
+        }
+
+        .equation-lab::before {
+            content: 'f(x)';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 5rem;
+            opacity: 0.03;
+            color: white;
+        }
+
+        .pipeline-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            width: 18%;
+            position: relative;
+        }
+
+        .flow-icon-wrap {
+            width: 80px;
+            height: 80px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .flow-item:hover .flow-icon-wrap {
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .expert-note {
+            background: rgba(45, 90, 39, 0.05);
+            border: 1px dashed rgba(45, 90, 39, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .pipeline-flow { flex-direction: column; }
+            .flow-item { width: 100%; margin-bottom: 3rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -40,210 +138,159 @@
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header class="hero-section" style="min-height: 40vh; padding-top: 120px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
+    <!-- Hero Header -->
+    <header class="hero-section text-center d-flex align-items-center">
+        <div class="container py-5 mt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
                     <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-4 px-3">
-                        <span class="small fw-bold text-success text-uppercase tracking-wider">Scientific Integrity & Rigor</span>
+                        <i class="fas fa-microscope text-success me-2"></i>
+                        <span class="small fw-bold text-success text-uppercase tracking-wider">Scientific Executive Summary</span>
                     </div>
-                    <h1 class="display-3 fw-800 mb-4">The <span class="text-gradient">OEI Framework</span></h1>
-                    <p class="lead text-secondary fs-4">Detailed technical specifications of our multi-sensor fusion approach to carbon monitoring and avoided emissions modeling.</p>
+                    <h1 class="display-2 fw-800 mb-4">The <span class="text-gradient">OEI Protocol</span></h1>
+                    <p class="lead text-secondary fs-4 mb-5">A high-fidelity environmental monitoring framework designed to secure the climate integrity of the Congo Basin's most critical carbon sinks.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#workflow" class="btn btn-primary btn-lg px-5">Discover Framework</a>
+                        <a href="datasets.html" class="btn btn-outline-light btn-lg px-5 rounded-pill">Data Sources</a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="py-5">
+    <!-- Narrative workflow -->
+    <main class="py-5" id="workflow">
         <div class="container">
-            <!-- Data Sources -->
-            <div class="section-title text-center mb-5">
-                <span class="text-success fw-bold text-uppercase">Phase 1: Observation</span>
-                <h2 class="fw-800 mt-2">Multi-Sensor Data Fusion</h2>
-                <div class="divider"></div>
+            
+            <!-- Step 1: Observation -->
+            <div class="row align-items-center mb-5 pt-5">
+                <div class="col-lg-1 col-md-2">
+                    <div class="step-node">01</div>
+                </div>
+                <div class="col-lg-11 col-md-10">
+                    <h2 class="fw-800 mb-0">Phase 1: Precision Observation</h2>
+                </div>
             </div>
 
             <div class="row g-4 mb-5">
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="glass-card h-100">
-                        <div class="feature-icon"><i class="fas fa-satellite"></i></div>
-                        <h4 class="fw-bold">NASA GEDI Lidar</h4>
-                        <p class="text-secondary small">The Global Ecosystem Dynamics Investigation (GEDI) provides high-resolution laser ranging of Earth’s forests. We utilize L2A and L4A products to derive vertical canopy structure and aboveground biomass density (AGBD) at 25m resolution.</p>
+                        <h5 class="fw-bold mb-3">Lidar Analysis</h5>
+                        <p class="small text-secondary">Utilizing **NASA GEDI** (Global Ecosystem Dynamics Investigation) Lidar to measure the 3D structure of the canopy with sub-meter vertical accuracy.</p>
+                        <div class="mt-4"><span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25">NASA LP DAAC</span></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="glass-card h-100">
-                        <div class="feature-icon"><i class="fas fa-radar"></i></div>
-                        <h4 class="fw-bold">ESA Biomass CCI</h4>
-                        <p class="text-secondary small">The European Space Agency’s Climate Change Initiative (CCI) provides globally consistent biomass maps. We use these for cross-validation and to fill GEDI gaps, ensuring a wall-to-wall spatial coverage of the Okapi Reserve.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="glass-card h-100">
-                        <div class="feature-icon"><i class="fas fa-wave-square"></i></div>
-                        <h4 class="fw-bold">GFW Forest Change</h4>
-                        <p class="text-secondary small">Hansen et al. (Global Forest Watch) data provides annual tree cover loss alerts. This dataset is critical for identifying deforestation hotspots and calculating the 'Area Lost' variable in our emission models.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Calculation Methodology -->
-            <div class="glass-card border-success border-opacity-20 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <h2 class="fw-800 mb-4">Carbon Sequestration Modeling</h2>
-                        <p class="text-secondary mb-4">Our model follows the **IPCC 2006 Guidelines** for National Greenhouse Gas Inventories. We apply a carbon fraction (CF) of 0.47 to convert Aboveground Biomass (AGB) into Carbon (C).</p>
-                        
-                        <div class="p-4 bg-dark bg-opacity-50 rounded-4 border border-secondary border-opacity-10 mb-4">
-                            <h6 class="text-success fw-bold text-uppercase mb-3">The OEI Core Equation</h6>
-                            <code class="d-block fs-5 text-white mb-2">C_total = Σ (Area_i × AGBD_i × CF)</code>
-                            <p class="x-small text-muted mb-0">Where <strong>Area_i</strong> is the pixel area, <strong>AGBD_i</strong> is biomass density from GEDI, and <strong>CF</strong> is 0.47.</p>
-                        </div>
-                        
-                        <p class="text-secondary">To calculate <strong>Net Annual Sequestration</strong>, we account for the increment in forest growth minus the emissions from deforestation and degradation events detected by satellite alerts.</p>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10">
-                            <h5 class="fw-bold mb-3"><i class="fas fa-check-double text-success me-2"></i>Validation Standards</h5>
-                            <ul class="list-unstyled small text-secondary">
-                                <li class="mb-2"><i class="fas fa-angle-right me-2 text-success"></i><strong>IPCC Tier 3:</strong> High-resolution spatial modeling.</li>
-                                <li class="mb-2"><i class="fas fa-angle-right me-2 text-success"></i><strong>REDD+ VM0015:</strong> Methodology for avoided deforestation.</li>
-                                <li class="mb-2"><i class="fas fa-angle-right me-2 text-success"></i><strong>Verra Alignment:</strong> Ensuring data integrity for carbon credits.</li>
-                            </ul>
+                <div class="col-lg-8">
+                    <div class="glass-card bg-dark bg-opacity-30 h-100">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-layer-group text-success me-2"></i>Multi-Sensor Fusion</h5>
+                        <p class="text-secondary small">By fusing GEDI's high-fidelity footprints with **ESA Biomass CCI** radar and **Sentinel-2** optical imagery, we eliminate spatial gaps. This creates a continuous, verified map of biomass density across 1.37M hectares.</p>
+                        <div class="expert-note small">
+                            <strong>Scientific Context:</strong> This Tier 3 spatial modeling approach significantly reduces uncertainty compared to traditional Tier 1 (global average) estimations.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Avoided Emissions Section -->
-            <div class="section-title text-center mb-5 pt-5">
-                <span class="text-success fw-bold text-uppercase">Phase 2: Climate Impact</span>
-                <h2 class="fw-800 mt-2">Avoided GHG Emissions (REDD+)</h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="row g-5 align-items-center mb-5">
-                <div class="col-lg-6">
-                    <div class="glass-card bg-dark bg-opacity-25">
-                        <h4 class="fw-bold mb-3">Baseline Scenario (BAU)</h4>
-                        <p class="text-secondary small">The "Business-As-Usual" (BAU) baseline is established by analyzing deforestation rates in a "Reference Region" outside the reserve with similar socio-economic drivers and forest types. This follows the <strong>Verra VM0015</strong> methodology.</p>
-                        <hr class="border-secondary opacity-25">
-                        <h4 class="fw-bold mb-3">Project Scenario</h4>
-                        <p class="text-secondary small">The project scenario monitors the actual forest loss within the Okapi Wildlife Reserve. The difference between the BAU baseline and the Project scenario constitutes the <strong>Avoided Emissions</strong>.</p>
-                    </div>
+            <!-- Step 2: Modeling -->
+            <div class="row align-items-center mb-5 pt-5">
+                <div class="col-lg-1 col-md-2">
+                    <div class="step-node">02</div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="p-4 rounded-4 bg-success bg-opacity-5 border border-success border-opacity-10">
-                        <h5 class="fw-bold mb-4 text-success"><i class="fas fa-calculator me-2"></i>Emission Factor Calculation</h5>
-                        <p class="text-secondary small">To convert carbon loss into CO2 equivalent (tCO2e), we use the molecular weight ratio of CO2 to C (44/12 ≈ 3.67).</p>
-                        <div class="bg-black bg-opacity-50 p-3 rounded text-center my-3">
-                            <code class="text-success fs-5">Avoided tCO2e = (Loss_BAU - Loss_Project) × C_Density × 3.67</code>
-                        </div>
-                        <p class="x-small text-muted">This calculation allows for the direct translation of forest conservation into global climate metrics compatible with the Paris Agreement.</p>
-                    </div>
+                <div class="col-lg-11 col-md-10">
+                    <h2 class="fw-800 mb-0">Phase 2: Carbon Quantification</h2>
                 </div>
             </div>
 
-            <!-- Detailed Data Pipeline Workflow -->
-            <div class="section-title text-center mb-5 pt-5">
-                <span class="text-success fw-bold text-uppercase">Technical Deep Dive</span>
-                <h2 class="fw-800 mt-2">The OEI Data Pipeline</h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="row g-4 mb-5">
-                <div class="col-lg-12">
-                    <div class="glass-card">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <h5 class="fw-bold text-success mb-3">1. Automated Ingestion</h5>
-                                <p class="text-secondary small">The pipeline begins with the automated retrieval of multi-temporal satellite data using the <strong>Google Earth Engine (GEE) Python API</strong>. We ingest:
-                                    <ul class="x-small text-muted">
-                                        <li><strong>GEDI L4A:</strong> Aboveground Biomass Density (AGBD) footprints.</li>
-                                        <li><strong>Sentinel-2:</strong> MSI Level-2A surface reflectance for land cover classification.</li>
-                                        <li><strong>Hansen GFC:</strong> Global Forest Change annual loss layers.</li>
-                                    </ul>
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="fw-bold text-primary mb-3">2. Pre-processing & Normalization</h5>
-                                <p class="text-secondary small">Raw data undergoes rigorous cleaning:
-                                    <ul class="x-small text-muted">
-                                        <li><strong>Cloud Masking:</strong> Utilizing the QA60 band to remove atmospheric interference.</li>
-                                        <li><strong>Spatial Harmonization:</strong> Resampling all raster products to a consistent 30m UTM projection.</li>
-                                        <li><strong>Filtering:</strong> Removing GEDI footprints with sensitivity scores below 0.9 to ensure biomass accuracy.</li>
-                                    </ul>
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="fw-bold text-warning mb-3">3. Spatial Analytics (Python Stack)</h5>
-                                <p class="text-secondary small">The heavy lifting is performed using a specialized Python environment:
-                                    <ul class="x-small text-muted">
-                                        <li><strong>GeoPandas:</strong> For vector-based boundary analysis of the Okapi Wildlife Reserve.</li>
-                                        <li><strong>Rasterio/Xarray:</strong> For high-performance multidimensional array processing of biomass stacks.</li>
-                                        <li><strong>Zonal Statistics:</strong> Aggregating biomass density across protected vs. non-protected strata.</li>
-                                    </ul>
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="fw-bold text-info mb-3">4. Carbon Intelligence Modeling</h5>
-                                <p class="text-secondary small">Final metrics are generated through our proprietary OEI algorithms:
-                                    <ul class="x-small text-muted">
-                                        <li><strong>Sequestration:</strong> Calculating the delta in AGB over time based on Net Primary Productivity (NPP).</li>
-                                        <li><strong>Emission Factors:</strong> Applying IPCC-standard conversion coefficients (3.67 for tCO2e).</li>
-                                        <li><strong>REDD+ Baseline:</strong> Dynamic benchmarking against regional deforestation trends.</li>
-                                    </ul>
-                                </p>
-                            </div>
+            <div class="row g-5 mb-5">
+                <div class="col-lg-7">
+                    <div class="equation-lab">
+                        <h4 class="text-white fw-bold mb-4">Stock Integrity Algorithm</h4>
+                        <div class="mb-4">
+                            <code class="d-block fs-3 mb-3 text-success">C_stock = Σ (A_i × AGBD_i × 0.47)</code>
+                            <p class="small text-muted mb-0">Where **A_i** is pixel area, **AGBD_i** is biomass density, and **0.47** is the IPCC carbon fraction.</p>
                         </div>
+                        <div class="mb-0">
+                            <code class="d-block fs-3 mb-3 text-warning">Avoided_GHG = ΔLoss × Density × 3.67</code>
+                            <p class="small text-muted mb-0">Prevented emissions calculated by benchmarking actual loss against regional BAU rates.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="glass-card border-success border-opacity-20">
+                        <h5 class="fw-bold mb-4"><i class="fas fa-shield-alt text-success me-2"></i>Regulatory Alignment</h5>
+                        <ul class="list-unstyled small text-secondary">
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                                <span><strong>IPCC 2006:</strong> National GHG inventory standards.</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                                <span><strong>REDD+ VM0015:</strong> Methodology for avoided deforestation.</span>
+                            </li>
+                            <li class="mb-0 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                                <span><strong>Verra Standard:</strong> Methodology for carbon credit validation.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Workflow Diagram (CSS based) -->
-            <div class="glass-card text-center py-5 mt-5">
-                <h3 class="fw-800 mb-5">Data Pipeline Workflow</h3>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-2">
-                        <div class="p-3 bg-white bg-opacity-5 rounded-circle mb-3 d-inline-block" style="width: 80px; height: 80px; line-height: 50px;">
-                            <i class="fas fa-cloud-download-alt fs-3 text-success"></i>
-                        </div>
-                        <h6 class="fw-bold">Ingestion</h6>
+            <!-- Step 3: Pipeline Flow -->
+            <div class="row align-items-center mb-5 pt-5">
+                <div class="col-lg-1 col-md-2">
+                    <div class="step-node">03</div>
+                </div>
+                <div class="col-lg-11 col-md-10">
+                    <h2 class="fw-800 mb-0">Phase 3: The Intelligence Pipeline</h2>
+                </div>
+            </div>
+
+            <div class="glass-card mb-5 px-5">
+                <div class="pipeline-flow">
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap"><i class="fas fa-cloud-download-alt"></i></div>
+                        <h6 class="fw-bold mb-1">Ingestion</h6>
                         <p class="x-small text-muted">Google Earth Engine API</p>
                     </div>
-                    <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center">
-                        <i class="fas fa-chevron-right text-muted"></i>
+                    <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap"><i class="fas fa-filter"></i></div>
+                        <h6 class="fw-bold mb-1">Normalizing</h6>
+                        <p class="x-small text-muted">Cloud Masking & Resampling</p>
                     </div>
-                    <div class="col-md-2">
-                        <div class="p-3 bg-white bg-opacity-5 rounded-circle mb-3 d-inline-block" style="width: 80px; height: 80px; line-height: 50px;">
-                            <i class="fas fa-cogs fs-3 text-primary"></i>
-                        </div>
-                        <h6 class="fw-bold">Processing</h6>
-                        <p class="x-small text-muted">Python (GeoPandas)</p>
+                    <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap"><i class="fas fa-brain"></i></div>
+                        <h6 class="fw-bold mb-1">Processing</h6>
+                        <p class="x-small text-muted">Python GeoPandas Stack</p>
                     </div>
-                    <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center">
-                        <i class="fas fa-chevron-right text-muted"></i>
+                    <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                        <h6 class="fw-bold mb-1">Analytics</h6>
+                        <p class="x-small text-muted">REDD+ Validation Engine</p>
                     </div>
-                    <div class="col-md-2">
-                        <div class="p-3 bg-white bg-opacity-5 rounded-circle mb-3 d-inline-block" style="width: 80px; height: 80px; line-height: 50px;">
-                            <i class="fas fa-chart-area fs-3 text-warning"></i>
-                        </div>
-                        <h6 class="fw-bold">Modeling</h6>
-                        <p class="x-small text-muted">REDD+ / IPCC VM0015</p>
-                    </div>
-                    <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center">
-                        <i class="fas fa-chevron-right text-muted"></i>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="p-3 bg-white bg-opacity-5 rounded-circle mb-3 d-inline-block" style="width: 80px; height: 80px; line-height: 50px;">
-                            <i class="fas fa-desktop fs-3 text-info"></i>
-                        </div>
-                        <h6 class="fw-bold">Visualization</h6>
-                        <p class="x-small text-muted">OEI Dashboard</p>
+                    <div class="flow-item d-none d-lg-block"><i class="fas fa-chevron-right text-secondary opacity-25"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap"><i class="fas fa-desktop"></i></div>
+                        <h6 class="fw-bold mb-1">Reporting</h6>
+                        <p class="x-small text-muted">Live Dashboard Delivery</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Methodology Summary -->
+            <div class="section-title text-center mt-5 pt-4">
+                <h2 class="fw-800">Scientific Accountability</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="text-center text-secondary">Our methodology accounts for both **deforestation** (complete conversion) and **degradation** (partial loss of canopy cover). This is particularly critical in the Congo Basin, where artisanal mining and selective logging often create significant carbon leakage that traditional monitoring systems overlook.</p>
+                </div>
+            </div>
+
         </div>
     </main>
 
