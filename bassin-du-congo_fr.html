@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bassin du Congo | Intelligence du Carbone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index_fr.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index_fr.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Surveillance</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            
+                            <li><a class="dropdown-item" href="avoided-emissions_fr.html"><i class="fas fa-shield-virus me-2 text-success"></i>Indice des émissions évitées</a></li>
+                            <li><a class="dropdown-item" href="maps/index_fr.html"><i class="fas fa-map-marked-alt me-2 text-success"></i>Carte Globale</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientifique</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="pages/methodology_fr.html"><i class="fas fa-microscope me-2 text-success"></i>Méthodologie</a></li>
+                            <li><a class="dropdown-item" href="pages/soil_fr.html"><i class="fas fa-seedling me-2 text-success"></i>Sol & Forêt</a></li>
+                            <li><a class="dropdown-item" href="pages/references_fr.html"><i class="fas fa-book me-2 text-success"></i>Références</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Projet</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="pages/about_fr.html"><i class="fas fa-info-circle me-2 text-success"></i>À propos de la Réserve</a></li>
+                            <li><a class="dropdown-item" href="pages/datasets_fr.html"><i class="fas fa-database me-2 text-success"></i>Jeux de données</a></li>
+                            <li><a class="dropdown-item" href="pages/downloads_fr.html"><i class="fas fa-download me-2 text-success"></i>Téléchargements</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="pages/contact_fr.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard/index_fr.html">Analytique</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Changer le thème">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="bassin-du-congo.html" class="btn btn-sm btn-outline-success rounded-pill px-3 fw-bold">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <header class="mb-5 text-center">
+            <h1 class="display-3 fw-bold mb-3">Bassin du <span class="text-gradient">Congo</span></h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">Analyse comparative de la dynamique du carbone dans le Bassin du Congo et de la contribution stratégique de la Réserve de faune à okapis (2000-2026).</p>
+        </header>
+
+        <!-- Comparative Charts Grid -->
+        <div class="row g-4 mb-5">
+            <!-- Sequestration -->
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Séquestration du carbone (MtCO2e/an)</h4>
+                    <div id="sequestrationComparisonChart" class="chart-container" style="height: 450px;"></div>
+                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded border-start border-success border-4">
+                        <p class="small text-secondary mb-1"><strong>Source :</strong> NASA GEDI, ESA Biomasse CCI, UNESCO.</p>
+                        <p class="small text-secondary mb-0"><strong>Résumé :</strong> Le Bassin du Congo reste le puits de carbone tropical le plus important au monde. Alors que les tendances régionales montrent de légères fluctuations dues à l'expansion agricole, la Réserve d'Okapi maintient une trajectoire ascendante en termes d'efficacité de séquestration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage -->
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Stock Total de Carbone (GtC)</h4>
+                    <div id="storageComparisonChart" class="chart-container" style="height: 450px;"></div>
+                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded border-start border-warning border-4">
+                        <p class="small text-secondary mb-1"><strong>Source :</strong> GIEC 2006, Global Forest Watch.</p>
+                        <p class="small text-secondary mb-0"><strong>Résumé :</strong> Le stockage du carbone dans le Bassin du Congo est critique pour la stabilité climatique mondiale. La Réserve d'Okapi protège l'une des zones de densité de biomasse les plus élevées du bassin, agissant comme un réservoir stable à long terme.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avoided Emissions -->
+            <div class="col-lg-12">
+                <div class="glass-card">
+                    <h4 class="fw-bold mb-4">Émissions de GES Évitées (tCO2e)</h4>
+                    <div id="avoidedComparisonChart" class="chart-container" style="height: 450px;"></div>
+                    <div class="mt-3 p-3 bg-dark bg-opacity-25 rounded border-start border-primary border-4">
+                        <p class="small text-secondary mb-1"><strong>Source :</strong> Verra VM0015, Alertes GFW.</p>
+                        <p class="small text-secondary mb-0"><strong>Résumé :</strong> Les efforts de conservation à Okapi surpassent de manière significative les moyennes régionales dans la prévention des émissions liées à la déforestation, contribuant de manière disproportionnée à l'atténuation totale du bassin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Section -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-12">
+                <div class="glass-card border-success border-opacity-25 bg-success bg-opacity-10">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold">Analyse Prédictive sur 5 ans (2027-2031)</h2>
+                        <p class="text-secondary">Impact climatique projeté basé sur les protocoles de conservation actuels et les tendances régionales.</p>
+                    </div>
+                    <div id="predictionChart" class="chart-container" style="height: 500px;"></div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-success"><i class="fas fa-magic me-2"></i>Projection Okapi</h6>
+                            <p class="small text-secondary">Prévision d'une augmentation de la séquestration de 4,2% grâce à une surveillance accrue et à la restauration des zones d'exploitation minière artisanale.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-warning"><i class="fas fa-chart-line me-2"></i>Projection du Bassin</h6>
+                            <p class="small text-secondary">Les tendances régionales suggèrent un puits stabilisé avec une croissance de 1,5% si les pactes de protection multinationaux actuels sont maintenus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-5 mt-5">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="index_fr.html">
+                        <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                        <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+                    </a>
+                    <p class="text-secondary small pe-lg-5">Faire progresser la conservation des forêts par la rigueur scientifique, l'intelligence satellitaire et des rapports environnementaux transparents au sein du site du patrimoine mondial de l'UNESCO.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Plateforme</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="dashboard/index_fr.html" class="footer-link">Tableau de Bord Analytique</a></li>
+                        <li class="mb-2"><a href="maps/index_fr.html" class="footer-link">SIG Interactif</a></li>
+                        <li class="mb-2"><a href="pages/datasets_fr.html" class="footer-link">Catalogue de Jeux de Données</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientifique</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="pages/methodology_fr.html" class="footer-link">Méthodologie</a></li>
+                        <li class="mb-2"><a href="pages/soil_fr.html" class="footer-link">Sol & Forêt</a></li>
+                        <li class="mb-2"><a href="pages/references_fr.html" class="footer-link">Références</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Attribution des Données</h6>
+                    <p class="x-small text-secondary">Cette plateforme utilise des données de la NASA GEDI, Global Forest Watch (GFW), l'Initiative sur le Changement Climatique de l'ESA et l'UNESCO. La méthodologie respecte l'Affinement 2019 des Lignes Directrices 2006 du GIEC.</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. Analyse comparative scientifique pour le puits du Bassin du Congo.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCongoBasinModule();
+        });
+    </script>
+</body>
+</html>

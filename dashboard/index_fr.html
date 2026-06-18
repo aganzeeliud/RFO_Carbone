@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Environmental Intelligence Dashboard | OEI</title>
-    <!-- Dependencies -->
+    <title>Tableau de Bord de l'Intelligence Environnementale | OEI</title>
+    <!-- Dépendances -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+            <a class="navbar-brand d-flex align-items-center" href="../index_fr.html">
                 <i class="fas fa-leaf text-success me-2 fa-lg"></i>
                 <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
             </a>
@@ -49,41 +49,41 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Intelligence</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index_fr.html">Intelligence</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Surveillance</a>
                         <ul class="dropdown-menu border-0 shadow-lg">
                             
-                            <li><a class="dropdown-item" href="../avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>Avoided Emissions Index</a></li>
+                            <li><a class="dropdown-item" href="../avoided-emissions_fr.html"><i class="fas fa-shield-virus me-2 text-success"></i>Indice des émissions évitées</a></li>
                             
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientific</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scientifique</a>
                         <ul class="dropdown-menu border-0 shadow-lg">
-                            <li><a class="dropdown-item" href="../pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
-                            <li><a class="dropdown-item" href="../pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest</a></li>
-                            <li><a class="dropdown-item" href="../pages/references.html"><i class="fas fa-book me-2 text-success"></i>References</a></li>
+                            <li><a class="dropdown-item" href="../pages/methodology_fr.html"><i class="fas fa-microscope me-2 text-success"></i>Méthodologie</a></li>
+                            <li><a class="dropdown-item" href="../pages/soil_fr.html"><i class="fas fa-seedling me-2 text-success"></i>Sol & Forêt</a></li>
+                            <li><a class="dropdown-item" href="../pages/references_fr.html"><i class="fas fa-book me-2 text-success"></i>Références</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Project</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Projet</a>
                         <ul class="dropdown-menu border-0 shadow-lg">
-                            <li><a class="dropdown-item" href="../pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
-                            <li><a class="dropdown-item" href="../pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets</a></li>
-                            <li><a class="dropdown-item" href="../pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
+                            <li><a class="dropdown-item" href="../pages/about_fr.html"><i class="fas fa-info-circle me-2 text-success"></i>À propos de la Réserve</a></li>
+                            <li><a class="dropdown-item" href="../pages/datasets_fr.html"><i class="fas fa-database me-2 text-success"></i>Jeux de données</a></li>
+                            <li><a class="dropdown-item" href="../pages/downloads_fr.html"><i class="fas fa-download me-2 text-success"></i>Téléchargements</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                            <li><a class="dropdown-item" href="../pages/contact_fr.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index_fr.html">Analytique</a></li>
                     <li class="nav-item ms-lg-3">
-                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                        <button class="btn btn-sm" id="themeToggle" title="Changer le thème">
                             <i class="fas fa-sun"></i>
                         </button>
                     </li>
                     <li class="nav-item ms-lg-2">
-                        <a href="index_fr.html" class="btn btn-sm btn-outline-success rounded-pill px-3 fw-bold">FR</a>
+                        <a href="index.html" class="btn btn-sm btn-outline-success rounded-pill px-3 fw-bold">EN</a>
                     </li>
                 </ul>
             </div>
@@ -95,15 +95,15 @@
             <div class="col-lg-8">
                 <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-3 px-3">
                     <i class="fas fa-chart-line text-success me-2"></i>
-                    <span class="small fw-bold text-success text-uppercase tracking-wider">Real-time Analytics Engine</span>
+                    <span class="small fw-bold text-success text-uppercase tracking-wider">Moteur d'Analyse en Temps Réel</span>
                 </div>
-                <h1 class="display-4 fw-800 mb-2">Environmental <span class="text-gradient">Intelligence</span></h1>
-                <p class="text-secondary fs-5 mb-0">High-fidelity monitoring of carbon storage and forest dynamics within the Okapi Wildlife Reserve.</p>
+                <h1 class="display-4 fw-800 mb-2">Intelligence <span class="text-gradient">Environnementale</span></h1>
+                <p class="text-secondary fs-5 mb-0">Surveillance de haute fidélité du stockage du carbone et de la dynamique forestière au sein de la Réserve de faune à okapis (RFO).</p>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
                 <div class="btn-group rounded-pill overflow-hidden border border-secondary border-opacity-25">
                     <button class="btn btn-dark btn-sm px-3 active">2001 - 2026</button>
-                    <button class="btn btn-outline-secondary btn-sm px-3">Live Feed</button>
+                    <button class="btn btn-outline-secondary btn-sm px-3">Direct</button>
                 </div>
             </div>
         </div>
@@ -114,10 +114,10 @@
                 <div class="glass-card h-100 p-4">
                     <div class="d-flex justify-content-between mb-3">
                         <div class="feature-icon mb-0" style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fas fa-cloud-download-alt"></i></div>
-                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 h-100">+1.4%</span>
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 h-100">+1,4%</span>
                     </div>
-                    <p class="small text-secondary text-uppercase fw-bold mb-1">Annual Sequestration</p>
-                    <h2 class="stat-value mb-0" id="mainSequestration">16.2 <span class="fs-6 fw-normal text-muted">MtCO2e</span></h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Séquestration Annuelle</p>
+                    <h2 class="stat-value mb-0" id="mainSequestration">16,2 <span class="fs-6 fw-normal text-muted">MtCO2e</span></h2>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -126,8 +126,8 @@
                         <div class="feature-icon mb-0 text-danger" style="width: 45px; height: 45px; font-size: 1.2rem; background: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.2);"><i class="fas fa-tree-slash"></i></div>
                         <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 h-100">-6%</span>
                     </div>
-                    <p class="small text-secondary text-uppercase fw-bold mb-1">Annual Forest Loss</p>
-                    <h2 class="stat-value mb-0">3,000 <span class="fs-6 fw-normal text-muted">ha</span></h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Perte Forestière Annuelle</p>
+                    <h2 class="stat-value mb-0">3 000 <span class="fs-6 fw-normal text-muted">ha</span></h2>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -136,18 +136,18 @@
                         <div class="feature-icon mb-0 text-primary" style="width: 45px; height: 45px; font-size: 1.2rem; background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fas fa-microscope"></i></div>
                         <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 h-100">Stable</span>
                     </div>
-                    <p class="small text-secondary text-uppercase fw-bold mb-1">Mean Biomass Density</p>
-                    <h2 class="stat-value mb-0">332.1 <span class="fs-6 fw-normal text-muted">Mg/ha</span></h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Densité de Biomasse Moyenne</p>
+                    <h2 class="stat-value mb-0">332,1 <span class="fs-6 fw-normal text-muted">Mg/ha</span></h2>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="glass-card h-100 p-4">
                     <div class="d-flex justify-content-between mb-3">
                         <div class="feature-icon mb-0 text-warning" style="width: 45px; height: 45px; font-size: 1.2rem; background: rgba(255, 193, 7, 0.1); border-color: rgba(255, 193, 7, 0.2);"><i class="fas fa-shield-alt"></i></div>
-                        <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 h-100">Reserve</span>
+                        <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 h-100">Réserve</span>
                     </div>
-                    <p class="small text-secondary text-uppercase fw-bold mb-1">Total Carbon Stock</p>
-                    <h2 class="stat-value mb-0">2.10 <span class="fs-6 fw-normal text-muted">GtC</span></h2>
+                    <p class="small text-secondary text-uppercase fw-bold mb-1">Stock Total de Carbone</p>
+                    <h2 class="stat-value mb-0">2,10 <span class="fs-6 fw-normal text-muted">GtC</span></h2>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
             <div class="col-lg-7">
                 <div class="glass-card h-100">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold mb-0">Carbon Sequestration Trend</h4>
+                        <h4 class="fw-bold mb-0">Tendance de la Séquestration du Carbone</h4>
                         <div class="dropdown">
                             <button class="btn btn-sm btn-outline-secondary rounded-pill" type="button" data-bs-toggle="dropdown">
                                 <i class="fas fa-download me-1"></i>
@@ -173,7 +173,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="glass-card h-100">
-                    <h4 class="fw-bold mb-4">Forest Loss Analysis</h4>
+                    <h4 class="fw-bold mb-4">Analyse de la Perte Forestière</h4>
                     <div id="lossTrendChart" class="chart-container"></div>
                 </div>
             </div>
@@ -183,14 +183,15 @@
         <div class="glass-card mb-5 border-success border-opacity-20">
             <div class="row align-items-center">
                 <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="fw-800 mb-3">Performance d'Atténuation Climatique</h3>
                     <h3 class="fw-800 mb-3">Climate Mitigation Performance</h3>
-                    <p class="text-secondary small mb-4">Total greenhouse gas emissions avoided through successful conservation protocols and REDD+ verified actions.</p>
+                    <p class="text-secondary small mb-4">Émissions totales de gaz à effet de serre évitées grâce à des protocoles de conservation réussis et des actions vérifiées REDD+.</p>
                     <div class="p-4 bg-success bg-opacity-10 rounded-4 border border-success border-opacity-25">
-                        <h6 class="text-success fw-bold text-uppercase x-small mb-2">Total Avoided (Cumulative)</h6>
-                        <h1 class="stat-value text-success mb-0" id="totalAvoidedCounter">0.0M</h1>
-                        <p class="x-small text-muted mt-2 mb-0">Metric Tons of CO2e since 2001</p>
+                        <h6 class="text-success fw-bold text-uppercase x-small mb-2">Total Évité (Cumulatif)</h6>
+                        <h1 class="stat-value text-success mb-0" id="totalAvoidedCounter">0,0M</h1>
+                        <p class="x-small text-muted mt-2 mb-0">Tonnes Métriques de CO2e depuis 2001</p>
                     </div>
-                    <a href="../avoided-emissions.html" class="btn btn-success w-100 rounded-pill mt-4">Full GHG Report</a>
+                    <a href="../avoided-emissions_fr.html" class="btn btn-success w-100 rounded-pill mt-4">Rapport GES Complet</a>
                 </div>
                 <div class="col-lg-8">
                     <div class="chart-wrapper">
@@ -202,8 +203,8 @@
 
         <!-- Interactive Evolution Explorer -->
         <div class="section-title text-center mt-5">
-            <span class="text-success fw-bold text-uppercase">Temporal Intelligence</span>
-            <h2 class="fw-800 mt-2">Interactive Evolution Explorer</h2>
+            <span class="text-success fw-bold text-uppercase">Intelligence Temporelle</span>
+            <h2 class="fw-800 mt-2">Explorateur d'Évolution Interactif</h2>
             <div class="divider"></div>
         </div>
 
@@ -224,16 +225,16 @@
                     <div class="p-4 border-start border-success border-4 bg-white bg-opacity-5 rounded-end h-100">
                         <div class="d-flex align-items-center mb-4">
                             <div class="badge bg-success rounded-pill me-3" id="evolutionYear">2026</div>
-                            <h5 class="fw-bold mb-0">Yearly Resume</h5>
+                            <h5 class="fw-bold mb-0">Résumé Annuel</h5>
                         </div>
                         <div id="yearlyResume" class="small text-secondary mb-4">
-                            Select a year on the timeline to analyze specific conservation impacts and carbon metrics.
+                            Sélectionnez une année sur la chronologie pour analyser les impacts spécifiques de la conservation et les métriques de carbone.
                         </div>
                         <div class="row g-3">
                             <div class="col-6">
                                 <div class="p-3 bg-dark bg-opacity-50 rounded-3 border border-secondary border-opacity-10">
-                                    <p class="x-small text-muted mb-1">Efficiency</p>
-                                    <h6 class="fw-bold mb-0 text-success">High</h6>
+                                    <p class="x-small text-muted mb-1">Efficacité</p>
+                                    <h6 class="fw-bold mb-0 text-success">Haute</h6>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -243,7 +244,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-outline-light btn-sm w-100 rounded-pill mt-4">Download Archive</button>
+                        <button class="btn btn-outline-light btn-sm w-100 rounded-pill mt-4">Télécharger l'Archive</button>
                     </div>
                 </div>
             </div>
@@ -255,10 +256,10 @@
                 <div class="glass-card">
                     <div class="d-flex justify-content-between align-items-center mb-5">
                         <div>
-                            <h4 class="fw-bold mb-1">Regional Efficiency Benchmark</h4>
-                            <p class="small text-secondary mb-0">Okapi Wildlife Reserve vs. Greater Congo Basin Average</p>
+                            <h4 class="fw-bold mb-1">Analyse Comparative de l'Efficacité Régionale</h4>
+                            <p class="small text-secondary mb-0">Réserve de faune à okapis vs. Moyenne du Grand Bassin du Congo</p>
                         </div>
-                        <span class="badge bg-warning text-dark">Scientific Benchmarking</span>
+                        <span class="badge bg-warning text-dark">Analyse Scientifique</span>
                     </div>
                     <div class="row g-5">
                         <div class="col-lg-9">
@@ -267,15 +268,15 @@
                         <div class="col-lg-3">
                             <div class="h-100 d-flex flex-column">
                                 <div class="mb-4">
-                                    <h6 class="fw-bold text-success"><i class="fas fa-chart-pie me-2"></i>Relative Impact</h6>
-                                    <p class="x-small text-secondary">The OWR accounts for approximately **3.0%** of the Congo Basin's total net sequestration, while representing only ~0.7% of its total land area.</p>
+                                    <h6 class="fw-bold text-success"><i class="fas fa-chart-pie me-2"></i>Impact Relatif</h6>
+                                    <p class="x-small text-secondary">La RFO représente environ **3,0%** de la séquestration nette totale du Bassin du Congo, tout en ne représentant que ~0,7% de sa superficie totale.</p>
                                 </div>
                                 <div class="mb-4">
-                                    <h6 class="fw-bold text-warning"><i class="fas fa-exclamation-triangle me-2"></i>Regional Trend</h6>
-                                    <p class="x-small text-secondary">While regional averages show decline, the OWR maintains a stable trend due to strict protection protocols.</p>
+                                    <h6 class="fw-bold text-warning"><i class="fas fa-exclamation-triangle me-2"></i>Tendance Régionale</h6>
+                                    <p class="x-small text-secondary">Alors que les moyennes régionales montrent un déclin, la RFO maintient une tendance stable grâce à des protocoles de protection stricts.</p>
                                 </div>
                                 <div class="mt-auto">
-                                    <a href="../bassin-du-congo.html" class="btn btn-outline-success btn-sm w-100 rounded-pill">Detailed Comparison</a>
+                                    <a href="../bassin-du-congo_fr.html" class="btn btn-outline-success btn-sm w-100 rounded-pill">Comparaison Détaillée</a>
                                 </div>
                             </div>
                         </div>
@@ -287,40 +288,40 @@
         <!-- Hotspot Table -->
         <div class="glass-card">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="fw-bold mb-0">Degradation Hotspot Analysis (Simulated)</h5>
-                <span class="x-small text-muted">Update: June 2026</span>
+                <h5 class="fw-bold mb-0">Analyse des Points Chauds de Dégradation (Simulée)</h5>
+                <span class="x-small text-muted">Mise à jour : Juin 2026</span>
             </div>
             <div class="table-responsive">
                 <table class="table table-dark table-hover bg-transparent border-secondary border-opacity-10">
                     <thead class="text-success small">
                         <tr>
-                            <th>Zone ID</th>
-                            <th>Primary Driver</th>
-                            <th>Carbon Loss (t)</th>
-                            <th>Risk Level</th>
-                            <th>Status</th>
+                            <th>ID Zone</th>
+                            <th>Principal Facteur</th>
+                            <th>Perte de Carbone (t)</th>
+                            <th>Niveau de Risque</th>
+                            <th>Statut</th>
                         </tr>
                     </thead>
                     <tbody class="small text-secondary">
                         <tr>
                             <td><strong>RFO-N-01</strong></td>
-                            <td>Artisanal Mining</td>
-                            <td>125,400</td>
-                            <td><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">Critical</span></td>
-                            <td>Active Monitoring</td>
+                            <td>Mines Artisanales</td>
+                            <td>125 400</td>
+                            <td><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">Critique</span></td>
+                            <td>Surveillance Active</td>
                         </tr>
                         <tr>
                             <td><strong>RFO-E-04</strong></td>
-                            <td>Agriculture Extension</td>
-                            <td>45,200</td>
-                            <td><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25">Moderate</span></td>
-                            <td>Restoration Candidate</td>
+                            <td>Extension Agricole</td>
+                            <td>45 200</td>
+                            <td><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25">Modéré</span></td>
+                            <td>Candidat à la Restauration</td>
                         </tr>
                         <tr>
                             <td><strong>RFO-S-09</strong></td>
-                            <td>Infrastructure</td>
-                            <td>12,100</td>
-                            <td><span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25">Low</span></td>
+                            <td>Infrastructures</td>
+                            <td>12 100</td>
+                            <td><span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25">Faible</span></td>
                             <td>Stable</td>
                         </tr>
                     </tbody>
@@ -335,35 +336,35 @@
         <div class="container pb-5">
             <div class="row g-5">
                 <div class="col-lg-4">
-                    <a class="navbar-brand d-flex align-items-center mb-4" href="../index.html">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="../index_fr.html">
                         <i class="fas fa-leaf text-success me-2 fa-lg"></i>
                         <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
                     </a>
-                    <p class="text-secondary small pe-lg-5">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting.</p>
+                    <p class="text-secondary small pe-lg-5">Faire progresser la conservation des forêts par la rigueur scientifique, l'intelligence satellitaire et des rapports environnementaux transparents.</p>
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Platform</h6>
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Plateforme</h6>
                     <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="../dashboard/" class="footer-link">Analytics Dashboard</a></li>
+                        <li class="mb-2"><a href="../dashboard/index_fr.html" class="footer-link">Tableau de Bord Analytique</a></li>
                         
-                        <li class="mb-2"><a href="../pages/datasets.html" class="footer-link">Dataset Catalog</a></li>
+                        <li class="mb-2"><a href="../pages/datasets_fr.html" class="footer-link">Catalogue de Jeux de Données</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientifique</h6>
                     <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="../pages/methodology.html" class="footer-link">Methodology</a></li>
-                        <li class="mb-2"><a href="../pages/soil.html" class="footer-link">Soil & Forest</a></li>
-                        <li class="mb-2"><a href="../pages/references.html" class="footer-link">References</a></li>
+                        <li class="mb-2"><a href="../pages/methodology_fr.html" class="footer-link">Méthodologie</a></li>
+                        <li class="mb-2"><a href="../pages/soil_fr.html" class="footer-link">Sol & Forêt</a></li>
+                        <li class="mb-2"><a href="../pages/references_fr.html" class="footer-link">Références</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific Integrity</h6>
-                    <p class="x-small text-secondary">Data derived from NASA GEDI Lidar, ESA Climate Change Initiative, and Global Forest Watch. All analytics follow IPCC 2006/2019 guidelines.</p>
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Intégrité Scientifique</h6>
+                    <p class="x-small text-secondary">Données dérivées du Lidar NASA GEDI, de l'Initiative sur le Changement Climatique de l'ESA et de Global Forest Watch. Toutes les analyses suivent les directives du GIEC 2006/2019.</p>
                 </div>
             </div>
             <hr class="my-5 border-secondary border-opacity-25">
-            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. Dedicated to high-integrity conservation science.</div>
+            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. Dédié à la science de la conservation de haute intégrité.</div>
         </div>
     </footer>
 

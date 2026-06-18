@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytique du sol et de la forêt | Okapi Environmental Intelligence</title>
+    <!-- Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index_fr.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index_fr.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Surveillance</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            
+                            <li><a class="dropdown-item" href="../avoided-emissions_fr.html"><i class="fas fa-shield-virus me-2 text-success"></i>Indice des émissions évitées</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Scientifique</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/methodology_fr.html"><i class="fas fa-microscope me-2 text-success"></i>Méthodologie</a></li>
+                            <li><a class="dropdown-item" href="../pages/soil_fr.html"><i class="fas fa-seedling me-2 text-success"></i>Sol & Forêt</a></li>
+                            <li><a class="dropdown-item" href="../pages/references_fr.html"><i class="fas fa-book me-2 text-success"></i>Références</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Projet</a>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item" href="../pages/about_fr.html"><i class="fas fa-info-circle me-2 text-success"></i>À propos de la Réserve</a></li>
+                            <li><a class="dropdown-item" href="../pages/datasets_fr.html"><i class="fas fa-database me-2 text-success"></i>Jeux de données</a></li>
+                            <li><a class="dropdown-item" href="../pages/downloads_fr.html"><i class="fas fa-download me-2 text-success"></i>Téléchargements</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../pages/contact_fr.html"><i class="fas fa-envelope me-2 text-success"></i>Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../dashboard/index_fr.html">Analytique</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Changer le thème">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="soil.html" class="btn btn-sm btn-outline-success rounded-pill px-3 fw-bold">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-section" style="min-height: 40vh; padding-top: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-4 px-3">
+                        <span class="small fw-bold text-success text-uppercase tracking-wider">Analytique des terres et du carbone</span>
+                    </div>
+                    <h1 class="display-3 fw-800 mb-4">Occupation du sol et <span class="text-gradient">types de forêts</span></h1>
+                    <p class="lead text-secondary fs-4">Analyse détaillée des modes d'utilisation des terres et de la composition des forêts au sein de la Réserve de faune à okapis et de leurs stocks de carbone associés.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            
+            <!-- Soil Occupation -->
+            <div class="section-title text-center mb-5">
+                <span class="text-success fw-bold text-uppercase">Distribution spatiale</span>
+                <h2 class="fw-800 mt-2">Modes d'occupation du sol</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="glass-card h-100">
+                        <h4 class="fw-bold mb-4">Distribution de l'utilisation des terres</h4>
+                        <div id="soilOccupationChart" class="chart-container" style="height: 400px;"></div>
+                        <p class="small text-muted mt-3">Distribution des 1,37M d'hectares par catégorie de couverture terrestre.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card h-100">
+                        <h4 class="fw-bold mb-4">Stock de carbone par catégorie</h4>
+                        <div id="soilCarbonChart" class="chart-container" style="height: 400px;"></div>
+                        <p class="small text-muted mt-3">Carbone total estimé (tC) stocké dans la biomasse aérienne pour chaque catégorie.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forest Types -->
+            <div class="section-title text-center mb-5 pt-5">
+                <span class="text-success fw-bold text-uppercase">Analyse de la végétation</span>
+                <h2 class="fw-800 mt-2">Composition de la forêt</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <div class="glass-card mb-4">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-tree text-success me-2"></i>Stratification forestière</h5>
+                        <p class="text-secondary small">La réserve est dominée par la **forêt dense humide**, mais comprend des zones importantes de **forêt marécageuse** le long des bassins fluviaux et de **forêt secondaire** dans les zones restaurées.</p>
+                        <ul class="list-unstyled small text-secondary mt-4">
+                            <li class="mb-3 d-flex align-items-center">
+                                <span class="badge bg-success me-3" style="width: 120px;">Dense humide</span>
+                                <span>Haute densité de carbone (165,5 tC/ha)</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <span class="badge bg-primary me-3" style="width: 120px;">Forêt marécageuse</span>
+                                <span>Densité de carbone moyenne (142,2 tC/ha)</span>
+                            </li>
+                            <li class="mb-2 d-flex align-items-center">
+                                <span class="badge bg-warning text-dark me-3" style="width: 120px;">Secondaire</span>
+                                <span>Stock en régénération (120,8 tC/ha)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="glass-card">
+                        <h4 class="fw-bold mb-4">Distribution des types de forêts (%)</h4>
+                        <div id="forestTypeChart" class="chart-container" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="glass-card mt-5">
+                <h5 class="fw-bold mb-4"><i class="fas fa-table text-success me-2"></i>Données consolidées sur les terres et le carbone</h5>
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover bg-transparent border-secondary border-opacity-10">
+                        <thead class="text-success small">
+                            <tr>
+                                <th>Catégorie</th>
+                                <th>Superficie (Hectares)</th>
+                                <th>Densité de carbone (tC/ha)</th>
+                                <th>Stock total (MtC)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="small text-secondary">
+                            <tr>
+                                <td><strong>Forêt primaire</strong></td>
+                                <td>1 150 000</td>
+                                <td>160,8</td>
+                                <td>185,0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Forêt secondaire</strong></td>
+                                <td>150 000</td>
+                                <td>120,0</td>
+                                <td>18,0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Savane / Prairie</strong></td>
+                                <td>50 000</td>
+                                <td>70,0</td>
+                                <td>3,5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Établissements / Anthropique</strong></td>
+                                <td>15 000</td>
+                                <td>10,0</td>
+                                <td>0,15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-5 mt-5">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center mb-4" href="../index_fr.html">
+                        <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                        <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+                    </a>
+                    <p class="text-secondary small pe-lg-5">Faire progresser la conservation des forêts par la rigueur scientifique, l'intelligence satellitaire et des rapports environnementaux transparents.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Plateforme</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="../dashboard/index_fr.html" class="footer-link">Tableau de Bord Analytique</a></li>
+                        
+                        <li class="mb-2"><a href="../pages/datasets_fr.html" class="footer-link">Catalogue de Données</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientifique</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="../pages/methodology_fr.html" class="footer-link">Méthodologie</a></li>
+                        <li class="mb-2"><a href="../pages/soil_fr.html" class="footer-link">Sol & Forêt</a></li>
+                        <li class="mb-2"><a href="../pages/references_fr.html" class="footer-link">Références</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-4 text-uppercase">Intégrité Scientifique</h6>
+                    <p class="x-small text-secondary">Données dérivées du Lidar NASA GEDI, de l'Initiative sur le Changement Climatique de l'ESA et de Global Forest Watch. Toutes les analyses suivent les directives du GIEC 2006/2019.</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="text-center text-secondary x-small">© 2026 Okapi Environmental Intelligence. Surveillance des terres basée sur la fusion multi-capteurs.</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const icon = themeToggle.querySelector('i');
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                icon.className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                
+                initSoilCharts();
+            });
+
+            initSoilCharts();
+        });
+    </script>
+</body>
+</html>
