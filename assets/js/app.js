@@ -256,33 +256,51 @@ async function initSoilCharts() {
 
     if (document.getElementById('soilOccupationChart')) {
         const trace = {
+            type: 'treemap',
             labels: soilData.map(d => d.category),
+            parents: soilData.map(() => ""),
             values: soilData.map(d => d.area),
-            type: 'pie',
-            hole: 0.4,
-            marker: { colors: ['#1a4314', '#2d5a27', '#d4af37', '#94a3b8', '#3498db'] }
+            textinfo: "label+value+percent parent",
+            marker: { colorscale: 'Greens' },
+            pathbar: { visible: false }
         };
-        Plotly.newPlot('soilOccupationChart', [trace], getPlotlyLayout('Soil Occupation (Area)', ''), PLOTLY_CONFIG);
+        const layout = getPlotlyLayout('Soil Occupation Hierarchy', '');
+        layout.margin = { t: 30, l: 10, r: 10, b: 10 };
+        Plotly.newPlot('soilOccupationChart', [trace], layout, PLOTLY_CONFIG);
     }
 
     if (document.getElementById('soilCarbonChart')) {
         const trace = {
-            x: soilData.map(d => d.category),
-            y: soilData.map(d => d.carbon),
+            y: soilData.map(d => d.category),
+            x: soilData.map(d => d.carbon),
             type: 'bar',
-            marker: { color: '#2d5a27' }
+            orientation: 'h',
+            marker: {
+                color: soilData.map(d => d.carbon),
+                colorscale: 'Viridis',
+                line: { color: '#d4af37', width: 1 }
+            }
         };
-        Plotly.newPlot('soilCarbonChart', [trace], getPlotlyLayout('Carbon Stored by Category (tC)', 'tC'), PLOTLY_CONFIG);
+        const layout = getPlotlyLayout('Carbon Stock by Category', 'tC');
+        layout.xaxis.title = 'Total Carbon (tC)';
+        layout.yaxis.title = '';
+        Plotly.newPlot('soilCarbonChart', [trace], layout, PLOTLY_CONFIG);
     }
 
     if (document.getElementById('forestTypeChart')) {
         const trace = {
-            labels: forestData.map(d => d.type),
-            values: forestData.map(d => d.percentage),
-            type: 'pie',
-            marker: { colors: ['#1a4314', '#2ecc71', '#27ae60'] }
+            type: 'barpolar',
+            r: forestData.map(d => d.density),
+            theta: forestData.map(d => d.type),
+            name: 'Density',
+            marker: { color: '#2ecc71', line: { color: 'white' }, opacity: 0.8 },
         };
-        Plotly.newPlot('forestTypeChart', [trace], getPlotlyLayout('Forest Types Distribution (%)', ''), PLOTLY_CONFIG);
+        const layout = getPlotlyLayout('Forest Carbon Density Polar Analysis', '');
+        layout.polar = {
+            radialaxis: { visible: true, side: 'counterclockwise', showline: true, tickfont: { size: 10 } },
+            angularaxis: { tickfont: { size: 11 } }
+        };
+        Plotly.newPlot('forestTypeChart', [trace], layout, PLOTLY_CONFIG);
     }
 }
 
