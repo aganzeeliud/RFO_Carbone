@@ -17,7 +17,7 @@ const COLORS = {
 };
 
 // Helper to get Plotly Layout based on current theme
-function getPlotlyLayout(title, yaxisTitle, isDual = false) {
+function getPlotlyLayout(title, yaxisTitle, isDual = false, source = "") {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const textColor = isDark ? COLORS.textLight : COLORS.textDark;
     const gridColor = isDark ? COLORS.gridDark : COLORS.gridLight;
@@ -45,7 +45,7 @@ function getPlotlyLayout(title, yaxisTitle, isDual = false) {
             tickfont: { color: textColor, size: 10 },
             zeroline: false
         },
-        margin: { t: 60, b: 40, l: 60, r: 20 },
+        margin: { t: 60, b: source ? 80 : 40, l: 60, r: 20 },
         legend: { 
             font: { color: textColor, size: 10 }, 
             orientation: 'h', 
@@ -60,6 +60,20 @@ function getPlotlyLayout(title, yaxisTitle, isDual = false) {
             font: { family: 'Inter', color: textColor }
         }
     };
+
+    if (source) {
+        layout.annotations = [{
+            text: `Data Source: ${source}`,
+            showarrow: false,
+            xref: 'paper',
+            yref: 'paper',
+            x: 1,
+            y: -0.22,
+            xanchor: 'right',
+            yanchor: 'top',
+            font: { size: 10, color: isDark ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)' }
+        }];
+    }
 
     if (isDual) {
         layout.yaxis2 = {
@@ -119,7 +133,7 @@ async function initCarbonChart(id) {
         fill: 'tozeroy',
         fillcolor: 'rgba(46, 204, 113, 0.1)'
     };
-    Plotly.newPlot(id, [trace], getPlotlyLayout('Net Carbon Sequestration', 'MtCO2e'), PLOTLY_CONFIG);
+    Plotly.newPlot(id, [trace], getPlotlyLayout('Net Carbon Sequestration', 'MtCO2e', false, 'NASA GEDI & OEI'), PLOTLY_CONFIG);
 }
 
 async function initLossChart(id) {
@@ -138,7 +152,7 @@ async function initLossChart(id) {
         },
         name: 'Forest Loss'
     };
-    Plotly.newPlot(id, [trace], getPlotlyLayout('Annual Forest Loss', 'Hectares'), PLOTLY_CONFIG);
+    Plotly.newPlot(id, [trace], getPlotlyLayout('Annual Forest Loss', 'Hectares', false, 'Global Forest Watch'), PLOTLY_CONFIG);
 }
 
 function initEvolutionTrend(chartId, resumeId, sliderId, yearId) {
@@ -229,7 +243,7 @@ function renderAvoidedChart(id, data) {
         },
         name: 'Avoided Emissions'
     };
-    Plotly.newPlot(id, [trace], getPlotlyLayout('Annual Avoided Emissions', 'tCO2e'), PLOTLY_CONFIG);
+    Plotly.newPlot(id, [trace], getPlotlyLayout('Annual Avoided Emissions', 'tCO2e', false, 'REDD+ methodology / OEI'), PLOTLY_CONFIG);
 }
 
 function renderCumulativeChart(id, data) {
@@ -244,7 +258,7 @@ function renderCumulativeChart(id, data) {
         name: 'Cumulative Impact',
         fillcolor: 'rgba(212, 175, 55, 0.1)'
     };
-    Plotly.newPlot(id, [trace], getPlotlyLayout('Climate Contribution Trend', 'Total tCO2e'), PLOTLY_CONFIG);
+    Plotly.newPlot(id, [trace], getPlotlyLayout('Climate Contribution Trend', 'Total tCO2e', false, 'REDD+ methodology / OEI'), PLOTLY_CONFIG);
 }
 
 // Regional Benchmarking
@@ -266,7 +280,7 @@ function initComparisonChart(id) {
         yaxis: 'y2'
     };
 
-    Plotly.newPlot(id, [trace1, trace2], getPlotlyLayout('Regional Efficiency Benchmark', 'MtCO2e', true), PLOTLY_CONFIG);
+    Plotly.newPlot(id, [trace1, trace2], getPlotlyLayout('Regional Efficiency Benchmark', 'MtCO2e', true, 'OEI & Global Forest Watch'), PLOTLY_CONFIG);
 }
 
 // Soil & Forest Type Analytics
@@ -320,8 +334,8 @@ async function initSoilCharts() {
             marker: { colorscale: 'Greens' },
             pathbar: { visible: false }
         };
-        const layout = getPlotlyLayout('Soil Occupation Hierarchy', '');
-        layout.margin = { t: 30, l: 10, r: 10, b: 10 };
+        const layout = getPlotlyLayout('Soil Occupation Hierarchy', '', false, 'ESA Land Cover & OEI');
+        layout.margin = { t: 30, l: 10, r: 10, b: 80 }; // Override margin but keep source
         Plotly.newPlot('soilOccupationChart', [trace], layout, PLOTLY_CONFIG);
     }
 
@@ -337,7 +351,7 @@ async function initSoilCharts() {
                 line: { color: COLORS.gold, width: 1 }
             }
         };
-        const layout = getPlotlyLayout('Carbon Stock by Category', 'tC');
+        const layout = getPlotlyLayout('Carbon Stock by Category', 'tC', false, 'NASA GEDI & ESA');
         layout.xaxis.title = 'Total Carbon (tC)';
         layout.yaxis.title = '';
         Plotly.newPlot('soilCarbonChart', [trace], layout, PLOTLY_CONFIG);
@@ -351,7 +365,7 @@ async function initSoilCharts() {
             name: 'Density',
             marker: { color: COLORS.green, line: { color: 'white' }, opacity: 0.8 },
         };
-        const layout = getPlotlyLayout('Forest Carbon Density Polar Analysis', '');
+        const layout = getPlotlyLayout('Forest Carbon Density Polar Analysis', '', false, 'NASA GEDI');
         layout.polar = {
             radialaxis: { visible: true, side: 'counterclockwise', showline: true, tickfont: { size: 10 } },
             angularaxis: { tickfont: { size: 11 } }
@@ -375,25 +389,25 @@ async function initCongoBasinModule() {
     const basinStock = okapiStock.map(v => v * 120 + (Math.random() - 0.5) * 2);
     const basinAvoided = okapiAvoided.map(v => v * 40 + (Math.random() - 0.5) * 100000);
 
-    const commonLayout = (title, ytitle, isDual = false) => getPlotlyLayout(title, ytitle, isDual);
+    const commonLayout = (title, ytitle, isDual = false, source = "") => getPlotlyLayout(title, ytitle, isDual, source);
 
     // Sequestration Chart
     Plotly.newPlot('sequestrationComparisonChart', [
         { x: years, y: okapiSeq, name: 'Okapi (MtCO2e)', line: { color: COLORS.green, width: 4 } },
         { x: years, y: basinSeq, name: 'Congo Basin (MtCO2e)', line: { color: COLORS.gold, dash: 'dot' }, yaxis: 'y2' }
-    ], commonLayout('Sequestration Comparison', 'Okapi MtCO2e', true), PLOTLY_CONFIG);
+    ], commonLayout('Sequestration Comparison', 'Okapi MtCO2e', true, 'OEI & Congo Basin Analytics'), PLOTLY_CONFIG);
 
     // Storage Chart
     Plotly.newPlot('storageComparisonChart', [
         { x: years, y: okapiStock, name: 'Okapi Stock (GtC)', type: 'bar', marker: { color: COLORS.darkGreen } },
         { x: years, y: basinStock, name: 'Basin Stock (GtC)', type: 'scatter', mode: 'lines', line: { color: COLORS.gold }, yaxis: 'y2' }
-    ], commonLayout('Carbon Storage Comparison', 'Okapi GtC', true), PLOTLY_CONFIG);
+    ], commonLayout('Carbon Storage Comparison', 'Okapi GtC', true, 'NASA GEDI & ESA'), PLOTLY_CONFIG);
 
     // Avoided Emissions Chart
     Plotly.newPlot('avoidedComparisonChart', [
         { x: years, y: okapiAvoided, name: 'Okapi Avoided (tCO2e)', fill: 'tozeroy', line: { color: COLORS.blue } },
         { x: years, y: basinAvoided, name: 'Basin Avoided (tCO2e)', line: { color: '#e67e22', dash: 'dash' }, yaxis: 'y2' }
-    ], commonLayout('Avoided Emissions Performance', 'Okapi tCO2e', true), PLOTLY_CONFIG);
+    ], commonLayout('Avoided Emissions Performance', 'Okapi tCO2e', true, 'REDD+ & OEI'), PLOTLY_CONFIG);
 
     // Prediction Chart (5-Year)
     const futureYears = [2027, 2028, 2029, 2030, 2031];
@@ -403,7 +417,7 @@ async function initCongoBasinModule() {
     Plotly.newPlot('predictionChart', [
         { x: futureYears, y: okapiPred, name: 'Okapi Projection (MtCO2e)', mode: 'lines+markers', line: { color: COLORS.green, width: 5 } },
         { x: futureYears, y: basinPred, name: 'Basin Projection (MtCO2e)', mode: 'lines+markers', line: { color: COLORS.gold, dash: 'dot' }, yaxis: 'y2' }
-    ], commonLayout('5-Year Climate Impact Forecast', 'Okapi MtCO2e', true), PLOTLY_CONFIG);
+    ], commonLayout('5-Year Climate Impact Forecast', 'Okapi MtCO2e', true, 'OEI Predictive Model'), PLOTLY_CONFIG);
 }
 
 // Original Map Functions (Retained)
@@ -445,4 +459,3 @@ function updateMapLayer(layerId) {
     activeLayers.boundary.addTo(currentMap);
     if (activeLayers[layerId]) activeLayers[layerId].addTo(currentMap);
 }
-
