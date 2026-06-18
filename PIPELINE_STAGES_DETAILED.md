@@ -25,7 +25,7 @@ Our system automatically connects to Google Earth Engine to pull down the latest
 - Acquisition Date Range: November 1 - February 28 (dry season window)
 
 ### Why It Matters
-The Congo Basin experiences heavy cloud cover year-round, making it impossible to use just one seasonal snapshot. By collecting data annually during the dry season from multiple sensor types:
+Okapi Wildlife Reserve is situated in the Congo Basin and experiences heavy cloud cover year-round, making it impossible to use just one seasonal snapshot. By collecting data annually during the dry season from multiple sensor types:
 - We capture the most recent forest condition with minimal atmospheric interference
 - Multi-sensor fusion reduces errors in individual sensors
 - Annual collection allows us to measure year-over-year change in canopy structure
@@ -73,7 +73,7 @@ Raw satellite data contains significant atmospheric noise and cloud cover. We ap
 - Valid Pixel Coverage: Target ≥60% per reserve (typically achieve 65-75%)
 
 ### Why It Matters
-The Congo Basin receives ~250+ cloudy days per year. Without sophisticated cloud masking:
+Okapi Wildlife Reserve receives ~250+ cloudy days per year. Without sophisticated cloud masking:
 - Standard optical data would have >90% invalid pixels during wet season
 - Annual analysis would be impossible without multi-year composites
 - Remaining cloud artifacts would severely bias tree height estimation models
@@ -125,7 +125,7 @@ This is the most complex stage where we synthesize lidar and optical data to cre
 
 4. **Biomass Estimation:**
    - Convert predicted height to Above-Ground Biomass (AGB) using allometric equations
-   - Regional equation for Congo Basin species: **AGB = 0.0673 × (DBH)^2.473**
+   - Regional equation for Okapi Wildlife Reserve forest species: **AGB = 0.0673 × (DBH)^2.473**
    - Height → DBH conversion using height-diameter models specific to forest type
    - Output: Megagrams of dry biomass per hectare (Mg/ha)
 
