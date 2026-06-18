@@ -1,192 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okapi Wildlife Reserve Carbon Sequestration and Storage</title>
+    <title>Dataset Catalog | Okapi Environmental Intelligence</title>
+    <!-- Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><i class="fas fa-leaf me-2"></i>OKAPI CARBON SEQUESTRATION</a>
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
+                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/methodology.html">Methodology</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../maps/">Interactive Map</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../pages/datasets.html">Datasets</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Intelligence</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../bassin-du-congo.html">Bassin du Congo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="methodology.html">Methodology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../dashboard/">Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../maps/">Global Map</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container py-5">
-        <h1 class="mb-4 fw-bold text-success">Dataset Catalog</h1>
-        <p class="lead mb-5">Primary data sources used for the Okapi Wildlife Reserve Carbon Sequestration and Storage (2001-2026).</p>
-
-        <div class="row g-4">
-            <!-- NASA GEDI -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-primary">Lidar</span>
-                        <i class="fas fa-satellite text-muted"></i>
+    <!-- Header Section -->
+    <header class="hero-section" style="min-height: 40vh; padding-top: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="d-inline-flex align-items-center p-1 rounded-pill bg-success bg-opacity-10 border border-success border-opacity-25 mb-4 px-3">
+                        <span class="small fw-bold text-success text-uppercase tracking-wider">Open Data Policy</span>
                     </div>
-                    <h4>NASA GEDI L4B</h4>
-                    <p class="small">Gridded Aboveground Biomass Density (1km resolution) derived from the Global Ecosystem Dynamics Investigation.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>Years:</strong> 2019-2023</li>
-                        <li><strong>Format:</strong> GeoTIFF / Raster</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Metadata</button>
-                </div>
-            </div>
-
-            <!-- Global Forest Watch -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-success">Optical</span>
-                        <i class="fas fa-tree text-muted"></i>
-                    </div>
-                    <h4>Global Forest Watch</h4>
-                    <p class="small">Hansen Global Forest Change dataset providing annual tree cover loss and gain at 30m resolution.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>Years:</strong> 2000-2024</li>
-                        <li><strong>Format:</strong> Web / API / GEE</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Source</button>
-                </div>
-            </div>
-
-            <!-- ESA Biomass -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-warning text-dark">Radar</span>
-                        <i class="fas fa-broadcast-tower text-muted"></i>
-                    </div>
-                    <h4>ESA Biomass CCI</h4>
-                    <p class="small">European Space Agency Climate Change Initiative providing global maps of above-ground biomass.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>Years:</strong> 2010, 2017-2022</li>
-                        <li><strong>Format:</strong> NetCDF / Raster</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Explore</button>
-                </div>
-            </div>
-            
-            <!-- WDPA -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-secondary">Vector</span>
-                        <i class="fas fa-map-marked-alt text-muted"></i>
-                    </div>
-                    <h4>WDPA / Protected Planet</h4>
-                    <p class="small">World Database on Protected Areas providing the official boundaries for the Okapi Wildlife Reserve.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>ID:</strong> 124389</li>
-                        <li><strong>Format:</strong> Shapefile / GeoJSON</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Download</button>
-                </div>
-            </div>
-
-            <!-- Sentinel-2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-info text-dark">Optical</span>
-                        <i class="fas fa-layer-group text-muted"></i>
-                    </div>
-                    <h4>Sentinel-2 (MSI)</h4>
-                    <p class="small">High-resolution optical imagery (10m-60m) from the Copernicus program for vegetation monitoring.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>Years:</strong> 2015-Present</li>
-                        <li><strong>Format:</strong> JPEG2000 / Cloud Optimized GeoTIFF</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Access Data</button>
-                </div>
-            </div>
-
-            <!-- Landsat -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-dark">Optical</span>
-                        <i class="fas fa-history text-muted"></i>
-                    </div>
-                    <h4>Landsat 8-9 (OLI/TIRS)</h4>
-                    <p class="small">Long-term moderate resolution (30m) global record of the Earth's surface for change detection.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>Years:</strong> 1972-Present</li>
-                        <li><strong>Format:</strong> GeoTIFF / Level-2 SR</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Archive</button>
-                </div>
-            </div>
-
-            <!-- Google Earth Engine -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-danger">Cloud Platform</span>
-                        <i class="fas fa-cloud text-muted"></i>
-                    </div>
-                    <h4>Google Earth Engine</h4>
-                    <p class="small">Cloud-based geospatial processing platform providing access to petabytes of satellite imagery.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>Type:</strong> Planetary-scale analysis</li>
-                        <li><strong>Engine:</strong> Distributed computation</li>
-                    </ul>
-                    <button class="btn btn-outline-success btn-sm w-100 mt-auto">Developer Portal</button>
-                </div>
-            </div>
-
-            <!-- Carbon Database CSV -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-success">Local Data</span>
-                        <i class="fas fa-file-csv text-muted"></i>
-                    </div>
-                    <h4>Carbon Analysis Database</h4>
-                    <p class="small">Consolidated annual metrics for carbon sequestration, forest loss, and biomass density (2001-2026).</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>File:</strong> Carbone_db.csv</li>
-                        <li><strong>Format:</strong> CSV / Tabular</li>
-                    </ul>
-                    <a href="../assets/data/Carbone_db.csv" class="btn btn-primary btn-sm w-100 mt-auto" download>Download Dataset</a>
-                </div>
-            </div>
-
-            <!-- Avoided Emissions CSV -->
-            <div class="col-md-6 col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-success">Local Data</span>
-                        <i class="fas fa-file-csv text-muted"></i>
-                    </div>
-                    <h4>Avoided Emissions Database</h4>
-                    <p class="small">Calculated annual and cumulative avoided greenhouse gas emissions (tCO2e) based on REDD+ methodology.</p>
-                    <ul class="small text-muted ps-3">
-                        <li><strong>File:</strong> avoided_emissions.csv</li>
-                        <li><strong>Format:</strong> CSV / Tabular</li>
-                    </ul>
-                    <a href="../assets/data/avoided_emissions.csv" class="btn btn-primary btn-sm w-100 mt-auto" download>Download Dataset</a>
+                    <h1 class="display-3 fw-800 mb-4">Dataset <span class="text-gradient">Catalog</span></h1>
+                    <p class="lead text-secondary fs-4">Comprehensive index of scientific data sources, satellite archives, and consolidated analytical datasets powering the OEI platform.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
+    <main class="py-5">
+        <div class="container">
+            
+            <!-- Core Remote Sensing Data -->
+            <div class="section-title text-center mb-5">
+                <span class="text-success fw-bold text-uppercase">Primary Sources</span>
+                <h2 class="fw-800 mt-2">Remote Sensing Archives</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- NASA GEDI -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="feature-icon mb-0" style="width: 50px; height: 50px;"><i class="fas fa-satellite"></i></div>
+                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25">Lidar</span>
+                        </div>
+                        <h4 class="fw-bold">NASA GEDI L4A</h4>
+                        <p class="text-secondary small">High-resolution Aboveground Biomass Density (AGBD) derived from spaceborne LiDAR waveforms at 25m footprint resolution.</p>
+                        <ul class="list-unstyled x-small text-muted mt-auto pt-3 border-top border-secondary border-opacity-10">
+                            <li><strong>Timeline:</strong> 2019 - 2023</li>
+                            <li><strong>Product:</strong> Footprint AGBD</li>
+                            <li><strong>Provider:</strong> NASA LP DAAC</li>
+                        </ul>
+                        <a href="https://gedi.umd.edu/data/products/" target="_blank" class="btn btn-outline-success btn-sm w-100 mt-3 rounded-pill">Metadata</a>
+                    </div>
+                </div>
+
+                <!-- Global Forest Watch -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="feature-icon mb-0" style="width: 50px; height: 50px;"><i class="fas fa-tree"></i></div>
+                            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">Optical</span>
+                        </div>
+                        <h4 class="fw-bold">Global Forest Watch</h4>
+                        <p class="text-secondary small">Hansen Global Forest Change dataset monitoring annual tree cover loss and gain using Landsat multi-decadal archives.</p>
+                        <ul class="list-unstyled x-small text-muted mt-auto pt-3 border-top border-secondary border-opacity-10">
+                            <li><strong>Timeline:</strong> 2000 - 2024</li>
+                            <li><strong>Resolution:</strong> 30m</li>
+                            <li><strong>Provider:</strong> UMD / GFW</li>
+                        </ul>
+                        <a href="https://www.globalforestwatch.org/" target="_blank" class="btn btn-outline-success btn-sm w-100 mt-3 rounded-pill">Explore GFW</a>
+                    </div>
+                </div>
+
+                <!-- ESA Biomass -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="feature-icon mb-0" style="width: 50px; height: 50px;"><i class="fas fa-wave-square"></i></div>
+                            <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25">Radar</span>
+                        </div>
+                        <h4 class="fw-bold">ESA Biomass CCI</h4>
+                        <p class="text-secondary small">European Space Agency's globally consistent biomass maps utilizing multi-frequency SAR and optical fusion.</p>
+                        <ul class="list-unstyled x-small text-muted mt-auto pt-3 border-top border-secondary border-opacity-10">
+                            <li><strong>Timeline:</strong> 2010, 2017 - 2022</li>
+                            <li><strong>Resolution:</strong> 100m</li>
+                            <li><strong>Provider:</strong> ESA Climate Office</li>
+                        </ul>
+                        <a href="https://climate.esa.int/en/projects/biomass/" target="_blank" class="btn btn-outline-success btn-sm w-100 mt-3 rounded-pill">ESA Archives</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Derived Analytics Datasets -->
+            <div class="section-title text-center mb-5 pt-5">
+                <span class="text-success fw-bold text-uppercase">Platform Output</span>
+                <h2 class="fw-800 mt-2">Analytical Data Exports</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Consolidated DB -->
+                <div class="col-md-6">
+                    <div class="glass-card bg-success bg-opacity-5 border-success border-opacity-20">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="feature-icon me-3 mb-0"><i class="fas fa-file-csv"></i></div>
+                            <div>
+                                <h4 class="fw-bold mb-0">Core Carbon Database</h4>
+                                <span class="badge bg-success bg-opacity-10 text-success x-small">Consolidated CSV</span>
+                            </div>
+                        </div>
+                        <p class="text-secondary small mb-4">Unified dataset containing annual metrics for sequestration (MtCO2e), forest loss (ha), and carbon stock (GtC) specifically for the Okapi Wildlife Reserve (2001-2026).</p>
+                        <a href="../assets/data/Carbone_db.csv" class="btn btn-success w-100 rounded-pill" download>
+                            <i class="fas fa-download me-2"></i> Download Carbone_db.csv
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Avoided Emissions -->
+                <div class="col-md-6">
+                    <div class="glass-card bg-primary bg-opacity-5 border-primary border-opacity-20">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="feature-icon me-3 mb-0 text-primary" style="background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h4 class="fw-bold mb-0">Avoided Emissions Index</h4>
+                                <span class="badge bg-primary bg-opacity-10 text-primary x-small">Analytical Output</span>
+                            </div>
+                        </div>
+                        <p class="text-secondary small mb-4">Calculated GHG mitigation performance data, comparing reserve forest stability against regional "Business-As-Usual" baselines using REDD+ methodology.</p>
+                        <a href="../assets/data/avoided_emissions.csv" class="btn btn-primary w-100 rounded-pill" download>
+                            <i class="fas fa-download me-2"></i> Download avoided_emissions.csv
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supporting Datasets Grid -->
+            <div class="row g-4 mt-4">
+                <div class="col-lg-12">
+                    <div class="glass-card">
+                        <h5 class="fw-bold mb-4"><i class="fas fa-info-circle text-success me-2"></i>Supporting Geographic Layers</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover bg-transparent border-secondary border-opacity-10">
+                                <thead class="text-success small">
+                                    <tr>
+                                        <th>Dataset Name</th>
+                                        <th>Application</th>
+                                        <th>Format</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="small text-secondary">
+                                    <tr>
+                                        <td><strong>Sentinel-2 MSI</strong></td>
+                                        <td>Vegetation Monitoring & Classification</td>
+                                        <td>Cloud GeoTIFF</td>
+                                        <td><span class="badge bg-success bg-opacity-10 text-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>WDPA Boundary</strong></td>
+                                        <td>Spatial Zonal Statistics</td>
+                                        <td>GeoJSON / Vector</td>
+                                        <td><span class="badge bg-success bg-opacity-10 text-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>NASA SRTM</strong></td>
+                                        <td>Topographic Slope Correction</td>
+                                        <td>DEM / 30m</td>
+                                        <td><span class="badge bg-success bg-opacity-10 text-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ESA Land Cover</strong></td>
+                                        <td>Stratified Random Sampling</td>
+                                        <td>Raster / 10m</td>
+                                        <td><span class="badge bg-secondary bg-opacity-10 text-secondary">Reference</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-5 mt-5">
+        <div class="container text-center">
+            <h4 class="fw-bold mb-4">OKAPI<span class="text-success">CARBON</span></h4>
+            <p class="text-secondary small">© 2026 Okapi Environmental Intelligence. Committed to transparent, open-access science.</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="../index.html" class="text-decoration-none text-secondary small">Home</a>
+                <a href="methodology.html" class="text-decoration-none text-secondary small">Methodology</a>
+                <a href="../dashboard/" class="text-decoration-none text-secondary small">Analytics</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const icon = themeToggle.querySelector('i');
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', targetTheme);
+                icon.className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            });
+        });
+    </script>
 </body>
 </html>
