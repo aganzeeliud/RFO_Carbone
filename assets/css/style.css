@@ -243,14 +243,70 @@ footer {
 }
 
 .section-title h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
 }
 
 .section-title .divider {
-    width: 80px;
-    height: 4px;
+    width: 100px;
+    height: 5px;
     background: var(--accent-gold);
     margin: 0 auto;
-    border-radius: 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Enhanced Typography & Visibility */
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+    opacity: 0.75;
+}
+
+.lead {
+    color: var(--text-secondary);
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    color: var(--accent-gold);
+    border: 1px solid var(--glass-border);
+}
+
+.x-small {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+/* Card Refinements */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+/* Phase Badges */
+.badge {
+    padding: 0.6em 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
