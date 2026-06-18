@@ -38,8 +38,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Monitoring</a>
                         <ul class="dropdown-menu border-0 shadow-lg">
-                            <li><a class="dropdown-item" href="bassin-du-congo.html"><i class="fas fa-globe-africa me-2 text-success"></i>Bassin du Congo</a></li>
-                            <li><a class="dropdown-item" href="avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>GHG Avoided</a></li>
+                            <li><a class="dropdown-item" href="avoided-emissions.html"><i class="fas fa-shield-virus me-2 text-success"></i>Avoided Emissions Index</a></li>
                             <li><a class="dropdown-item" href="maps/"><i class="fas fa-map-marked-alt me-2 text-success"></i>Global Map</a></li>
                         </ul>
                     </li>
@@ -115,10 +114,13 @@
                 <div class="glass-card">
                     <h4 class="fw-bold mb-4">Annual Emissions Prevention</h4>
                     <div id="detailedAvoidedChart" class="chart-container" style="height: 450px;"></div>
-                    <div class="mt-4 p-3 border-start border-success border-2 bg-white bg-opacity-5 rounded-end">
+                    <div class="mt-4 p-3 border-start border-success border-2 bg-white bg-opacity-5 rounded-end d-flex justify-content-between align-items-center">
                         <p class="x-small text-secondary mb-0">
                             <strong>Scientific Context:</strong> Calculated using REDD+ (VM0015) and IPCC 2006 guidelines, benchmarking actual reserve forest stability against regional "Business-As-Usual" deforestation rates.
                         </p>
+                        <a href="assets/data/avoided_emissions_sources.csv" class="btn btn-sm btn-outline-success rounded-pill ms-3 x-small" download>
+                            <i class="fas fa-file-csv me-1"></i> Data Sources
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,7 @@
+id,source_name,type,application,url
+1,NASA GEDI L4A,Lidar,Biomass Density Mapping,https://gedi.umd.edu/
+2,Global Forest Watch,Optical,Annual Forest Loss Tracking,https://www.globalforestwatch.org/
+3,ESA Biomass CCI,Radar,Cross-sensor Validation,https://climate.esa.int/en/projects/biomass/
+4,IPCC 2006/2019,Standard,Emission Factor Calculation,https://www.ipcc-nggip.iges.or.jp/
+5,REDD+ VM0015,Methodology,Baseline Deforestation Modeling,https://verra.org/methodologies/vm0015/
+6,Verra VCS,Standard,Carbon Credit Validation,https://verra.org/
