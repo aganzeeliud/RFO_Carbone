@@ -144,6 +144,62 @@
                 </div>
             </div>
 
+            <!-- Detailed Data Pipeline Workflow -->
+            <div class="section-title text-center mb-5 pt-5">
+                <span class="text-success fw-bold text-uppercase">Technical Deep Dive</span>
+                <h2 class="fw-800 mt-2">The OEI Data Pipeline</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-12">
+                    <div class="glass-card">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-success mb-3">1. Automated Ingestion</h5>
+                                <p class="text-secondary small">The pipeline begins with the automated retrieval of multi-temporal satellite data using the <strong>Google Earth Engine (GEE) Python API</strong>. We ingest:
+                                    <ul class="x-small text-muted">
+                                        <li><strong>GEDI L4A:</strong> Aboveground Biomass Density (AGBD) footprints.</li>
+                                        <li><strong>Sentinel-2:</strong> MSI Level-2A surface reflectance for land cover classification.</li>
+                                        <li><strong>Hansen GFC:</strong> Global Forest Change annual loss layers.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-primary mb-3">2. Pre-processing & Normalization</h5>
+                                <p class="text-secondary small">Raw data undergoes rigorous cleaning:
+                                    <ul class="x-small text-muted">
+                                        <li><strong>Cloud Masking:</strong> Utilizing the QA60 band to remove atmospheric interference.</li>
+                                        <li><strong>Spatial Harmonization:</strong> Resampling all raster products to a consistent 30m UTM projection.</li>
+                                        <li><strong>Filtering:</strong> Removing GEDI footprints with sensitivity scores below 0.9 to ensure biomass accuracy.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-warning mb-3">3. Spatial Analytics (Python Stack)</h5>
+                                <p class="text-secondary small">The heavy lifting is performed using a specialized Python environment:
+                                    <ul class="x-small text-muted">
+                                        <li><strong>GeoPandas:</strong> For vector-based boundary analysis of the Okapi Wildlife Reserve.</li>
+                                        <li><strong>Rasterio/Xarray:</strong> For high-performance multidimensional array processing of biomass stacks.</li>
+                                        <li><strong>Zonal Statistics:</strong> Aggregating biomass density across protected vs. non-protected strata.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold text-info mb-3">4. Carbon Intelligence Modeling</h5>
+                                <p class="text-secondary small">Final metrics are generated through our proprietary OEI algorithms:
+                                    <ul class="x-small text-muted">
+                                        <li><strong>Sequestration:</strong> Calculating the delta in AGB over time based on Net Primary Productivity (NPP).</li>
+                                        <li><strong>Emission Factors:</strong> Applying IPCC-standard conversion coefficients (3.67 for tCO2e).</li>
+                                        <li><strong>REDD+ Baseline:</strong> Dynamic benchmarking against regional deforestation trends.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Workflow Diagram (CSS based) -->
             <div class="glass-card text-center py-5 mt-5">
                 <h3 class="fw-800 mb-5">Data Pipeline Workflow</h3>
