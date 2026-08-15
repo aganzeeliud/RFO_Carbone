@@ -102,3 +102,8 @@ For a comprehensive non-technical explanation of these technologies, see **[LIDA
 
 ---
 Developed with ❤️ for the protection of the Congo Basin.
+
+## Changelog
+- 2026-08-15 — Dashboard UI refreshed, professional styling updates, and dataset refresh (mock "today" update added for 2026 and 2027). Updated CSV data under assets/data; charts and KPIs will reflect the refreshed values when the site is reloaded.
+
+Notes: data provided here are synthetic for demonstration. Replace assets/data/*.csv with authoritative exports when available.
