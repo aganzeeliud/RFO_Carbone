@@ -4,16 +4,15 @@ const YEARS = Array.from({length: 26}, (_, i) => 2001 + i);
 
 // Color Palette
 const COLORS = {
-    green: '#2ecc71',
-    darkGreen: '#1a4314',
+    navy: '#0b2545',
+    steel: '#2b6f9e',
+    accentBlue: '#1f77b4',
     gold: '#d4af37',
-    red: '#e74c3c',
-    blue: '#3498db',
-    lightBlue: '#5dade2',
-    textDark: '#1e293b',
-    textLight: '#94a3b8',
-    gridDark: 'rgba(255,255,255,0.05)',
-    gridLight: 'rgba(0,0,0,0.05)'
+    red: '#e04f4f',
+    grayText: '#475569',
+    lightGray: '#e6eef7',
+    gridLight: 'rgba(15,23,42,0.06)',
+    gridDark: 'rgba(255,255,255,0.06)'
 };
 
 // Helper to get Plotly Layout based on current theme
@@ -129,11 +128,11 @@ async function initCarbonChart(id) {
         y: data.map(d => d.carbon_sequestration_mtco2e),
         type: 'scatter',
         mode: 'lines+markers',
-        line: { color: COLORS.green, width: 3, shape: 'spline' },
-        marker: { size: 6, color: COLORS.darkGreen, line: { color: COLORS.green, width: 1 } },
+        line: { color: COLORS.accentBlue, width: 3, shape: 'spline' },
+        marker: { size: 6, color: COLORS.navy, line: { color: COLORS.accentBlue, width: 1 } },
         name: 'Sequestration',
         fill: 'tozeroy',
-        fillcolor: 'rgba(46, 204, 113, 0.1)'
+        fillcolor: 'rgba(31,119,180,0.08)'
     };
     Plotly.newPlot(id, [trace], getPlotlyLayout('Net Carbon Sequestration', 'MtCO2e', false, 'NASA GEDI & OEI'), PLOTLY_CONFIG);
 }
@@ -149,7 +148,7 @@ async function initLossChart(id) {
         type: 'bar',
         marker: { 
             color: data.map(d => d.forest_loss_hectares),
-            colorscale: [[0, 'rgba(231, 76, 60, 0.4)'], [1, 'rgba(231, 76, 60, 0.9)']],
+            colorscale: [[0, 'rgba(224,79,79,0.25)'], [1, 'rgba(224,79,79,0.85)']],
             line: { color: COLORS.red, width: 1 }
         },
         name: 'Forest Loss'
