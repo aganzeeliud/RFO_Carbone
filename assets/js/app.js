@@ -200,11 +200,18 @@ async function initGHGModule() {
     const updateEl = (id, val) => { if(document.getElementById(id)) document.getElementById(id).innerText = val; };
 
     updateEl('mainSequestration', latest.carbon_sequestration_mtco2e.toFixed(1) + 'M');
+    updateEl('annualForestLoss', latest.forest_loss_hectares.toLocaleString() + ' ha');
+    updateEl('meanBiomass', latest.biomass_density_mgha.toFixed(1) + ' Mg/ha');
+    updateEl('totalCarbonStock', latest.carbon_stock_gtc.toFixed(2) + ' GtC');
     updateEl('mainAvoided', (latest.avoided_emissions_tCO2e / 1000000).toFixed(1) + 'M');
     updateEl('totalAvoidedCounter', (totalAvoided / 1000000).toFixed(2) + 'M');
     updateEl('carsRemovedCounter', (totalAvoided / 4.6 / 1000000).toFixed(1) + 'M');
     updateEl('householdsCounter', (totalAvoided / 5.4 / 1000).toFixed(0) + 'K');
     updateEl('forestConservedCounter', (data.reduce((sum, r) => sum + (6000 - r.forest_loss_hectares), 0) / 1000).toFixed(1) + 'K');
+
+    if (document.getElementById('lastUpdated')) {
+        document.getElementById('lastUpdated').innerText = new Date().toLocaleString();
+    }
 
     // Initialize Charts
     if(document.getElementById('avoidedEmissionsChart')) renderAvoidedChart('avoidedEmissionsChart', data);

@@ -289,6 +289,10 @@ footer h6 {
     color: var(--accent-gold);
 }
 
+/* Chart container improvements */
+.chart-container { min-height: 280px; width: 100%; }
+.chart-loading { display:flex; align-items:center; justify-content:center; height:100%; color:var(--text-secondary); }
+
 /* Responsive Fixes */
 @media (max-width: 991.98px) {
     .navbar-collapse {
