@@ -1,944 +1,142 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okapi Environmental Intelligence | High-Integrity Climate Monitoring</title>
-    <!-- Dependencies -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        /* ===== HERO SECTION ===== */
-        .hero-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f4c3a 100%);
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(45, 150, 90, 0.1), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05), transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-            margin: 1.5rem 0;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #d4af37;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 0.25rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary-lg {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary-lg:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
-            color: white;
-        }
-
-        .btn-secondary-lg {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary-lg:hover {
-            border-color: #d4af37;
-            color: #d4af37;
-        }
-
-        /* ===== FEATURE CARDS ===== */
-        .feature-cards {
-            margin-top: -100px;
-            position: relative;
-            z-index: 3;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: #d4af37;
-            transform: translateY(-5px);
-        }
-
-        .feature-card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h5 {
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .feature-card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* ===== KPI SECTION ===== */
-        .kpi-section {
-            background: #0f172a;
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .kpi-item {
-            text-align: center;
-        }
-
-        .kpi-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 0.5rem;
-        }
-
-        .kpi-label {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .kpi-divider {
-            width: 2px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: auto;
-        }
-
-        /* ===== PILLARS SECTION ===== */
-        .pillars-section {
-            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-            padding: 5rem 0;
-        }
-
-        .pillar-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .pillar-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #22c55e, #16a34a);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .pillar-box:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-8px);
-        }
-
-        .pillar-box:hover::before {
-            transform: scaleX(1);
-        }
-
-        .pillar-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
-            border: 2px solid rgba(34, 197, 94, 0.3);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #22c55e;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .pillar-box:hover .pillar-icon {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(240, 230, 140, 0.1));
-            border-color: #d4af37;
-            color: #d4af37;
-        }
-
-        .pillar-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .pillar-text {
-            color: rgba(255, 255, 255, 0.65);
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        /* ===== TECH STACK SECTION ===== */
-        .tech-section {
-            background: #0f172a;
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-label {
-            display: inline-block;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #22c55e;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-heading {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .tech-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 120px;
-            cursor: pointer;
-        }
-
-        .tech-badge:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            transform: translateY(-5px);
-        }
-
-        .tech-badge-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tech-badge-name {
-            font-weight: 600;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 20px;
-            padding: 4rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .cta-title {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .section-heading {
-                font-size: 2rem;
-            }
-
-            .cta-section {
-                padding: 2rem;
-            }
-
-            .kpi-divider {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Okapi Environmental Intelligence | Protecting the Congo Basin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fas fa-leaf text-success me-2 fa-lg"></i>
-                <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <!-- Main Navigation -->
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                    
-                    <!-- Analytics & Monitoring -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-chart-line me-1"></i>Analytics
-                        </a>
-                        <ul class="dropdown-menu border-0 shadow-lg">
-                            <li><a class="dropdown-item" href="dashboard/"><i class="fas fa-gauge me-2 text-success"></i>Dashboard</a></li>
-                            <li><a class="dropdown-item" href="avoided-emissions.html"><i class="fas fa-shield-alt me-2 text-success"></i>Avoided Emissions</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="bassin-du-congo.html"><i class="fas fa-map me-2 text-success"></i>Basin Comparison</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Science & Methods -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-flask me-1"></i>Science
-                        </a>
-                        <ul class="dropdown-menu border-0 shadow-lg">
-                            <li><a class="dropdown-item" href="pages/methodology.html"><i class="fas fa-microscope me-2 text-success"></i>Methodology</a></li>
-                            <li><a class="dropdown-item" href="LIDAR_ANALYSIS_GUIDE.md" target="_blank"><i class="fas fa-book me-2 text-success"></i>LiDAR Guide</a></li>
-                            <li><a class="dropdown-item" href="pages/soil.html"><i class="fas fa-seedling me-2 text-success"></i>Soil & Forest Data</a></li>
-                            <li><a class="dropdown-item" href="pages/references.html"><i class="fas fa-book-open me-2 text-success"></i>References</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Project Info -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-folder me-1"></i>Project
-                        </a>
-                        <ul class="dropdown-menu border-0 shadow-lg">
-                            <li><a class="dropdown-item" href="pages/about.html"><i class="fas fa-info-circle me-2 text-success"></i>About Reserve</a></li>
-                            <li><a class="dropdown-item" href="pages/datasets.html"><i class="fas fa-database me-2 text-success"></i>Datasets & Attribution</a></li>
-                            <li><a class="dropdown-item" href="pages/downloads.html"><i class="fas fa-download me-2 text-success"></i>Downloads</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="pages/contact.html"><i class="fas fa-envelope me-2 text-success"></i>Contact Us</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Language & Theme -->
-                    <li class="nav-item ms-lg-3">
-                        <button class="btn btn-sm" id="themeToggle" title="Toggle Theme">
-                            <i class="fas fa-sun"></i>
-                        </button>
-                    </li>
-                    <li class="nav-item ms-lg-2">
-                        <a href="index_fr.html" class="btn btn-sm btn-outline-success rounded-pill px-3 fw-bold">FR</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-8 hero-content">
-                    <h1 class="hero-title">Protecting the Congo Basin's Green Heart</h1>
-                    <p class="hero-subtitle">Advanced environmental intelligence monitoring the Okapi Wildlife Reserve's contribution to global climate stability through high-integrity REDD+ validated analytics.</p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" id="mainSequestration">0.0M</div>
-                            <div class="stat-label">Annual Sequestration (MtCO2e)</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="mainAvoided">0.0M</div>
-                            <div class="stat-label">Avoided Emissions (tCO2e)</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" style="color: #ef4444;">-12%</div>
-                            <div class="stat-label">Deforestation Trend</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2.1 Gt</div>
-                            <div class="stat-label">Total Carbon Stock</div>
-                        </div>
-                    </div>
-
-                    <div class="cta-buttons">
-                        <a href="dashboard/" class="btn-primary-lg">
-                            <i class="fas fa-chart-line me-2"></i>Explore Analytics
-                        </a>
-                        <a href="LIDAR_ANALYSIS_GUIDE.md" target="_blank" class="btn-secondary-lg">
-                            <i class="fas fa-book me-2"></i>Learn About LiDAR
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature Cards Section -->
-    <section class="py-5 bg-dark feature-cards">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-card-icon">
-                            <i class="fas fa-satellite"></i>
-                        </div>
-                        <h5>Multi-Sensor Fusion</h5>
-                        <p>Real-time monitoring using NASA GEDI Lidar, ESA Biomass radar, and Sentinel-2 optical imagery for comprehensive canopy analysis.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-card-icon">
-                            <i class="fas fa-microscope"></i>
-                        </div>
-                        <h5>Scientific Analytics</h5>
-                        <p>REDD+ validated algorithms process gigabytes of LiDAR data to estimate biomass density with unprecedented precision and accuracy.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-card-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <h5>Transparent Reporting</h5>
-                        <p>Open-access data aligned with IPCC and Verra standards ensure every ton of carbon is accounted for and verifiable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KPI Section -->
-    <section class="kpi-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="kpi-item">
-                        <div class="kpi-value">1.37M</div>
-                        <div class="kpi-label">Reserve Area (hectares)</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="kpi-item">
-                        <div class="kpi-value">TIER 3</div>
-                        <div class="kpi-label">REDD+ Methodology</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="kpi-item">
-                        <div class="kpi-value">2026</div>
-                        <div class="kpi-label">Data Through Year</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="kpi-item">
-                        <div class="kpi-value">100%</div>
-                        <div class="kpi-label">Open Access Data</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pillars Section -->
-    <section class="pillars-section">
-        <div class="container py-5">
-            <div class="section-title mb-5">
-                <div class="section-label">Platform Architecture</div>
-                <h2 class="section-heading">The Three Pillars of OEI</h2>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="pillar-box">
-                        <div class="pillar-icon">
-                            <i class="fas fa-circle-notch"></i>
-                        </div>
-                        <h3 class="pillar-title">Continuous Monitoring</h3>
-                        <p class="pillar-text">Daily satellite feeds from Global Forest Watch and ESA detect disturbances in the reserve's canopy before they escalate, enabling rapid response.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="pillar-box">
-                        <div class="pillar-icon">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <h3 class="pillar-title">Scientific Analytics</h3>
-                        <p class="pillar-text">Our REDD+ validated algorithms process gigabytes of LiDAR data from NASA GEDI to estimate biomass density with unprecedented precision.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="pillar-box">
-                        <div class="pillar-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <h3 class="pillar-title">Transparent Reporting</h3>
-                        <p class="pillar-text">Open-access data and methodology aligned with IPCC and Verra standards ensure that every ton of carbon is accounted for and verifiable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section class="tech-section py-5">
-        <div class="container">
-            <div class="section-title">
-                <div class="section-label">Technology Stack</div>
-                <h2 class="section-heading">Powered By Industry Leaders</h2>
-            </div>
-
-            <div class="row g-3">
-                <div class="col-md-4 col-sm-6">
-                    <div class="tech-badge">
-                        <div class="text-center">
-                            <div class="tech-badge-icon">🛰️</div>
-                            <div class="tech-badge-name">NASA GEDI</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="tech-badge">
-                        <div class="text-center">
-                            <div class="tech-badge-icon">📡</div>
-                            <div class="tech-badge-name">ESA Sentinel-2</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="tech-badge">
-                        <div class="text-center">
-                            <div class="tech-badge-icon">🌐</div>
-                            <div class="tech-badge-name">ESA BIOMASS</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="tech-badge">
-                        <div class="text-center">
-                            <div class="tech-badge-icon">🌍</div>
-                            <div class="tech-badge-name">Global Forest Watch</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="tech-badge">
-                        <div class="text-center">
-                            <div class="tech-badge-icon">⚙️</div>
-                            <div class="tech-badge-name">Google Earth Engine</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="tech-badge">
-                        <div class="text-center">
-                            <div class="tech-badge-icon">📊</div>
-                            <div class="tech-badge-name">Advanced Analytics</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="container py-5">
-        <div class="cta-section">
-            <h2 class="cta-title">Ready to Explore the Data?</h2>
-            <p class="cta-subtitle">Access comprehensive analytics, interactive maps, and detailed reports about the Okapi Wildlife Reserve.</p>
-            <a href="dashboard/" class="btn-primary-lg">
-                <i class="fas fa-arrow-right me-2"></i>Launch Dashboard
-            </a>
-        </div>
-    </section>
-
-    <!-- Analytics Preview -->
-    <section class="py-5 bg-dark bg-opacity-25">
-        <div class="container">
-            <div class="section-title text-center mb-5">
-                <span class="section-tag text-success fw-bold text-uppercase">Analytical Intelligence</span>
-                <h2 class="display-4 fw-800 mt-2">GHG Mitigation Impact</h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="row g-4 mb-5">
-                <div class="col-lg-8">
-                    <div class="glass-card h-100 p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Annual Mitigation Performance</h4>
-                            <a href="avoided-emissions.html" class="btn btn-sm btn-outline-secondary rounded-pill">Detailed Analysis</a>
-                        </div>
-                        <div id="avoidedEmissionsChart" class="chart-container" style="height: 400px;"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="glass-card h-100 bg-success bg-opacity-10 border-success border-opacity-20 p-4">
-                        <h4 class="fw-bold mb-4">Climate Equivalences</h4>
-                        <div class="mb-4 p-3 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5">
-                            <div class="d-flex align-items-center mb-2">
-                                <div class="feature-icon mb-0 me-3" style="width: 50px; height: 50px; font-size: 1.2rem;"><i class="fas fa-car-side"></i></div>
-                                <div>
-                                    <h3 class="metric-value mb-0" id="carsRemovedCounter">0M</h3>
-                                    <p class="x-small text-muted mb-0 text-uppercase">Cars off the road</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-4 p-3 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5">
-                            <div class="d-flex align-items-center mb-2">
-                                <div class="feature-icon mb-0 me-3 text-warning" style="width: 50px; height: 50px; font-size: 1.2rem; background: rgba(255,193,7,0.1); border-color: rgba(255,193,7,0.2);"><i class="fas fa-bolt"></i></div>
-                                <div>
-                                    <h3 class="metric-value mb-0 text-warning" id="householdsCounter">0K</h3>
-                                    <p class="x-small text-muted mb-0 text-uppercase">Homes powered</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-4 p-3 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-5">
-                            <div class="d-flex align-items-center mb-2">
-                                <div class="feature-icon mb-0 me-3 text-primary" style="width: 50px; height: 50px; font-size: 1.2rem; background: rgba(13,110,253,0.1); border-color: rgba(13,110,253,0.2);"><i class="fas fa-tree"></i></div>
-                                <div>
-                                    <h3 class="metric-value mb-0 text-primary" id="forestConservedCounter">0K</h3>
-                                    <p class="x-small text-muted mb-0 text-uppercase">Hectares Conserved</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="border-success opacity-25">
-                        <p class="x-small text-secondary mb-0">Equivalences calculated based on EPA Greenhouse Gas Equivalencies Calculator standards.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Regional Benchmarking -->
-            <div class="row align-items-center py-5 mt-4">
-                <div class="col-lg-6">
-                    <span class="section-tag text-warning fw-bold text-uppercase">Benchmarking</span>
-                    <h2 class="display-5 fw-800 mb-4">Regional Efficiency</h2>
-                    <p class="text-secondary fs-5 mb-5">How the Okapi Wildlife Reserve compares to broader trends across the Congo Basin, highlighting superior sequestration stability.</p>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="p-3 border-start border-success border-3 bg-white bg-opacity-5 rounded-end">
-                                <h4 class="metric-value mb-1">3.1%</h4>
-                                <p class="x-small text-muted mb-0">Total Basin Sequestration</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 border-start border-warning border-3 bg-white bg-opacity-5 rounded-end">
-                                <h4 class="metric-value mb-1">15 Years</h4>
-                                <p class="x-small text-muted mb-0">Verified "Carbon Star" Status</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
-                    <div class="glass-card p-4">
-                        <div id="comparisonChart" class="chart-container" style="height: 400px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Land Intelligence Section -->
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="section-title text-center mb-5">
-                <span class="section-tag text-success fw-bold text-uppercase">Geospatial Insights</span>
-                <h2 class="display-4 fw-800 mt-2">Soil & Forest Intelligence</h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="glass-card text-center h-100 p-4">
-                        <div class="feature-icon mx-auto"><i class="fas fa-map-marked-alt"></i></div>
-                        <h4 class="fw-bold mb-3">Soil Occupation</h4>
-                        <div id="soilOccupationChart" class="chart-container" style="height: 300px;"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="glass-card text-center h-100 p-4">
-                        <div class="feature-icon mx-auto text-primary" style="background: rgba(13,110,253,0.1); border-color: rgba(13,110,253,0.2);"><i class="fas fa-tree"></i></div>
-                        <h4 class="fw-bold mb-3">Forest Types</h4>
-                        <div id="forestTypeChart" class="chart-container" style="height: 300px;"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="glass-card text-center h-100 p-4">
-                        <div class="feature-icon mx-auto text-warning" style="background: rgba(255,193,7,0.1); border-color: rgba(255,193,7,0.2);"><i class="fas fa-microscope"></i></div>
-                        <h4 class="fw-bold mb-3">Carbon Density</h4>
-                        <div id="soilCarbonChart" class="chart-container" style="height: 300px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="pages/soil.html" class="btn btn-outline-success rounded-pill px-5">Deep Dive into Soil Data</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <section class="cta-section text-center text-white border-0 overflow-hidden position-relative">
-            <div class="position-absolute top-0 start-0 w-100 h-100 bg-success opacity-10" style="filter: blur(100px);"></div>
-            <div class="position-relative z-1">
-                <h2 class="display-3 fw-800 mb-4">Empowering Conservation <br>through Data</h2>
-                <p class="lead mb-5 opacity-75 fs-4">Join our network of researchers and policy makers working <br>to preserve the Congo Basin's most critical carbon sinks.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="pages/contact.html" class="btn btn-primary btn-lg px-5">Get Involved</a>
-                    <a href="pages/methodology.html" class="btn btn-outline-light btn-lg px-5 rounded-pill">Read Methodology</a>
-                </div>
-            </div>
-        </section>
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <i class="fas fa-leaf me-2" style="color:var(--accent-blue)"></i>
+        <span class="fw-bold">OKAPI <span style="color:var(--accent-blue)">CARBON</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="dashboard/">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/methodology.html">Methodology</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/datasets.html">Datasets</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-primary" href="dashboard/">Open Analytics</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white pt-5">
-        <div class="container pb-5">
-            <div class="row g-5">
-                <div class="col-lg-4">
-                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html">
-                        <i class="fas fa-leaf text-success me-2 fa-lg"></i>
-                        <span class="fw-bold text-white">OKAPI<span class="text-success">CARBON</span></span>
-                    </a>
-                    <p class="text-secondary small pe-lg-5">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting within the UNESCO World Heritage site.</p>
-                    <div class="d-flex gap-3 mt-4">
-                        <a href="https://github.com/aganzeeliud/RFO_Carbone" class="text-white opacity-50"><i class="fab fa-github fa-lg"></i></a>
-                        <a href="#" class="text-white opacity-50"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="mailto:contact@okapicarbon.org" class="text-white opacity-50"><i class="fas fa-envelope fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Platform</h6>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="dashboard/" class="footer-link">Analytics Dashboard</a></li>
-                        
-                        <li class="mb-2"><a href="pages/datasets.html" class="footer-link">Dataset Catalog</a></li>
-                        <li class="mb-2"><a href="avoided-emissions.html" class="footer-link">GHG Mitigation</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Scientific</h6>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="pages/methodology.html" class="footer-link">Methodology</a></li>
-                        <li class="mb-2"><a href="pages/soil.html" class="footer-link">Soil & Forest</a></li>
-                        <li class="mb-2"><a href="pages/references.html" class="footer-link">Scientific References</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Project</h6>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="pages/about.html" class="footer-link">About Reserve</a></li>
-                        <li class="mb-2"><a href="pages/contact.html" class="footer-link">Contact Us</a></li>
-                        <li class="mb-2"><a href="pages/downloads.html" class="footer-link">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-4 text-uppercase">Standards</h6>
-                    <p class="x-small text-secondary mb-2">NASA GEDI Lidar</p>
-                    <p class="x-small text-secondary mb-2">Verra VM0015</p>
-                    <p class="x-small text-secondary mb-0">IPCC 2006 GL</p>
-                </div>
+  <header class="py-6" style="background: linear-gradient(180deg, #f7fbff 0%, #eef6fb 100%);">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-bold">Protecting the Congo Basin's Green Heart</h1>
+          <p class="lead text-muted">Advanced environmental intelligence monitoring the Okapi Wildlife Reserve's contribution to global climate stability through high-integrity REDD+ validated analytics.</p>
+
+          <div class="d-flex gap-3 mt-4">
+            <a class="btn btn-primary btn-lg" href="dashboard/">Explore Dashboard</a>
+            <a class="btn btn-outline-secondary btn-lg" href="pages/datasets.html">Browse Datasets</a>
+          </div>
+
+          <div class="row g-3 mt-4">
+            <div class="col-6 col-md-4">
+              <div class="glass-card text-center">
+                <div class="small text-muted">Annual Sequestration</div>
+                <div class="h3 fw-bold mt-2" id="homeSequestration">-- MtCO2e</div>
+              </div>
             </div>
-            <hr class="my-5 border-secondary border-opacity-25">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-secondary x-small">© 2026 Okapi Environmental Intelligence. All rights reserved.</div>
-                <div class="col-md-6 text-md-end text-secondary x-small">
-                    <a href="#" class="text-reset text-decoration-none me-3">Scientific Policy</a>
-                    <a href="#" class="text-reset text-decoration-none">Terms of Access</a>
-                </div>
+            <div class="col-6 col-md-4">
+              <div class="glass-card text-center">
+                <div class="small text-muted">Avoided Emissions (cumulative)</div>
+                <div class="h3 fw-bold mt-2" id="homeAvoided">-- tCO2e</div>
+              </div>
             </div>
+            <div class="col-6 col-md-4">
+              <div class="glass-card text-center">
+                <div class="small text-muted">Total Carbon Stock</div>
+                <div class="h3 fw-bold mt-2" id="homeStock">-- GtC</div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+        <div class="col-lg-5 d-none d-lg-block text-center">
+          <img src="assets/data/okapi_boundary.json" alt="Map placeholder" style="max-width:100%; opacity:0.9;"/>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const icon = themeToggle.querySelector('i');
-            
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', targetTheme);
-                icon.className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-                
-                initComparisonChart('comparisonChart');
-                initGHGModule();
-            });
+  <main class="container my-6">
+    <section class="mb-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="glass-card">
+            <h5>REDD+ Analytics Engine</h5>
+            <p class="text-muted small">Automated calculation of avoided GHG emissions (2001–present) using IPCC-consistent methods.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="glass-card">
+            <h5>Interactive GIS Viewer</h5>
+            <p class="text-muted small">Layered mapping of biomass density, protected boundaries, and conservation hotspots.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="glass-card">
+            <h5>Regional Benchmarking</h5>
+            <p class="text-muted small">Compare Okapi performance to Congo Basin averages and projections.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            initComparisonChart('comparisonChart');
-            initGHGModule();
-            initSoilCharts();
-        });
-    </script>
+    <section class="mb-5">
+      <div class="glass-card p-4">
+        <h4 class="mb-3">Latest Data</h4>
+        <p class="small text-muted">Datasets updated (mock): 2026 & 2027 projections included. Replace with authoritative exports when available.</p>
+        <div class="mt-3">
+          <a class="btn btn-outline-secondary" href="assets/data/Carbone_db.csv" download>Download Carbone_db.csv</a>
+          <a class="btn btn-outline-secondary ms-2" href="assets/data/avoided_emissions.csv" download>Download avoided_emissions.csv</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-top py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h6 class="fw-bold">Okapi Environmental Intelligence</h6>
+          <p class="text-muted small">Advancing forest conservation through scientific rigor, satellite intelligence, and transparent environmental reporting.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <small class="text-muted">© 2026 Okapi Environmental Intelligence</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Populate homepage KPIs from Carbone_db.csv
+    async function fetchCSV(url) {
+      const r = await fetch(url); if(!r.ok) return null; const t = await r.text();
+      const rows = t.split('\n').slice(1).filter(Boolean);
+      return rows.map(r=>{const c=r.split(',');return{year:+c[0],carbon:+c[1],loss:+c[2],biomass:+c[3],stock:+c[4],avoided:+c[7],cumulative:+c[8]}});
+    }
+    document.addEventListener('DOMContentLoaded', async ()=>{
+      const data = await fetchCSV('assets/data/Carbone_db.csv'); if(!data) return;
+      const latest = data[data.length-1];
+      if(document.getElementById('homeSequestration')) document.getElementById('homeSequestration').innerText = latest.carbon + ' MtCO2e';
+      if(document.getElementById('homeAvoided')) document.getElementById('homeAvoided').innerText = (latest.cumulative).toLocaleString() + ' tCO2e';
+      if(document.getElementById('homeStock')) document.getElementById('homeStock').innerText = latest.stock + ' GtC';
+    });
+  </script>
 </body>
 </html>
