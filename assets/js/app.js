@@ -196,12 +196,19 @@ async function initGHGModule() {
     const latest = data[data.length - 1];
     const totalAvoided = latest.cumulative_avoided_tCO2e;
     
-    const updateEl = (id, val) => { if(document.getElementById(id)) document.getElementById(id).innerText = val; };
+    const updateEl = (id, val) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+        const textNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+        if (textNode) textNode.textContent = val;
+        else element.innerText = val;
+    };
 
-    updateEl('mainSequestration', latest.carbon_sequestration_mtco2e.toFixed(1) + 'M');
-    updateEl('annualForestLoss', latest.forest_loss_hectares.toLocaleString() + ' ha');
-    updateEl('meanBiomass', latest.biomass_density_mgha.toFixed(1) + ' Mg/ha');
-    updateEl('totalCarbonStock', latest.carbon_stock_gtc.toFixed(2) + ' GtC');
+    const locale = document.documentElement.lang === 'fr' ? 'fr-FR' : 'en-US';
+    updateEl('mainSequestration', new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(latest.carbon_sequestration_mtco2e));
+    updateEl('annualForestLoss', new Intl.NumberFormat(locale).format(latest.forest_loss_hectares));
+    updateEl('meanBiomass', new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(latest.biomass_density_mgha));
+    updateEl('totalCarbonStock', new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(latest.carbon_stock_gtc));
     updateEl('mainAvoided', (latest.avoided_emissions_tCO2e / 1000000).toFixed(1) + 'M');
     updateEl('totalAvoidedCounter', (totalAvoided / 1000000).toFixed(2) + 'M');
     updateEl('carsRemovedCounter', (totalAvoided / 4.6 / 1000000).toFixed(1) + 'M');
@@ -272,7 +279,7 @@ function renderCumulativeChart(id, data) {
 // Regional Benchmarking
 function initComparisonChart(id) {
     const years = Array.from({length: 26}, (_, i) => 2001 + i);
-    const okapiData = [13.2, 13.4, 13.3, 13.5, 13.6, 13.8, 13.7, 13.9, 14.0, 14.1, 14.2, 14.0, 14.1, 14.3, 14.4, 14.2, 14.5, 14.5, 14.8, 14.4, 15.1, 14.9, 15.5, 15.2, 15.8, 16.2]; 
+    const okapiData = [13.2, 13.4, 13.3, 13.5, 13.6, 13.8, 13.7, 13.9, 14.0, 14.1, 14.2, 14.0, 14.1, 14.3, 14.4, 14.2, 14.5, 14.5, 14.8, 14.4, 15.1, 14.9, 15.5, 15.2, 15.8, 16.4];
     const regionalData = [1100, 1080, 1050, 1020, 1000, 980, 950, 920, 890, 850, 820, 790, 760, 740, 710, 680, 650, 630, 610, 600, 595, 590, 585, 580, 575, 570];
 
     const trace1 = {
